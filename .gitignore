@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data and logs
+data/
+logs/
+
+# Configs & secrets
+config/*.yaml
+.env
