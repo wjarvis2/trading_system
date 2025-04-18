@@ -122,7 +122,7 @@ def run_daily_check(now: Optional[dt.datetime] = None) -> None:
             success = download(url, outfile)
             if success:
                 send_email(
-                    subject=f"OPEC report {today} downloaded",
+                    subject=f"OPEC report {today} downloaded: Success",
                     body=f"Saved to {outfile}",
                     to_email=USER_EMAIL,
                 )

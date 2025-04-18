@@ -102,7 +102,7 @@ def collect() -> None:
             failures.append(tid)
 
     # e‑mail summary
-    subj = "Eurostat collector: success" if not failures else "Eurostat collector: some failures"
+    subj = "Eurostat collector: Success" if not failures else "Eurostat collector: some failures"
     body_lines = [f"Run at {dt.datetime.now(EST).strftime('%Y-%m-%d %H:%M %Z')}", ""]
     if successes:
         body_lines.append(f"Downloaded: {', '.join(successes)}")
