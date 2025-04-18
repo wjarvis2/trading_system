@@ -1,0 +1,18 @@
+table_id,url,description
+nrg_cb_sffm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_cb_sffm?format=TSV&compressed=true,Supply and transformation of solid fossil fuels - monthly
+nrg_cb_oilm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_cb_oilm?format=TSV&compressed=true,Supply and transformation of oil and petroleum products - monthly
+nrg_cb_cosm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_cb_cosm?format=TSV&compressed=true,Crude oil supply - monthly
+nrg_cb_gasm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_cb_gasm?format=TSV&compressed=true,"Supply, transformation and consumption of gas"
+nrg_cb_em,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_cb_em?format=TSV&compressed=true,"Supply, transformation, and consumption of electricity"
+nrg_cb_eim,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_cb_eim?format=TSV&compressed=true,Electricity available to internal market - monthly
+nrg_cb_pem,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_cb_pem?format=TSV&compressed=true,Net electricity generation by type of fuel - monthly
+nrg_ti_oilm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_ti_oilm?format=TSV&compressed=true,Imports of oil and petroleum products by partner country - monthly
+nrg_ti_gasm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_ti_gasm?format=TSV&compressed=true,Imports of natural gas by partner country - monthly
+nrg_ti_coifpm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_ti_coifpm?format=TSV&compressed=true,Crude oil imports by field of production - monthly
+nrg_te_oilm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_te_oilm?format=TSV&compressed=true,Exports of oil and petroleum products by partner country - monthly
+nrg_te_gasm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_te_gasm?format=TSV&compressed=true,Exports of natural gas by partner country - monthly
+nrg_stk_oilm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_stk_oilm?format=TSV&compressed=true,Stock levels for oil products - monthly
+nrg_stk_oom,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_stk_oom?format=TSV&compressed=true,Oil stocks held for other countries - monthly
+nrg_stk_oam,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_stk_oam?format=TSV&compressed=true,Oil stocks held abroad - monthly
+nrg_stk_oem,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_stk_oem?format=TSV&compressed=true,Emergency oil stocks in days equivalent - monthly
+nrg_stk_gasm,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/nrg_stk_gasm?format=TSV&compressed=true,Stock levels for gas products - monthly
