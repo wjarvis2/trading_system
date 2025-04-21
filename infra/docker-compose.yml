@@ -31,5 +31,33 @@ services:
       db:
         condition: service_healthy
 
+  airflow:
+    image: apache/airflow:2.9.1
+    container_name: airflow
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      AIRFLOW__core__load_examples: "False"
+      AIRFLOW__core__executor: LocalExecutor
+      AIRFLOW__core__sql_alchemy_conn: postgresql+psycopg2://energy:energy@db:5432/energy
+      AIRFLOW__core__fernet_key: "supersecretfernetkey"
+      AIRFLOW__core__dags_are_paused_at_creation: "False"
+      AIRFLOW__core__dags_folder: /app/dags
+      AIRFLOW__api__auth_backends: airflow.api.auth.backend.basic_auth
+    volumes:
+      - ../:/app
+    working_dir: /app
+    command: >
+      bash -c "airflow db migrate &&
+        airflow users create --username admin --password admin --firstname Air --lastname Flow --role Admin --email admin@local &&
+        airflow scheduler & airflow webserver"
+
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
 volumes:
   pgdata:

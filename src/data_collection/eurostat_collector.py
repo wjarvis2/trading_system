@@ -26,9 +26,7 @@ from typing import Optional
 
 import requests
 
-# local utils
 from src.utils import send_email
-
 
 # ---------------------------------------------------------------------
 # paths & constants
@@ -68,7 +66,7 @@ def download(url: str) -> Optional[bytes]:
     return None
 
 
-def save_file(table_id: str, content: bytes, ext: str = "csv") -> Path:
+def save_file(table_id: str, content: bytes, ext: str = "tsv.gz") -> Path:
     ensure_dir()
     ts = dt.datetime.now(EST).strftime("%Y%m%d_%H%M")
     fname = f"{table_id}_{ts}.{ext}"
@@ -91,9 +89,8 @@ def collect() -> None:
         print(f"→ {tid}")
         content = download(url)
         if content:
-            # infer extension from URL (csv/json/tsv)
-            ext_match = re.search(r"\.(csv|tsv|json)(?:\?|$)", url)
-            ext = ext_match.group(1) if ext_match else "csv"
+            ext_match = re.search(r"\.(tsv\.gz|csv|tsv|json)(?:\?|$)", url)
+            ext = ext_match.group(1) if ext_match else "tsv.gz"
             path = save_file(tid, content, ext)
             print(f"  ✓ saved {path.name}")
             successes.append(tid)
@@ -108,13 +105,13 @@ def collect() -> None:
         body_lines.append(f"Downloaded: {', '.join(successes)}")
     if failures:
         body_lines.append(f"Failed: {', '.join(failures)}")
-    send_email(subj, "\n".join(body_lines), USER_EMAIL)
+
+    send_email(subject=subj, body="\n".join(body_lines), to=USER_EMAIL)
 
 
 if __name__ == "__main__":
     try:
         collect()
     except Exception as exc:
-        # send fatal error email
-        send_email("Eurostat collector crashed", str(exc), USER_EMAIL)
+        send_email(subject="Eurostat collector crashed", body=str(exc), to=USER_EMAIL)
         raise

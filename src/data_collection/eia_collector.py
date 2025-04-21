@@ -28,18 +28,16 @@ ROOT_DIR = next(p for p in Path(__file__).resolve().parents if p.name == "tradin
 CONFIG   = ROOT_DIR / "config" / "eia_series.csv"
 DATA_DIR = ROOT_DIR / "data" / "raw" / "eia_reports"
 
-API_KEY  = os.getenv("EIA_API_KEY")      # set in .env
-USER_EMAIL = "jarviswilliamd@gmail.com"
+API_KEY     = os.getenv("EIA_API_KEY")      # set in .env
+USER_EMAIL  = "jarviswilliamd@gmail.com"
 
 # ───────────────────────── helpers ────────────────────────── #
 def ensure_dir() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-
 def read_series_list() -> List[dict]:
     with open(CONFIG, newline="") as f:
         return list(csv.DictReader(f))
-
 
 def fetch_series(series_id: str, api_key: str) -> pd.DataFrame | None:
     """Fetch a series via v2, fall back to v1. Return DataFrame or None."""
@@ -53,12 +51,10 @@ def fetch_series(series_id: str, api_key: str) -> pd.DataFrame | None:
     v1_url = f"https://api.eia.gov/series/?api_key={api_key}&series_id={series_id}"
     r = requests.get(v1_url, timeout=15)
     if r.ok:
-        # v1 returns list of [date, value]; give columns names
         return pd.DataFrame(r.json()["series"][0]["data"], columns=["date", "value"])
 
     print(f"✗ {series_id}: {r.status_code} (v2 & v1 failed)")
     return None
-
 
 # ───────────────────────── main collector ────────────────────────── #
 def collect() -> None:
@@ -77,23 +73,28 @@ def collect() -> None:
         sid = row["series_id"].strip()
         df = fetch_series(sid, API_KEY)
         if df is not None:
-            df["series_id"] = sid        # tag each row for downstream joins
+            df["series_id"] = sid
             all_frames.append(df)
             print(f"✓ {sid}")
         else:
             failures.append(sid)
 
-    if all_frames:
-        pd.concat(all_frames, ignore_index=True).to_csv(out_file, index=False)
+    if not all_frames:
+        send_email(
+            subject="EIA collector: Failed",
+            body="No data was collected. All series failed.",
+            to=USER_EMAIL
+        )
+        return
 
-    # email summary
+    pd.concat(all_frames, ignore_index=True).to_csv(out_file, index=False)
+
     subject = "EIA collector: Success"
     body = (
         f"Saved {len(all_frames)} series to {out_file}\n" +
         ("Failures: " + ", ".join(failures) if failures else "All series succeeded.")
     )
-    send_email(subject, body, USER_EMAIL)
-
+    send_email(subject=subject, body=body, to=USER_EMAIL)
 
 if __name__ == "__main__":
     collect()

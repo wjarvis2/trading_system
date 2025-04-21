@@ -1,5 +1,3 @@
-
-
 import os
 import smtplib
 from email.mime.text import MIMEText
@@ -12,10 +10,14 @@ SMTP_PORT   = 587
 GMAIL_USER  = os.getenv("GMAIL_USER")
 GMAIL_PASS  = os.getenv("GMAIL_APP_PASSWORD")
 
-
-def send_email(subject: str, body: str, to_email: str) -> None:
+def send_email(*, subject: str, body: str, to: str) -> None:
     """
-    Send a plain‑text email via Gmail SMTP.
+    Send a plain-text email via Gmail SMTP.
+
+    Parameters:
+        subject (str): Email subject line
+        body (str): Plain text body
+        to (str): Recipient email address
     """
     if not (GMAIL_USER and GMAIL_PASS):
         raise RuntimeError("GMAIL_USER or GMAIL_APP_PASSWORD not set.")
@@ -23,13 +25,13 @@ def send_email(subject: str, body: str, to_email: str) -> None:
     msg = MIMEText(body)
     msg["Subject"] = subject
     msg["From"] = GMAIL_USER
-    msg["To"]   = to_email
+    msg["To"] = to
 
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
             server.login(GMAIL_USER, GMAIL_PASS)
-            server.sendmail(GMAIL_USER, [to_email], msg.as_string())
+            server.sendmail(GMAIL_USER, [to], msg.as_string())
         print("✓ email sent")
     except Exception as exc:
         print(f"✗ email failed: {exc}")

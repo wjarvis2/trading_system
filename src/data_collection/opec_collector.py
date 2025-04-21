@@ -19,7 +19,6 @@ from typing import Optional, List
 
 import requests
 
-# Relative import; src/__init__.py must exist (it does).
 from ..utils import send_email
 
 # ─────────────────────────────── Paths & Consts ─────────────────────────────── #
@@ -124,7 +123,7 @@ def run_daily_check(now: Optional[dt.datetime] = None) -> None:
                 send_email(
                     subject=f"OPEC report {today} downloaded: Success",
                     body=f"Saved to {outfile}",
-                    to_email=USER_EMAIL,
+                    to=USER_EMAIL,
                 )
                 break
         if not success:
@@ -137,7 +136,7 @@ def run_daily_check(now: Optional[dt.datetime] = None) -> None:
                 "Could not download the scheduled OPEC report by 06:05 EST. "
                 "Please investigate."
             ),
-            to_email=USER_EMAIL,
+            to=USER_EMAIL,
         )
 
     if today == max(schedule):  # last scheduled date reached
@@ -147,7 +146,7 @@ def run_daily_check(now: Optional[dt.datetime] = None) -> None:
                 "OPEC release schedule reached its final date. "
                 "Please update opec_schedule_*.csv."
             ),
-            to_email=USER_EMAIL,
+            to=USER_EMAIL,
         )
 
 # ───────────────────────────────── CLI ──────────────────────────────────────── #

@@ -16,3 +16,10 @@ config/*.yaml
 
 # raw data (not tracked)
 data/raw/
+.env
+
+
+# Infra env for airflow
+.env
+infra/.env
+
