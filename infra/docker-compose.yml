@@ -32,12 +32,15 @@ services:
         condition: service_healthy
 
   airflow:
-    image: apache/airflow:2.9.1
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: airflow
     restart: unless-stopped
     env_file:
       - .env
     environment:
+      PG_DSN: postgresql://energy:energy@db:5432/energy
       AIRFLOW__core__load_examples: "False"
       AIRFLOW__core__executor: LocalExecutor
       AIRFLOW__core__sql_alchemy_conn: postgresql+psycopg2://energy:energy@db:5432/energy
@@ -52,7 +55,6 @@ services:
       bash -c "airflow db migrate &&
         airflow users create --username admin --password admin --firstname Air --lastname Flow --role Admin --email admin@local &&
         airflow scheduler & airflow webserver"
-
     ports:
       - "8080:8080"
     depends_on:

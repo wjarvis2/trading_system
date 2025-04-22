@@ -2,7 +2,7 @@
 import datetime as dt
 from pathlib import Path
 import requests
-from ..utils import send_email
+from src.utils import send_email
 
 OUT_DIR = Path("data/raw/google_mobility_reports")
 OUT_DIR.mkdir(parents=True, exist_ok=True)

@@ -5,7 +5,7 @@ import pandas as pd
 import datetime as dt
 from pathlib import Path
 from dotenv import load_dotenv
-from ..utils import send_email
+from src.utils import send_email
 
 load_dotenv()
 

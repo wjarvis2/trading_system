@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # --- scripts/load_baker.py ---
 import os
 import pandas as pd
@@ -6,13 +7,17 @@ from pathlib import Path
 import psycopg2
 from dotenv import load_dotenv
 
+from src.utils import send_email  # ✅ Email support
+
+# ────────────────────── Config ────────────────────── #
 load_dotenv()
 PG_DSN = os.getenv("PG_DSN")
 RAW_DIR = Path(__file__).resolve().parent.parent / "data/raw/bh_rigcount_reports"
 TABLE = "core_energy.fact_series_value"
 META = "core_energy.fact_series_meta"
+USER_EMAIL = "jarviswilliamd@gmail.com"
 
-
+# ────────────────────── Parsing ────────────────────── #
 def parse_baker(path: Path) -> pd.DataFrame:
     df = pd.read_excel(
         path,
@@ -33,7 +38,7 @@ def parse_baker(path: Path) -> pd.DataFrame:
 
     return df[["series_code", "obs_date", "value"]].dropna()
 
-
+# ────────────────────── DB Logic ────────────────────── #
 def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
     cur.execute(f"""
         INSERT INTO {META} (series_code, source_id, description)
@@ -50,16 +55,21 @@ def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
         ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
     """, (series_id, obs_date, value, datetime.utcnow()))
 
-
+# ────────────────────── Main ────────────────────── #
 def main():
     latest = max(RAW_DIR.glob("bh_rigcount_*.xlsx"))
     print(f"📄 Parsing {latest.name}")
     df = parse_baker(latest)
 
     with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
-        cur.execute(f"SELECT DISTINCT obs_date FROM {TABLE} WHERE series_id IN (
-            SELECT series_id FROM {META} WHERE series_code LIKE 'baker.%'
-        )")
+        cur.execute(f"""
+            SELECT DISTINCT obs_date
+            FROM {TABLE}
+            WHERE series_id IN (
+                SELECT series_id FROM {META}
+                WHERE series_code LIKE 'baker.%'
+            )
+        """)
         existing_dates = {r[0] for r in cur.fetchall()}
 
         new_df = df[~df["obs_date"].isin(existing_dates)]
@@ -70,6 +80,13 @@ def main():
 
     print("✓ Baker Hughes load complete")
 
+    # 📬 Email Notification
+    subject = "Baker Hughes Loader: Success ✅"
+    body = (
+        f"Parsed file: {latest.name}\n"
+        f"Inserted {len(new_df)} new rows across {new_df['series_code'].nunique()} series."
+    )
+    send_email(subject=subject, body=body, to=USER_EMAIL)
 
 if __name__ == "__main__":
     main()

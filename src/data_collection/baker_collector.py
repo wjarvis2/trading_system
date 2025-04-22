@@ -4,7 +4,7 @@ from pathlib import Path
 import requests
 from bs4 import BeautifulSoup
 
-from ..utils import send_email
+from src.utils import send_email
 
 # Page with the XLSX file link
 PAGE_URL = "https://rigcount.bakerhughes.com/na-rig-count"

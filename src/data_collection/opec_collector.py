@@ -19,10 +19,10 @@ from typing import Optional, List
 
 import requests
 
-from ..utils import send_email
+from src.utils import send_email
 
 # ─────────────────────────────── Paths & Consts ─────────────────────────────── #
-ROOT_DIR   = next(p for p in Path(__file__).resolve().parents if p.name == "trading_system")
+ROOT_DIR   = Path(__file__).resolve().parents[2]
 DATA_DIR   = ROOT_DIR / "data" / "raw" / "opec_reports"
 CONF_FILE  = ROOT_DIR / "config" / "opec_schedule_2025.csv"
 USER_EMAIL = "jarviswilliamd@gmail.com"

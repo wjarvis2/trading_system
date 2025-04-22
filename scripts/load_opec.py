@@ -8,75 +8,75 @@ from pathlib import Path
 from datetime import datetime
 import pandas as pd
 import psycopg2
-from psycopg2.extras import execute_values
 from dotenv import load_dotenv
+
+from src.utils import send_email
 
 load_dotenv()
 PG_DSN = os.getenv("PG_DSN")
 RAW_DIR = Path(__file__).resolve().parent.parent / "data/raw/opec_reports"
+USER_EMAIL = "jarviswilliamd@gmail.com"
 
-# ────────────────────── Table Parsers ───────────────────────── #
+# ────────────────────── Table Parsers ────────────────────── #
 
 def parse_table_11_1(path: Path) -> list[dict]:
     df = pd.read_excel(path, sheet_name="Table 11 - 1", skiprows=5, header=None)
-    df = df.dropna(how="all")  # remove blank rows
-    df = df[df.columns[1:]]    # drop first column (row labels)
-    header_row = 0
-    years = df.iloc[header_row].tolist()
-    df = df.iloc[1:].copy()
-    df.columns = ["region"] + years[1:]
-
-    # fill hierarchical label structure
+    df = df.dropna(how="all")[df.columns[1:]]
+    df.columns = ["region"] + df.iloc[0].tolist()[1:]
+    df = df.iloc[1:]
     df["region"] = df["region"].ffill()
     df = df.melt(id_vars="region", var_name="obs_date", value_name="value")
     df["obs_date"] = pd.to_datetime(df["obs_date"], errors="coerce")
     df = df.dropna(subset=["obs_date", "value"])
 
-    records = []
-    for _, row in df.iterrows():
-        sid = "opec.table11_1." + row["region"].strip().lower().replace(" ", "_")
-        records.append({"series_code": sid, "obs_date": row["obs_date"], "value": row["value"]})
-    return records
+    return [
+        {
+            "series_code": "opec.table11_1." + row["region"].strip().lower().replace(" ", "_"),
+            "obs_date": row["obs_date"],
+            "value": row["value"]
+        }
+        for _, row in df.iterrows()
+    ]
 
 def parse_table_11_3(path: Path) -> list[dict]:
     df = pd.read_excel(path, sheet_name="Table 11 - 3", skiprows=5, header=None)
-    df = df.dropna(how="all")
-    df = df[df.columns[1:]]
-    header_row = 0
-    years = df.iloc[header_row].tolist()
-    df = df.iloc[1:].copy()
-    df.columns = ["category"] + years[1:]
+    df = df.dropna(how="all")[df.columns[1:]]
+    df.columns = ["category"] + df.iloc[0].tolist()[1:]
+    df = df.iloc[1:]
     df["category"] = df["category"].ffill()
     df = df.melt(id_vars="category", var_name="obs_date", value_name="value")
     df["obs_date"] = pd.to_datetime(df["obs_date"], errors="coerce")
     df = df.dropna(subset=["obs_date", "value"])
 
-    records = []
-    for _, row in df.iterrows():
-        sid = "opec.table11_3." + row["category"].strip().lower().replace(" ", "_")
-        records.append({"series_code": sid, "obs_date": row["obs_date"], "value": row["value"]})
-    return records
+    return [
+        {
+            "series_code": "opec.table11_3." + row["category"].strip().lower().replace(" ", "_"),
+            "obs_date": row["obs_date"],
+            "value": row["value"]
+        }
+        for _, row in df.iterrows()
+    ]
 
 def parse_table_11_4(path: Path) -> list[dict]:
     df = pd.read_excel(path, sheet_name="Table 11 - 4", skiprows=5, header=None)
-    df = df.dropna(how="all")
-    df = df[df.columns[1:]]
-    header_row = 0
-    years = df.iloc[header_row].tolist()
-    df = df.iloc[1:].copy()
-    df.columns = ["country"] + years[1:]
+    df = df.dropna(how="all")[df.columns[1:]]
+    df.columns = ["country"] + df.iloc[0].tolist()[1:]
+    df = df.iloc[1:]
     df["country"] = df["country"].ffill()
     df = df.melt(id_vars="country", var_name="obs_date", value_name="value")
     df["obs_date"] = pd.to_datetime(df["obs_date"], errors="coerce")
     df = df.dropna(subset=["obs_date", "value"])
 
-    records = []
-    for _, row in df.iterrows():
-        sid = "opec.table11_4." + row["country"].strip().lower().replace(" ", "_")
-        records.append({"series_code": sid, "obs_date": row["obs_date"], "value": row["value"]})
-    return records
+    return [
+        {
+            "series_code": "opec.table11_4." + row["country"].strip().lower().replace(" ", "_"),
+            "obs_date": row["obs_date"],
+            "value": row["value"]
+        }
+        for _, row in df.iterrows()
+    ]
 
-# ────────────────────── Upsert Logic ───────────────────────── #
+# ────────────────────── Upsert Logic ────────────────────── #
 
 def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
     cur.execute("""
@@ -85,7 +85,7 @@ def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
         ON CONFLICT (series_code) DO NOTHING;
     """, (series_code, series_code))
 
-    cur.execute("SELECT series_id FROM core_energy.fact_series_meta WHERE series_code=%s", (series_code,))
+    cur.execute("SELECT series_id FROM core_energy.fact_series_meta WHERE series_code = %s", (series_code,))
     series_id = cur.fetchone()[0]
 
     cur.execute("""
@@ -94,17 +94,49 @@ def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
         ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
     """, (series_id, obs_date, value, datetime.utcnow()))
 
+# ────────────────────── Main ────────────────────── #
+
 def main():
     latest = max(RAW_DIR.glob("opec_*.xlsx"))
     print(f"📄 Parsing {latest.name}")
 
-    with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
-        for parser in [parse_table_11_1, parse_table_11_3, parse_table_11_4]:
-            records = parser(latest)
-            for r in records:
-                upsert_series(cur, r["series_code"], r["obs_date"], r["value"])
+    total_records = 0
+    failures = []
 
-    print("✓ Loaded OPEC tables 11-1, 11-3, 11-4")
+    with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
+        # 🧠 Fetch existing (series_code, obs_date) for deduplication
+        cur.execute("""
+            SELECT m.series_code, v.obs_date
+            FROM core_energy.fact_series_value v
+            JOIN core_energy.fact_series_meta m USING (series_id)
+            WHERE m.series_code LIKE 'opec.table11_%'
+        """)
+        existing = set(cur.fetchall())
+
+        for parser in [parse_table_11_1, parse_table_11_3, parse_table_11_4]:
+            try:
+                records = parser(latest)
+                new_records = [r for r in records if (r["series_code"], r["obs_date"].date()) not in existing]
+                print(f"→ {parser.__name__}: {len(new_records)} new records")
+
+                for r in new_records:
+                    upsert_series(cur, r["series_code"], r["obs_date"], r["value"])
+
+                total_records += len(new_records)
+            except Exception as e:
+                print(f"❌ Error in {parser.__name__}: {e}")
+                failures.append(parser.__name__)
+                conn.rollback()
+
+    print("✓ OPEC load complete")
+
+    subject = "OPEC Loader: Success ✅" if not failures else "OPEC Loader: Partial Failure ⚠️"
+    body = (
+        f"Parsed file: {latest.name}\n"
+        f"Inserted {total_records:,} new records.\n"
+        + ("No errors." if not failures else f"Failures in: {', '.join(failures)}")
+    )
+    send_email(subject=subject, body=body, to=USER_EMAIL)
 
 if __name__ == "__main__":
     main()

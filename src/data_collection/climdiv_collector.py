@@ -4,7 +4,7 @@
 # import pandas as pd
 # from pathlib import Path
 
-# from ..utils import send_email
+# from src.utils import send_email
 
 # USER_EMAIL = "jarviswilliamd@gmail.com"
 # OUT_DIR = Path("data/raw/climdiv_hddcdd_reports")

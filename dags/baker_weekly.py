@@ -20,13 +20,13 @@ with DAG(
 
     land = BashOperator(
         task_id="download_baker",
-        bash_command="python /app/src/data_collection/baker_collector.py",
+        bash_command="PYTHONPATH=/app python /app/src/data_collection/baker_collector.py",
         cwd="/app",
     )
 
     stage = BashOperator(
         task_id="load_baker_to_db",
-        bash_command="python /app/scripts/load_baker.py",
+        bash_command="PYTHONPATH=/app python /app/scripts/load_baker.py",
         cwd="/app",
     )
 

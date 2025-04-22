@@ -2,7 +2,7 @@
 import datetime as dt
 import requests
 from pathlib import Path
-from ..utils import send_email
+from src.utils import send_email
 
 USER_EMAIL = "jarviswilliamd@gmail.com"
 OUT_DIR = Path("data/raw/paj_cruderuns_reports")
