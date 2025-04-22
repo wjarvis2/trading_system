@@ -1,61 +1,41 @@
 #!/usr/bin/env python
-"""
-Load all series contained in the latest EIA snapshot CSV
-(data/raw/eia_reports/eia_<timestamp>.csv) into Postgres.
-
-Prereqs
--------
-* The collector (src/data_collection/eia_collector.py) has already
-  written a snapshot CSV.
-* .env contains PG_DSN like:
-  PG_DSN=postgresql://energy:energy@db:5432/energy
-"""
-
 import os
 from pathlib import Path
 from datetime import datetime
-
 import pandas as pd
 import psycopg2
 from psycopg2.extras import execute_values
 from dotenv import load_dotenv
+from src.utils import send_email
 
-# ─────────────────── env & config ─────────────────── #
+# ────────────── Config ────────────── #
 load_dotenv()
 PG_DSN = os.environ["PG_DSN"]
+USER_EMAIL = "jarviswilliamd@gmail.com"
 
 ROOT_DIR   = Path(__file__).resolve().parent.parent
 RAW_DIR    = ROOT_DIR / "data" / "raw" / "eia_reports"
 SERIES_CSV = ROOT_DIR / "config" / "eia_series.csv"
 
-# ─────────────────── helpers ─────────────────── #
+# ────────────── Helpers ────────────── #
 def latest_snapshot() -> Path:
-    """Return Path to newest eia_*.csv file."""
     snaps = sorted(RAW_DIR.glob("eia_*.csv"))
     if not snaps:
         raise FileNotFoundError("No snapshot files in data/raw/eia_reports/")
     return snaps[-1]
 
 def load_series_lookup() -> dict[str, str]:
-    """Return {series_id: description} dict from config CSV."""
     df = pd.read_csv(SERIES_CSV, dtype=str)
     return df.set_index("series_id")["description"].to_dict()
 
 def group_snapshot(path: Path) -> dict[str, pd.DataFrame]:
-    """Read snapshot CSV and return {series_id: df} with cleaned data."""
     df = pd.read_csv(path, dtype={"series_id": str})
-    
-    # Normalize column names
-    if "period" in df.columns:
-        df.rename(columns={"period": "obs_date"}, inplace=True)
-    elif "date" in df.columns:
-        df.rename(columns={"date": "obs_date"}, inplace=True)
+    df.rename(columns={c: "obs_date" for c in ["date", "period"] if c in df.columns}, inplace=True)
 
     df["obs_date"] = pd.to_datetime(df["obs_date"], errors="coerce").dt.date
     df["value"] = pd.to_numeric(df["value"], errors="coerce")
     df = df[df["obs_date"].notna() & df["value"].notna()]
 
-    # Optional: raise error on duplicates in dev
     if df.duplicated(subset=["series_id", "obs_date"]).any():
         raise ValueError("Duplicate series_id + obs_date rows found.")
 
@@ -65,50 +45,88 @@ def group_snapshot(path: Path) -> dict[str, pd.DataFrame]:
     }
     return grouped
 
-def upsert_series(cur, series_code: str, description: str, df: pd.DataFrame):
-    """Insert metadata and bulk upsert values for one series."""
-    cur.execute(
-        """
+def fetch_existing_obs_dates(cur, series_code: str) -> set:
+    cur.execute("""
+        SELECT series_id FROM core_energy.fact_series_meta WHERE series_code = %s
+    """, (series_code,))
+    result = cur.fetchone()
+    if not result:
+        return set()
+
+    series_id = result[0]
+    cur.execute("""
+        SELECT obs_date FROM core_energy.fact_series_value WHERE series_id = %s
+    """, (series_id,))
+    return {row[0] for row in cur.fetchall()}
+
+def upsert_series(cur, series_code: str, description: str, df: pd.DataFrame) -> int:
+    cur.execute("""
         INSERT INTO core_energy.fact_series_meta (series_code, source_id, description)
         VALUES (%s, (SELECT source_id FROM core_energy.dim_source WHERE name = 'EIA'), %s)
         ON CONFLICT (series_code) DO NOTHING;
-        """,
-        (series_code, description)
-    )
+    """, (series_code, description))
 
-    cur.execute(
-        "SELECT series_id FROM core_energy.fact_series_meta WHERE series_code = %s",
-        (series_code,)
-    )
+    cur.execute("SELECT series_id FROM core_energy.fact_series_meta WHERE series_code = %s", (series_code,))
     series_id = cur.fetchone()[0]
 
-    records = [
+    existing = fetch_existing_obs_dates(cur, series_code)
+    new_records = [
         (series_id, row.obs_date, row.value, datetime.utcnow())
         for row in df.itertuples(index=False)
+        if row.obs_date not in existing
     ]
+
+    if not new_records:
+        return 0
+
     execute_values(
         cur,
         """
         INSERT INTO core_energy.fact_series_value
               (series_id, obs_date, value, loaded_at_ts)
         VALUES %s
-        ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
+        ON CONFLICT DO NOTHING;
         """,
-        records
+        new_records
     )
+    return len(new_records)
 
-# ─────────────────── main ─────────────────── #
+# ────────────── Main ────────────── #
 def main():
-    snap = latest_snapshot()
-    series_lookup = load_series_lookup()
-    grouped = group_snapshot(snap)
+    try:
+        snap = latest_snapshot()
+        series_lookup = load_series_lookup()
+        grouped = group_snapshot(snap)
 
-    with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
-        for sid, df in grouped.items():
-            descr = series_lookup.get(sid, sid)
-            upsert_series(cur, sid, descr, df)
+        total_inserted = 0
+        with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
+            for sid, df in grouped.items():
+                descr = series_lookup.get(sid, sid)
+                inserted = upsert_series(cur, sid, descr, df)
+                total_inserted += inserted
 
-    print(f"✓ Loaded {len(grouped)} series from {snap.name}")
+        if total_inserted > 0:
+            send_email(
+                subject="EIA loader: Success",
+                body=f"Inserted {total_inserted} new records from {snap.name}",
+                to=USER_EMAIL
+            )
+        else:
+            send_email(
+                subject="EIA loader: No new data",
+                body=f"No new values inserted from {snap.name}. All obs_dates already exist.",
+                to=USER_EMAIL
+            )
+
+        print(f"✓ Loaded {len(grouped)} series ({total_inserted} new rows) from {snap.name}")
+
+    except Exception as e:
+        send_email(
+            subject="EIA loader: Failed",
+            body=f"Error during load: {str(e)}",
+            to=USER_EMAIL
+        )
+        raise
 
 if __name__ == "__main__":
     main()

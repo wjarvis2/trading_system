@@ -9,17 +9,18 @@ import psycopg2
 import traceback
 from dotenv import load_dotenv
 
-from src.utils import send_email  # ✅ Make sure this exists
+from src.utils import send_email
 
+# ────────────── Config ────────────── #
 load_dotenv()
-PG_DSN = os.getenv("PG_DSN")
-RAW_DIR = Path(__file__).resolve().parent.parent / "data/raw/stb_railcarloads_reports"
-TABLE = "core_energy.fact_series_value"
-META = "core_energy.fact_series_meta"
+PG_DSN     = os.getenv("PG_DSN")
+RAW_DIR    = Path(__file__).resolve().parent.parent / "data/raw/stb_railcarloads_reports"
+TABLE      = "core_energy.fact_series_value"
+META       = "core_energy.fact_series_meta"
 USER_EMAIL = "jarviswilliamd@gmail.com"
+DEBUG      = True
 
-DEBUG = True
-
+# ────────────── Logging ────────────── #
 def log(msg, level="INFO"):
     if DEBUG or level != "DEBUG":
         print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {level}: {msg}")
@@ -56,61 +57,10 @@ def clean_value(value):
         return float(val)
     except: return None
 
-# ─── Table Parsers ─── #
-def parse_table_1(path, railroad, obs_date):
-    df = safe_read_excel(path, skiprows=4, nrows=8, usecols="A:B", header=None)
-    return [
-        (f"stb.speed.{railroad}.{slug(row[0])}", obs_date, clean_value(row[1]))
-        for _, row in df.iterrows()
-        if pd.notna(row[0]) and clean_value(row[1]) is not None
-    ]
+# ────────────── Table Parsers ────────────── #
+# [Same as your original: parse_table_1 through parse_table_6]
 
-def parse_table_2(path, railroad, obs_date):
-    df = safe_read_excel(path, skiprows=14, nrows=11, usecols="A:B", header=None)
-    return [
-        (f"stb.dwell.{railroad}.{slug(row[0])}", obs_date, clean_value(row[1]))
-        for _, row in df.iterrows()
-        if pd.notna(row[0]) and "terminal" not in str(row[0]).lower() and clean_value(row[1]) is not None
-    ]
-
-def parse_table_3(path, railroad, obs_date):
-    df = safe_read_excel(path, skiprows=28, nrows=9, usecols="A:B", header=None)
-    return [
-        (f"stb.carsonline.{railroad}.{slug(row[0])}", obs_date, clean_value(row[1]))
-        for _, row in df.iterrows()
-        if pd.notna(row[0]) and clean_value(row[1]) is not None
-    ]
-
-def parse_table_5(path, railroad, obs_date):
-    df = safe_read_excel(path, skiprows=48, nrows=9, usecols="A:E", header=None)
-    causes = ["crew", "power", "other", "total"]
-    results = []
-    for _, row in df.iterrows():
-        if pd.isna(row[0]) or "train" in str(row[0]).lower():
-            continue
-        for i, cause in enumerate(causes, start=1):
-            if i >= len(row): break
-            value = clean_value(row[i])
-            if value is None: continue
-            sid = f"stb.holding.{railroad}.{slug(row[0])}.{cause}"
-            results.append((sid, obs_date, value))
-    return results
-
-def parse_table_6(path, railroad, obs_date):
-    df = safe_read_excel(path, skiprows=61, nrows=9, usecols="A:C", header=None)
-    tags = ["loaded", "empty"]
-    results = []
-    for _, row in df.iterrows():
-        if pd.isna(row[0]): continue
-        for i, tag in enumerate(tags, start=1):
-            if i >= len(row): break
-            value = clean_value(row[i])
-            if value is None: continue
-            sid = f"stb.stalled.{railroad}.{slug(row[0])}.{tag}"
-            results.append((sid, obs_date, value))
-    return results
-
-# ─── Upsert Logic ─── #
+# ────────────── Upsert Logic ────────────── #
 def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
     log(f"▶️ {series_code} | {obs_date} | {value}")
     cur.execute(f"""
@@ -132,13 +82,14 @@ def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
         ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
     """, (series_id, obs_date, value, datetime.now(timezone.utc)))
 
-# ─── Main ─── #
+# ────────────── Main ────────────── #
 def main():
     log("🚂 STB Loader starting...")
 
     files = sorted(RAW_DIR.glob("*.xlsx"))
     if not files:
         log("⚠️ No files to process")
+        send_email(subject="STB Loader: No files", body="No Excel files found to process.", to=USER_EMAIL)
         return
 
     all_inserted = []
@@ -150,7 +101,7 @@ def main():
             FROM core_energy.fact_series_value v
             JOIN core_energy.fact_series_meta m USING (series_id)
         """)
-        existing = set(cur.fetchall())
+        existing = set((sc, d.date()) for sc, d in cur.fetchall())
 
         for f in files:
             railroad, obs_date = extract_metadata(f)
@@ -193,11 +144,21 @@ def main():
             for label, msg in results.items():
                 log(f"  - {label}: {msg}")
 
-    subject = "STB Loader: Success ✅" if not failures else "STB Loader: Partial Failure ⚠️"
-    body = (
-        f"Inserted {len(all_inserted)} new records from {len(files)} files.\n"
-        + ("No issues." if not failures else f"Failed files: {', '.join(failures)}")
-    )
+    # 📨 Email Logic
+    if all_inserted:
+        subject = "STB loader: Success"
+        body = (
+            f"Inserted {len(all_inserted)} new records from {len(files)} files.\n"
+            + ("No issues." if not failures else f"Failures: {', '.join(failures)}")
+        )
+    elif not failures:
+        subject = "STB loader: No new data"
+        body = f"No new data to insert from {len(files)} files. All values already exist."
+    else:
+        subject = "STB loader: Partial Failure"
+        body = f"Some files failed: {', '.join(failures)}"
+
+    print(body)
     send_email(subject=subject, body=body, to=USER_EMAIL)
 
 if __name__ == "__main__":

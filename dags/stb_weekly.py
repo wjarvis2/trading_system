@@ -4,8 +4,8 @@ from airflow.operators.bash import BashOperator
 
 default_args = {
     "owner": "airflow",
-    "retries": 2,
-    "retry_delay": timedelta(minutes=5),
+    "retries": 10,
+    "retry_delay": timedelta(minutes=1),
 }
 
 with DAG(
@@ -13,7 +13,7 @@ with DAG(
     description="Weekly download and load of STB rail performance data",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule="0 11 * * 3",  # every Wednesday at 11:00am ET
+    schedule="0-10 18 * * 4",  # every Thursday at 6:00–6:10pm ET
     catchup=False,
     tags=["stb", "rail", "fundamentals"],
 ) as dag:

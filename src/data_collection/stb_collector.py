@@ -17,7 +17,7 @@ def try_download(railroad: str, date_str: str, today_obj: dt.date) -> tuple[bool
     dest = OUT_DIR / filename
 
     if dest.exists():
-        print(f"• {label}: already exists")
+        print(f"⏩ {label}: already exists")
         return False, f"{label} (already exists)"
 
     urls = [
@@ -45,25 +45,31 @@ def collect(date_override: str = None):
 
     print(f"\n📦 Collecting STB EP 724 weekly reports for {date_str}...\n")
 
-    successes = []
-    failures = []
+    successes, skipped, failures = [], [], []
 
     for railroad in RAILROADS:
         success, msg = try_download(railroad, date_str, today)
-        if success:
+        if "already exists" in msg:
+            skipped.append(msg)
+        elif success:
             successes.append(msg)
         else:
             failures.append(msg)
 
-    subject = "STB collector: Success" if not failures else (
-        "STB collector: Partial Success" if successes else "STB collector: Failed"
-    )
+    # Determine email subject
+    if successes:
+        subject = "STB collector: Success"
+    elif skipped and not failures:
+        subject = "STB collector: No new data"
+    else:
+        subject = "STB collector: Failed" if not successes else "STB collector: Partial Success"
 
     body = (
         f"Run timestamp: {stamp}\n"
         f"Date requested: {date_str}\n\n"
         f"✓ Successes:\n" + ("\n".join(successes) if successes else "None") + "\n\n"
-        f"✗ Failures:\n" + ("\n".join(failures) if failures else "None")
+        f"⏩ Skipped:\n"   + ("\n".join(skipped) if skipped else "None") + "\n\n"
+        f"✗ Failures:\n"  + ("\n".join(failures) if failures else "None")
     )
 
     send_email(subject=subject, body=body, to=USER_EMAIL)
@@ -73,7 +79,6 @@ if __name__ == "__main__":
         parser = argparse.ArgumentParser()
         parser.add_argument("--date", help="Optional date override in YYYY-MM-DD format")
         args = parser.parse_args()
-
         collect(date_override=args.date)
 
     except Exception as e:

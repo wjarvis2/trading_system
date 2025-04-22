@@ -10,11 +10,12 @@ from dotenv import load_dotenv
 
 from src.utils import send_email
 
+# ────────────── Config ────────────── #
 load_dotenv()
-PG_DSN = os.getenv("PG_DSN")
-RAW_DIR = Path(__file__).resolve().parent.parent / "data/raw/google_mobility_reports"
-TABLE = "core_energy.fact_series_value"
-META = "core_energy.fact_series_meta"
+PG_DSN     = os.getenv("PG_DSN")
+RAW_DIR    = Path(__file__).resolve().parent.parent / "data/raw/google_mobility_reports"
+TABLE      = "core_energy.fact_series_value"
+META       = "core_energy.fact_series_meta"
 USER_EMAIL = "jarviswilliamd@gmail.com"
 
 COLUMNS = {
@@ -26,6 +27,7 @@ COLUMNS = {
     "residential_percent_change_from_baseline": "residential",
 }
 
+# ────────────── Helpers ────────────── #
 def load_existing_obs_dates(conn):
     with conn.cursor() as cur:
         cur.execute("""
@@ -58,7 +60,7 @@ def insert_series_meta(cur, series_code):
 def parse_google(path: Path, existing_dates: set) -> list[tuple]:
     df = pd.read_csv(path, parse_dates=["date"])
     df = df[df["country_region_code"] == "US"]
-    df = df[df["sub_region_2"].isna()]  # Skip counties for performance
+    df = df[df["sub_region_2"].isna()]
 
     rows = []
     for _, row in df.iterrows():
@@ -70,51 +72,65 @@ def parse_google(path: Path, existing_dates: set) -> list[tuple]:
         for col, suffix in COLUMNS.items():
             if pd.isna(row[col]):
                 continue
-            obs_date = row["date"]
+            obs_date = row["date"].date()
             if obs_date in existing_dates:
                 continue
             sid = f"google_mobility.{region}.{suffix}"
             rows.append((sid, obs_date, row[col]))
     return rows
 
+# ────────────── Main ────────────── #
 def main():
-    latest = max(RAW_DIR.glob("google_mobility_*.csv"))
-    print(f"📄 Parsing {latest.name}")
+    try:
+        latest = max(RAW_DIR.glob("google_mobility_*.csv"))
+        print(f"📄 Parsing {latest.name}")
 
-    with psycopg2.connect(PG_DSN) as conn:
-        existing_dates = load_existing_obs_dates(conn)
-        cached_ids = cache_series_ids(conn)
+        with psycopg2.connect(PG_DSN) as conn:
+            existing_dates = load_existing_obs_dates(conn)
+            cached_ids = cache_series_ids(conn)
 
-        records = parse_google(latest, existing_dates)
-        print(f"✓ Parsed {len(records):,} new records")
+            records = parse_google(latest, existing_dates)
+            print(f"✓ Parsed {len(records):,} new records")
 
-        rows_to_insert = []
-        with conn.cursor() as cur:
-            for series_code, obs_date, value in records:
-                if series_code not in cached_ids:
-                    insert_series_meta(cur, series_code)
-                    cur.execute(f"SELECT series_id FROM {META} WHERE series_code=%s", (series_code,))
-                    cached_ids[series_code] = cur.fetchone()[0]
-                series_id = cached_ids[series_code]
-                rows_to_insert.append((series_id, obs_date, value, datetime.utcnow()))
+            rows_to_insert = []
+            with conn.cursor() as cur:
+                for series_code, obs_date, value in records:
+                    if series_code not in cached_ids:
+                        insert_series_meta(cur, series_code)
+                        cur.execute(f"SELECT series_id FROM {META} WHERE series_code=%s", (series_code,))
+                        cached_ids[series_code] = cur.fetchone()[0]
+                    series_id = cached_ids[series_code]
+                    rows_to_insert.append((series_id, obs_date, value, datetime.utcnow()))
 
+                if rows_to_insert:
+                    execute_values(cur, f"""
+                        INSERT INTO {TABLE} (series_id, obs_date, value, loaded_at_ts)
+                        VALUES %s
+                        ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
+                    """, rows_to_insert)
+
+            conn.commit()
             if rows_to_insert:
-                execute_values(cur, f"""
-                    INSERT INTO {TABLE} (series_id, obs_date, value, loaded_at_ts)
-                    VALUES %s
-                    ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
-                """, rows_to_insert)
+                subject = "Google Mobility loader: Success"
+                body = (
+                    f"Parsed file: {latest.name}\n"
+                    f"Inserted {len(rows_to_insert):,} new rows across "
+                    f"{len(set(r[0] for r in records)):,} unique series."
+                )
+            else:
+                subject = "Google Mobility loader: No new data"
+                body = f"No new values inserted from {latest.name} — all obs_dates already loaded."
 
-        conn.commit()
-        print(f"✓ Inserted {len(rows_to_insert):,} new rows")
+            print(body)
+            send_email(subject=subject, body=body, to=USER_EMAIL)
 
-        # Optional: email notification
-        subject = "Google Mobility Loader: Success ✅"
-        body = (
-            f"Parsed file: {latest.name}\n"
-            f"Inserted {len(rows_to_insert):,} new rows across {len(set(r[0] for r in records))} series."
+    except Exception as e:
+        send_email(
+            subject="Google Mobility loader: Failed",
+            body=f"Error during load: {str(e)}",
+            to=USER_EMAIL
         )
-        send_email(subject=subject, body=body, to=USER_EMAIL)
+        raise
 
 if __name__ == "__main__":
     main()

@@ -4,16 +4,16 @@ from airflow.operators.bash import BashOperator
 
 default_args = {
     "owner": "airflow",
-    "retries": 2,
-    "retry_delay": timedelta(minutes=5),
+    "retries": 10,
+    "retry_delay": timedelta(minutes=1),
 }
 
 with DAG(
-    dag_id="eia_weekly",
+    dag_id="eia_dag",
     description="Weekly download and load of EIA fundamentals",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule="40 10 * * 3",  # every Wednesday at 10:40am ET
+    schedule="30-40 10 * * 3",  # every Wednesday at 10:30–10:40am ET
     catchup=False,
     tags=["eia", "fundamentals"],
 ) as dag:

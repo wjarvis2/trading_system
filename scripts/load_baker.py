@@ -7,38 +7,37 @@ from pathlib import Path
 import psycopg2
 from dotenv import load_dotenv
 
-from src.utils import send_email  # ✅ Email support
+from src.utils import send_email
 
-# ────────────────────── Config ────────────────────── #
+# ────────────── Config ────────────── #
 load_dotenv()
-PG_DSN = os.getenv("PG_DSN")
-RAW_DIR = Path(__file__).resolve().parent.parent / "data/raw/bh_rigcount_reports"
-TABLE = "core_energy.fact_series_value"
-META = "core_energy.fact_series_meta"
+PG_DSN     = os.getenv("PG_DSN")
+RAW_DIR    = Path(__file__).resolve().parent.parent / "data/raw/bh_rigcount_reports"
+TABLE      = "core_energy.fact_series_value"
+META       = "core_energy.fact_series_meta"
 USER_EMAIL = "jarviswilliamd@gmail.com"
 
-# ────────────────────── Parsing ────────────────────── #
+# ────────────── Parser ────────────── #
 def parse_baker(path: Path) -> pd.DataFrame:
     df = pd.read_excel(
         path,
         sheet_name="NAM Weekly",
-        skiprows=10,  # header starts at row 11 (0-based index)
+        skiprows=10,
         usecols="A:L",
     )
     df = df.dropna(subset=["US_PublishDate", "Rig Count Value"])
     df = df.rename(columns={"Rig Count Value": "value"})
 
-    df["obs_date"] = pd.to_datetime(df["US_PublishDate"], errors="coerce")
+    df["obs_date"] = pd.to_datetime(df["US_PublishDate"], errors="coerce").dt.date
     df["series_code"] = (
         "baker." + df["Country"].str.lower()
         + "." + df["DrillFor"].str.lower()
         + "." + df["Trajectory"].str.lower()
         + "." + df["Basin"].str.lower().str.replace(" ", "_")
     )
-
     return df[["series_code", "obs_date", "value"]].dropna()
 
-# ────────────────────── DB Logic ────────────────────── #
+# ────────────── Upsert Logic ────────────── #
 def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
     cur.execute(f"""
         INSERT INTO {META} (series_code, source_id, description)
@@ -55,38 +54,68 @@ def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
         ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
     """, (series_id, obs_date, value, datetime.utcnow()))
 
-# ────────────────────── Main ────────────────────── #
+# ────────────── Main ────────────── #
 def main():
-    latest = max(RAW_DIR.glob("bh_rigcount_*.xlsx"))
-    print(f"📄 Parsing {latest.name}")
-    df = parse_baker(latest)
+    try:
+        latest = max(RAW_DIR.glob("bh_rigcount_*.xlsx"))
+        print(f"📄 Parsing {latest.name}")
+        df = parse_baker(latest)
 
-    with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
-        cur.execute(f"""
-            SELECT DISTINCT obs_date
-            FROM {TABLE}
-            WHERE series_id IN (
-                SELECT series_id FROM {META}
+        with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
+            cur.execute(f"""
+                SELECT series_code, series_id FROM {META}
                 WHERE series_code LIKE 'baker.%'
+            """)
+            known_series = dict(cur.fetchall())
+
+            existing = set()
+            if known_series:
+                cur.execute(f"""
+                    SELECT series_id, obs_date FROM {TABLE}
+                    WHERE series_id IN %s
+                """, (tuple(known_series.values()),))
+                existing = {(r[0], r[1]) for r in cur.fetchall()}
+
+            insert_count = 0
+            series_seen = set()
+
+            for _, row in df.iterrows():
+                sid = row["series_code"]
+                obs = row["obs_date"]
+                val = row["value"]
+
+                if sid not in known_series:
+                    upsert_series(cur, sid, obs, val)
+                    insert_count += 1
+                    series_seen.add(sid)
+                    continue
+
+                if (known_series[sid], obs) not in existing:
+                    upsert_series(cur, sid, obs, val)
+                    insert_count += 1
+                    series_seen.add(sid)
+
+        if insert_count > 0:
+            subject = "Baker Hughes loader: Success"
+            body = (
+                f"Parsed file: {latest.name}\n"
+                f"Inserted {insert_count} new records "
+                f"across {len(series_seen)} unique series."
             )
-        """)
-        existing_dates = {r[0] for r in cur.fetchall()}
+        else:
+            subject = "Baker Hughes loader: No new data"
+            body = f"No new rows to insert from {latest.name}. All obs_dates already present."
 
-        new_df = df[~df["obs_date"].isin(existing_dates)]
-        print(f"✓ {len(new_df)} new records to insert")
+        print(body)
+        send_email(subject=subject, body=body, to=USER_EMAIL)
 
-        for _, row in new_df.iterrows():
-            upsert_series(cur, row["series_code"], row["obs_date"], row["value"])
-
-    print("✓ Baker Hughes load complete")
-
-    # 📬 Email Notification
-    subject = "Baker Hughes Loader: Success ✅"
-    body = (
-        f"Parsed file: {latest.name}\n"
-        f"Inserted {len(new_df)} new rows across {new_df['series_code'].nunique()} series."
-    )
-    send_email(subject=subject, body=body, to=USER_EMAIL)
+    except Exception as e:
+        send_email(
+            subject="Baker Hughes loader: Failed",
+            body=f"Error during load: {str(e)}",
+            to=USER_EMAIL
+        )
+        raise
 
 if __name__ == "__main__":
     main()

@@ -4,18 +4,18 @@ from airflow.operators.bash import BashOperator
 
 default_args = {
     "owner": "airflow",
-    "retries": 2,
-    "retry_delay": timedelta(minutes=10),
+    "retries": 10,
+    "retry_delay": timedelta(minutes=1),
 }
 
 with DAG(
-    dag_id="opec_monthly",
-    description="Daily OPEC check for MOMR release and ingestion",
+    dag_id="opec_dag",
+    description="Daily OPEC check for MOMR appendix release and ingestion",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule="0 7 * * *",  # 7:00 AM ET daily (12:00 GMT)
+    schedule="0-10 7 * * 1",  # Every Monday 7:00–7:10am ET (covers 2nd Mon release)
     catchup=False,
-    tags=["opec", "momr"],
+    tags=["opec", "momr", "fundamentals"],
 ) as dag:
 
     land = BashOperator(

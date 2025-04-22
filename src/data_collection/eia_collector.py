@@ -1,35 +1,20 @@
 from __future__ import annotations
-"""
-EIA data collector
-
-Reads series IDs from config/eia_series.csv, fetches each series via the
-EIA open‑data API, and stores a tidy snapshot CSV in
-    data/raw/eia_reports/eia_<YYYYMMDD_HHMM>.csv
-
-Usage
------
-Incremental run (default):
-    python -m src.data_collection.eia_collector
-"""
-
 import csv
 import datetime as dt
 import os
 from pathlib import Path
 from typing import List
-
 import pandas as pd
 import requests
 
 from src.utils import send_email
 
 # ───────────────────────── paths & constants ────────────────────────── #
-ROOT_DIR = Path(__file__).resolve().parents[2]  # works in container at /app/src/data_collection/
-CONFIG   = ROOT_DIR / "config" / "eia_series.csv"
-DATA_DIR = ROOT_DIR / "data" / "raw" / "eia_reports"
-
-API_KEY     = os.getenv("EIA_API_KEY")      # set in .env
-USER_EMAIL  = "jarviswilliamd@gmail.com"
+ROOT_DIR   = Path(__file__).resolve().parents[2]
+CONFIG     = ROOT_DIR / "config" / "eia_series.csv"
+DATA_DIR   = ROOT_DIR / "data" / "raw" / "eia_reports"
+API_KEY    = os.getenv("EIA_API_KEY")
+USER_EMAIL = "jarviswilliamd@gmail.com"
 
 # ───────────────────────── helpers ────────────────────────── #
 def ensure_dir() -> None:
@@ -40,10 +25,9 @@ def read_series_list() -> List[dict]:
         return list(csv.DictReader(f))
 
 def fetch_series(series_id: str, api_key: str) -> pd.DataFrame | None:
-    """Fetch a series via v2, fall back to v1. Return standardized DataFrame or None."""
     # Try v2
-    v2_url = f"https://api.eia.gov/v2/seriesid/{series_id}?api_key={api_key}"
     try:
+        v2_url = f"https://api.eia.gov/v2/seriesid/{series_id}?api_key={api_key}"
         r = requests.get(v2_url, timeout=15)
         if r.ok:
             df = pd.DataFrame(r.json()["response"]["data"])
@@ -53,8 +37,8 @@ def fetch_series(series_id: str, api_key: str) -> pd.DataFrame | None:
         print(f"v2 error for {series_id}: {e}")
 
     # Fallback to v1
-    v1_url = f"https://api.eia.gov/series/?api_key={api_key}&series_id={series_id}"
     try:
+        v1_url = f"https://api.eia.gov/series/?api_key={api_key}&series_id={series_id}"
         r = requests.get(v1_url, timeout=15)
         if r.ok:
             return pd.DataFrame(r.json()["series"][0]["data"], columns=["date", "value"])
@@ -64,15 +48,25 @@ def fetch_series(series_id: str, api_key: str) -> pd.DataFrame | None:
     print(f"✗ {series_id}: failed to retrieve usable data")
     return None
 
-
 # ───────────────────────── main collector ────────────────────────── #
 def collect() -> None:
     if not API_KEY:
-        raise RuntimeError("EIA_API_KEY not set in environment or .env file")
+        raise RuntimeError("EIA_API_KEY not set in environment")
 
     ensure_dir()
     stamp = dt.datetime.now().strftime("%Y%m%d_%H%M")
+    daily_tag = dt.datetime.now().strftime("%Y%m%d")
     out_file = DATA_DIR / f"eia_{stamp}.csv"
+
+    # Avoid duplicate pulls in a day
+    existing_files = list(DATA_DIR.glob(f"eia_{daily_tag}_*.csv"))
+    if existing_files:
+        send_email(
+            subject="EIA collector: No new file",
+            body="Data has already been collected today.",
+            to=USER_EMAIL
+        )
+        return
 
     rows = read_series_list()
     all_frames: List[pd.DataFrame] = []
@@ -104,8 +98,8 @@ def collect() -> None:
 
     subject = "EIA collector: Success"
     body = (
-        f"Saved {len(all_frames)} series to {out_file}\n" +
-        ("Failures: " + ", ".join(failures) if failures else "All series succeeded.")
+        f"Saved {len(all_frames)} series to {out_file.name}\n"
+        + ("Failures: " + ", ".join(failures) if failures else "All series succeeded.")
     )
     send_email(subject=subject, body=body, to=USER_EMAIL)
 

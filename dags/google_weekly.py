@@ -4,16 +4,16 @@ from airflow.operators.bash import BashOperator
 
 default_args = {
     "owner": "airflow",
-    "retries": 2,
-    "retry_delay": timedelta(minutes=5),
+    "retries": 10,
+    "retry_delay": timedelta(minutes=1),
 }
 
 with DAG(
     dag_id="google_mobility_dag",
-    description="Weekly download and load of Google Mobility data",
+    description="Daily download and load of Google Mobility data",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule="0 11 * * 3",  # every Wednesday at 11:00am ET
+    schedule="0-10 10 * * *",  # every day at 10:00–10:10am ET
     catchup=False,
     tags=["google", "mobility", "fundamentals"],
 ) as dag:
