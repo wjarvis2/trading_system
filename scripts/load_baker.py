@@ -62,12 +62,14 @@ def main():
         df = parse_baker(latest)
 
         with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
+            # Fetch all known Baker series
             cur.execute(f"""
                 SELECT series_code, series_id FROM {META}
                 WHERE series_code LIKE 'baker.%'
             """)
             known_series = dict(cur.fetchall())
 
+            # Avoid empty IN clause if no series exist
             existing = set()
             if known_series:
                 cur.execute(f"""
@@ -99,8 +101,7 @@ def main():
             subject = "Baker Hughes loader: Success"
             body = (
                 f"Parsed file: {latest.name}\n"
-                f"Inserted {insert_count} new records "
-                f"across {len(series_seen)} unique series."
+                f"Inserted {insert_count:,} new records across {len(series_seen)} unique series."
             )
         else:
             subject = "Baker Hughes loader: No new data"

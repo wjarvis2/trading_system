@@ -8,7 +8,6 @@ from pathlib import Path
 import psycopg2
 import traceback
 from dotenv import load_dotenv
-
 from src.utils import send_email
 
 # ────────────── Config ────────────── #
@@ -58,7 +57,58 @@ def clean_value(value):
     except: return None
 
 # ────────────── Table Parsers ────────────── #
-# [Same as your original: parse_table_1 through parse_table_6]
+def parse_table_1(path, railroad, obs_date):
+    df = safe_read_excel(path, skiprows=4, nrows=8, usecols="A:B", header=None)
+    return [
+        (f"stb.speed.{railroad}.{slug(row[0])}", obs_date, clean_value(row[1]))
+        for _, row in df.iterrows()
+        if pd.notna(row[0]) and clean_value(row[1]) is not None
+    ]
+
+def parse_table_2(path, railroad, obs_date):
+    df = safe_read_excel(path, skiprows=14, nrows=11, usecols="A:B", header=None)
+    return [
+        (f"stb.dwell.{railroad}.{slug(row[0])}", obs_date, clean_value(row[1]))
+        for _, row in df.iterrows()
+        if pd.notna(row[0]) and "terminal" not in str(row[0]).lower() and clean_value(row[1]) is not None
+    ]
+
+def parse_table_3(path, railroad, obs_date):
+    df = safe_read_excel(path, skiprows=28, nrows=9, usecols="A:B", header=None)
+    return [
+        (f"stb.carsonline.{railroad}.{slug(row[0])}", obs_date, clean_value(row[1]))
+        for _, row in df.iterrows()
+        if pd.notna(row[0]) and clean_value(row[1]) is not None
+    ]
+
+def parse_table_5(path, railroad, obs_date):
+    df = safe_read_excel(path, skiprows=48, nrows=9, usecols="A:E", header=None)
+    causes = ["crew", "power", "other", "total"]
+    results = []
+    for _, row in df.iterrows():
+        if pd.isna(row[0]) or "train" in str(row[0]).lower():
+            continue
+        for i, cause in enumerate(causes, start=1):
+            if i >= len(row): break
+            value = clean_value(row[i])
+            if value is None: continue
+            sid = f"stb.holding.{railroad}.{slug(row[0])}.{cause}"
+            results.append((sid, obs_date, value))
+    return results
+
+def parse_table_6(path, railroad, obs_date):
+    df = safe_read_excel(path, skiprows=61, nrows=9, usecols="A:C", header=None)
+    tags = ["loaded", "empty"]
+    results = []
+    for _, row in df.iterrows():
+        if pd.isna(row[0]): continue
+        for i, tag in enumerate(tags, start=1):
+            if i >= len(row): break
+            value = clean_value(row[i])
+            if value is None: continue
+            sid = f"stb.stalled.{railroad}.{slug(row[0])}.{tag}"
+            results.append((sid, obs_date, value))
+    return results
 
 # ────────────── Upsert Logic ────────────── #
 def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
@@ -101,7 +151,7 @@ def main():
             FROM core_energy.fact_series_value v
             JOIN core_energy.fact_series_meta m USING (series_id)
         """)
-        existing = set((sc, d.date()) for sc, d in cur.fetchall())
+        existing = set((sc, d) for sc, d in cur.fetchall())
 
         for f in files:
             railroad, obs_date = extract_metadata(f)

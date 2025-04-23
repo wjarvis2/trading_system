@@ -7,7 +7,6 @@ from pathlib import Path
 import psycopg2
 from psycopg2.extras import execute_values
 from dotenv import load_dotenv
-
 from src.utils import send_email
 
 # ────────────── Config ────────────── #
@@ -82,14 +81,24 @@ def parse_google(path: Path, existing_dates: set) -> list[tuple]:
 # ────────────── Main ────────────── #
 def main():
     try:
-        latest = max(RAW_DIR.glob("google_mobility_*.csv"))
+        files = sorted(RAW_DIR.glob("google_mobility_*.csv"))
+        if not files:
+            send_email(
+                subject="Google Mobility loader: Failed",
+                body="No Google Mobility CSV files found in raw data directory.",
+                to=USER_EMAIL
+            )
+            print("⚠️ No files found to process.")
+            return
+
+        latest = files[-1]
         print(f"📄 Parsing {latest.name}")
 
         with psycopg2.connect(PG_DSN) as conn:
             existing_dates = load_existing_obs_dates(conn)
             cached_ids = cache_series_ids(conn)
-
             records = parse_google(latest, existing_dates)
+
             print(f"✓ Parsed {len(records):,} new records")
 
             rows_to_insert = []
@@ -98,7 +107,10 @@ def main():
                     if series_code not in cached_ids:
                         insert_series_meta(cur, series_code)
                         cur.execute(f"SELECT series_id FROM {META} WHERE series_code=%s", (series_code,))
-                        cached_ids[series_code] = cur.fetchone()[0]
+                        sid = cur.fetchone()
+                        if not sid:
+                            continue
+                        cached_ids[series_code] = sid[0]
                     series_id = cached_ids[series_code]
                     rows_to_insert.append((series_id, obs_date, value, datetime.utcnow()))
 
@@ -110,6 +122,7 @@ def main():
                     """, rows_to_insert)
 
             conn.commit()
+
             if rows_to_insert:
                 subject = "Google Mobility loader: Success"
                 body = (
@@ -119,7 +132,7 @@ def main():
                 )
             else:
                 subject = "Google Mobility loader: No new data"
-                body = f"No new values inserted from {latest.name} — all obs_dates already loaded."
+                body = f"No new values inserted from {latest.name} — all obs_dates already present."
 
             print(body)
             send_email(subject=subject, body=body, to=USER_EMAIL)
