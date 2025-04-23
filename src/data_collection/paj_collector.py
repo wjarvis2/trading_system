@@ -45,14 +45,8 @@ def collect():
             print(f"✗ {label} → failed: {e}")
             failures.append(label)
 
-    # Send email
-    if not successes and not skipped:
-        send_email(
-            subject="PAJ collector: Failed",
-            body="All downloads failed.",
-            to=USER_EMAIL
-        )
-    elif successes:
+    # 📬 Email logic
+    if successes:
         send_email(
             subject="PAJ collector: Success",
             body=(
@@ -62,12 +56,14 @@ def collect():
             ),
             to=USER_EMAIL
         )
-    else:
+    elif not skipped:
         send_email(
-            subject="PAJ collector: No new data",
-            body=f"All reports were already downloaded for today. Skipped: {', '.join(skipped)}",
+            subject="PAJ collector: Failed",
+            body="All downloads failed.",
             to=USER_EMAIL
         )
+    else:
+        print("All files already downloaded — no email sent.")
 
 if __name__ == "__main__":
     collect()

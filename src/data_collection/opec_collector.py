@@ -1,3 +1,4 @@
+# --- src/data_collection/opec_collector.py ---
 from __future__ import annotations
 import csv
 import datetime as dt
@@ -75,16 +76,12 @@ def run_daily_check(now: Optional[dt.datetime] = None) -> None:
     schedule = load_schedule()
 
     if today not in schedule:
-        return
+        return  # ✅ No email if today is not a scheduled release date
 
     outfile = DATA_DIR / f"opec_{today.year}-{today.month:02}.xlsx"
     if outfile.exists():
-        send_email(
-            subject=f"OPEC report {today}: Already collected",
-            body=f"{outfile.name} already exists. No download needed.",
-            to=USER_EMAIL,
-        )
-        return
+        print(f"⏩ OPEC report already exists: {outfile.name}")
+        return  # ✅ No email if already downloaded
 
     deadline = dt.datetime.combine(today, dt.time(6, 5), tzinfo=TZ_EST)
     success = False
@@ -93,6 +90,7 @@ def run_daily_check(now: Optional[dt.datetime] = None) -> None:
         for url in url_candidates(today.month, today.year):
             success = download(url, outfile)
             if success:
+                print(f"✓ OPEC report downloaded: {outfile.name}")
                 send_email(
                     subject=f"OPEC report {today} downloaded: Success",
                     body=f"Saved to {outfile}",

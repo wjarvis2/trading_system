@@ -114,20 +114,17 @@ def main():
                 description = series_lookup.get(sid, sid)
                 total_inserted += upsert_series(cur, sid, description, df)
 
+        print(f"✓ Loaded {len(grouped)} series ({total_inserted:,} new rows) from {snap.name}")
+
         if total_inserted > 0:
             send_email(
                 subject="EIA loader: Success",
                 body=f"Inserted {total_inserted:,} new records from {snap.name}",
                 to=USER_EMAIL
             )
+        # ✅ Do not send email if no new data — just log it
         else:
-            send_email(
-                subject="EIA loader: No new data",
-                body=f"No new values inserted from {snap.name}. All obs_dates already exist.",
-                to=USER_EMAIL
-            )
-
-        print(f"✓ Loaded {len(grouped)} series ({total_inserted:,} new rows) from {snap.name}")
+            print(f"No new values inserted from {snap.name}. All obs_dates already exist.")
 
     except Exception as e:
         send_email(

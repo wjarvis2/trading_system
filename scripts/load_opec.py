@@ -147,19 +147,17 @@ def main():
                 f"Inserted {total_records:,} new records.\n"
                 + (f"Failures in: {', '.join(failures)}" if failures else "No errors.")
             )
-        elif not failures:
-            subject = "OPEC loader: No new data"
-            body = f"No new records inserted from {latest.name}. All values already present or out of partition range."
-        else:
+            send_email(subject=subject, body=body, to=USER_EMAIL)
+        elif failures:
             subject = "OPEC loader: Partial Failure"
             body = (
                 f"Parsed file: {latest.name}\n"
                 f"Inserted {total_records:,} new records.\n"
                 f"Failures in: {', '.join(failures)}"
             )
-
-        print(body)
-        send_email(subject=subject, body=body, to=USER_EMAIL)
+            send_email(subject=subject, body=body, to=USER_EMAIL)
+        else:
+            print(f"No new records inserted from {latest.name}. All values already present or out of partition range.")
 
     except Exception as e:
         send_email(subject="OPEC loader: Failed", body=f"Error during load: {str(e)}", to=USER_EMAIL)

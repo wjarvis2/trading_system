@@ -201,15 +201,13 @@ def main():
             f"Inserted {len(all_inserted)} new records from {len(files)} files.\n"
             + ("No issues." if not failures else f"Failures: {', '.join(failures)}")
         )
-    elif not failures:
-        subject = "STB loader: No new data"
-        body = f"No new data to insert from {len(files)} files. All values already exist."
-    else:
+        send_email(subject=subject, body=body, to=USER_EMAIL)
+    elif failures:
         subject = "STB loader: Partial Failure"
         body = f"Some files failed: {', '.join(failures)}"
-
-    print(body)
-    send_email(subject=subject, body=body, to=USER_EMAIL)
+        send_email(subject=subject, body=body, to=USER_EMAIL)
+    else:
+        log(f"No new data to insert from {len(files)} files. All values already exist.")
 
 if __name__ == "__main__":
     main()

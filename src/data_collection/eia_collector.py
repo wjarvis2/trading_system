@@ -61,11 +61,7 @@ def collect() -> None:
     # Avoid duplicate pulls in a day
     existing_files = list(DATA_DIR.glob(f"eia_{daily_tag}_*.csv"))
     if existing_files:
-        send_email(
-            subject="EIA collector: No new file",
-            body="Data has already been collected today.",
-            to=USER_EMAIL
-        )
+        print("⚠️ Data already collected today — skipping.")
         return
 
     rows = read_series_list()
@@ -96,12 +92,9 @@ def collect() -> None:
     final = final.sort_values(["series_id", "date"])
     final.to_csv(out_file, index=False)
 
-    subject = "EIA collector: Success"
-    body = (
-        f"Saved {len(all_frames)} series to {out_file.name}\n"
-        + ("Failures: " + ", ".join(failures) if failures else "All series succeeded.")
-    )
-    send_email(subject=subject, body=body, to=USER_EMAIL)
+    print(f"✓ Saved {len(all_frames)} series to {out_file.name}")
+    if failures:
+        print("⚠️ Failures:", ", ".join(failures))
 
 if __name__ == "__main__":
     collect()

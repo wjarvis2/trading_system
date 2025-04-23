@@ -19,7 +19,7 @@ def collect():
         r = requests.get(URL, timeout=60)
         r.raise_for_status()
 
-        # Always overwrite if exists (per your logic)
+        # Always overwrite if exists
         if OUT_FILE.exists():
             OUT_FILE.unlink()
 
@@ -27,11 +27,7 @@ def collect():
         size_mb = round(len(r.content) / 1_000_000, 1)
         print(f"✓ Saved {OUT_FILE.name} ({size_mb} MB)")
 
-        send_email(
-            subject="Google Mobility collector: Success",
-            body=f"Saved {OUT_FILE.name} ({size_mb} MB)",
-            to=USER_EMAIL
-        )
+        # ✅ No email on success
 
     except Exception as e:
         print(f"✗ Error: {e}")

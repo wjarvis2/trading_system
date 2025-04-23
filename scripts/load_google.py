@@ -83,12 +83,12 @@ def main():
     try:
         files = sorted(RAW_DIR.glob("google_mobility_*.csv"))
         if not files:
+            print("⚠️ No files found to process.")
             send_email(
                 subject="Google Mobility loader: Failed",
                 body="No Google Mobility CSV files found in raw data directory.",
                 to=USER_EMAIL
             )
-            print("⚠️ No files found to process.")
             return
 
         latest = files[-1]
@@ -130,12 +130,10 @@ def main():
                     f"Inserted {len(rows_to_insert):,} new rows across "
                     f"{len(set(r[0] for r in records)):,} unique series."
                 )
+                print(body)
+                send_email(subject=subject, body=body, to=USER_EMAIL)
             else:
-                subject = "Google Mobility loader: No new data"
-                body = f"No new values inserted from {latest.name} — all obs_dates already present."
-
-            print(body)
-            send_email(subject=subject, body=body, to=USER_EMAIL)
+                print(f"No new values inserted from {latest.name}")
 
     except Exception as e:
         send_email(

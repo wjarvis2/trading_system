@@ -56,13 +56,17 @@ def collect(date_override: str = None):
         else:
             failures.append(msg)
 
-    # Determine email subject
+    # Refined email logic
     if successes:
         subject = "STB collector: Success"
-    elif skipped and not failures:
-        subject = "STB collector: No new data"
+    elif failures and not skipped:
+        subject = "STB collector: Failed"
+    elif failures and skipped:
+        subject = "STB collector: Partial Success"
     else:
-        subject = "STB collector: Failed" if not successes else "STB collector: Partial Success"
+        # All skipped or not yet posted — no email needed
+        print("All reports already downloaded or not yet posted — no email sent.")
+        return
 
     body = (
         f"Run timestamp: {stamp}\n"
@@ -80,7 +84,6 @@ if __name__ == "__main__":
         parser.add_argument("--date", help="Optional date override in YYYY-MM-DD format")
         args = parser.parse_args()
         collect(date_override=args.date)
-
     except Exception as e:
         send_email(subject="STB collector crashed", body=str(e), to=USER_EMAIL)
         raise

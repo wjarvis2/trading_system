@@ -97,18 +97,19 @@ def main():
                     insert_count += 1
                     series_seen.add(sid)
 
+        print(f"✓ Loaded {insert_count:,} new rows from {latest.name}")
+
         if insert_count > 0:
             subject = "Baker Hughes loader: Success"
             body = (
                 f"Parsed file: {latest.name}\n"
                 f"Inserted {insert_count:,} new records across {len(series_seen)} unique series."
             )
-        else:
-            subject = "Baker Hughes loader: No new data"
-            body = f"No new rows to insert from {latest.name}. All obs_dates already present."
+            send_email(subject=subject, body=body, to=USER_EMAIL)
 
-        print(body)
-        send_email(subject=subject, body=body, to=USER_EMAIL)
+        # ✅ Suppress "no new data" emails — just log
+        else:
+            print(f"No new rows to insert from {latest.name}. All obs_dates already present.")
 
     except Exception as e:
         send_email(

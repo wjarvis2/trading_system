@@ -41,14 +41,8 @@ def find_latest_xlsx_link():
 def collect():
     try:
         if OUT_FILE.exists():
-            msg = f"Rig count file already collected: {OUT_FILE.name}"
-            print(f"⏩ {msg}")
-            send_email(
-                subject="Baker Hughes collector: No new file",
-                body=msg,
-                to=USER_EMAIL
-            )
-            return
+            print(f"⏩ Rig count file already exists: {OUT_FILE.name}")
+            return  # ✅ No email for already-downloaded files
 
         print("🔍 Looking for latest Baker Hughes rig count XLSX...")
         url = find_latest_xlsx_link()
