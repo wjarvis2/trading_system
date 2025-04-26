@@ -19,7 +19,7 @@ CREATE TABLE core_energy.fact_series_value (
     obs_date  DATE NOT NULL,
     value     NUMERIC,
     loaded_at_ts TIMESTAMPTZ NOT NULL DEFAULT now(),
-    PRIMARY KEY (series_id, obs_date, loaded_at_ts)
+    UNIQUE (series_id, obs_date)
 ) PARTITION BY RANGE (obs_date);
 
 -- Partitions from 1980 to 2040 in 5-year chunks

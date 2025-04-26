@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # --- src/data_collection/paj_collector.py ---
 import datetime as dt
 import requests
@@ -16,17 +17,22 @@ REPORTS = {
     "stockpiling":  ("05E", ".xls"),
 }
 
-def build_url(code: str, ext: str) -> str:
-    month_path = dt.datetime.now().strftime("%Y-%m")
-    date_code = dt.datetime.now().strftime("%Y%m")
+def build_url(code: str, ext: str, date: dt.datetime) -> str:
+    month_path = date.strftime("%Y-%m")
+    date_code = date.strftime("%Y%m")
     return f"https://www.paj.gr.jp/sites/default/files/{month_path}/paj-{code}_{date_code}{ext}"
 
 def collect():
-    print("📦 Downloading PAJ statistical reports...")
+    today = dt.datetime.now()
+    stamp = today.strftime("%Y%m%d")
+    yyyymm = today.strftime("%Y%m")
+
+    print(f"📦 Downloading PAJ statistical reports for {yyyymm}...")
+
     successes, skipped, failures = [], [], []
 
     for label, (code, ext) in REPORTS.items():
-        fname = f"{label}_{dt.datetime.now().strftime('%Y%m%d')}{ext}"
+        fname = f"{label}_{yyyymm}{ext}"
         path = OUT_DIR / fname
 
         if path.exists():
@@ -34,7 +40,7 @@ def collect():
             skipped.append(label)
             continue
 
-        url = build_url(code, ext)
+        url = build_url(code, ext, today)
         try:
             r = requests.get(url, timeout=20)
             r.raise_for_status()

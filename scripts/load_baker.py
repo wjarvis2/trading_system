@@ -1,47 +1,83 @@
 #!/usr/bin/env python
 # --- scripts/load_baker.py ---
+from __future__ import annotations
 import os
-import pandas as pd
-from datetime import datetime
+from datetime import datetime, UTC
 from pathlib import Path
+
+import pandas as pd
 import psycopg2
 from dotenv import load_dotenv
 
 from src.utils import send_email
 
-# ────────────── Config ────────────── #
+# ────────────── Config ──────────────
 load_dotenv()
 PG_DSN     = os.getenv("PG_DSN")
-RAW_DIR    = Path(__file__).resolve().parent.parent / "data/raw/bh_rigcount_reports"
+RAW_DIR    = Path(__file__).resolve().parents[1] / "data/raw/bh_rigcount_reports"
 TABLE      = "core_energy.fact_series_value"
 META       = "core_energy.fact_series_meta"
 USER_EMAIL = "jarviswilliamd@gmail.com"
 
-# ────────────── Parser ────────────── #
+# ────────────── Helper ──────────────
+def make_headline(df: pd.DataFrame, by: list[str]) -> pd.DataFrame:
+    headline = (
+        df.groupby(["Country", "obs_date"], as_index=False)
+          .agg({"value": "sum"})
+    )
+    headline["DrillFor"] = "total"
+    headline["Trajectory"] = "total"
+    headline["Basin"] = "total"
+    return headline
+
+
+# ────────────── Canonical Mapping ──────────────
+def load_canonical_mappings():
+    with psycopg2.connect(PG_DSN) as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT series_code FROM core_energy.dim_series")
+            allowed_set = set(r[0] for r in cur.fetchall())
+
+            cur.execute("SELECT alias_code, series_code FROM core_energy.dim_series_alias")
+            alias_map = {alias: series for alias, series in cur.fetchall()}
+
+    return allowed_set, alias_map
+
+
+
+# ────────────── Parser ──────────────
 def parse_baker(path: Path) -> pd.DataFrame:
-    df = pd.read_excel(
+    raw = pd.read_excel(
         path,
         sheet_name="NAM Weekly",
         skiprows=10,
         usecols="A:L",
-    )
-    df = df.dropna(subset=["US_PublishDate", "Rig Count Value"])
-    df = df.rename(columns={"Rig Count Value": "value"})
+    ).dropna(subset=["US_PublishDate", "Rig Count Value"])
 
-    df["obs_date"] = pd.to_datetime(df["US_PublishDate"], errors="coerce").dt.date
-    df["series_code"] = (
-        "baker." + df["Country"].str.lower()
-        + "." + df["DrillFor"].str.lower()
-        + "." + df["Trajectory"].str.lower()
-        + "." + df["Basin"].str.lower().str.replace(" ", "_")
-    )
-    return df[["series_code", "obs_date", "value"]].dropna()
+    raw = raw.rename(columns={"Rig Count Value": "value"})
+    raw["obs_date"] = pd.to_datetime(raw["US_PublishDate"]).dt.date
 
-# ────────────── Upsert Logic ────────────── #
-def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
+    headline = make_headline(raw, by=["Country"])
+    tidy = pd.concat([raw, headline], ignore_index=True)
+
+    tidy["series_code"] = (
+        "baker." + tidy["Country"].str.lower()
+        + "." + tidy["DrillFor"].fillna("total").str.lower()
+        + "." + tidy["Trajectory"].fillna("total").str.lower()
+        + "." + tidy["Basin"].fillna("total").str.lower().str.replace(" ", "_")
+    )
+
+    return tidy[["series_code", "obs_date", "value"]]
+
+# ────────────── Upsert helpers ──────────────
+def upsert_series(cur, series_code: str, obs_date, value: float):
     cur.execute(f"""
-        INSERT INTO {META} (series_code, source_id, description)
-        VALUES (%s, (SELECT source_id FROM core_energy.dim_source WHERE name='Baker Hughes'), %s)
+        INSERT INTO {META}(series_code, source_id, description)
+        VALUES (
+            %s,
+            (SELECT source_id FROM core_energy.dim_source WHERE name = 'Baker Hughes'),
+            %s
+        )
         ON CONFLICT (series_code) DO NOTHING;
     """, (series_code, series_code))
 
@@ -49,73 +85,67 @@ def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
     series_id = cur.fetchone()[0]
 
     cur.execute(f"""
-        INSERT INTO {TABLE} (series_id, obs_date, value, loaded_at_ts)
+        INSERT INTO {TABLE}(series_id, obs_date, value, loaded_at_ts)
         VALUES (%s, %s, %s, %s)
-        ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
-    """, (series_id, obs_date, value, datetime.utcnow()))
+        ON CONFLICT (series_id, obs_date) DO NOTHING;
+    """, (series_id, obs_date, value, datetime.now(UTC)))
 
-# ────────────── Main ────────────── #
-def main():
+# ────────────── Main ──────────────
+def main() -> None:
     try:
         latest = max(RAW_DIR.glob("bh_rigcount_*.xlsx"))
-        print(f"📄 Parsing {latest.name}")
+        print(f"📄  Parsing {latest.name}")
         df = parse_baker(latest)
 
+        allowed_set, alias_map = load_canonical_mappings()
+
         with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
-            # Fetch all known Baker series
             cur.execute(f"""
-                SELECT series_code, series_id FROM {META}
-                WHERE series_code LIKE 'baker.%'
+                SELECT m.series_code, v.obs_date
+                FROM {TABLE} v
+                JOIN {META} m USING (series_id)
+                WHERE m.series_code LIKE 'baker.%'
             """)
-            known_series = dict(cur.fetchall())
+            existing = set(cur.fetchall())
 
-            # Avoid empty IN clause if no series exist
-            existing = set()
-            if known_series:
-                cur.execute(f"""
-                    SELECT series_id, obs_date FROM {TABLE}
-                    WHERE series_id IN %s
-                """, (tuple(known_series.values()),))
-                existing = {(r[0], r[1]) for r in cur.fetchall()}
+            unknown_series = set()
+            rows_inserted = 0
+            seen_series   = set()
 
-            insert_count = 0
-            series_seen = set()
+            for series_code, obs_date, value in df.itertuples(index=False):
+                sid = series_code.lower().strip()
+                sid = alias_map.get(sid, sid)
 
-            for _, row in df.iterrows():
-                sid = row["series_code"]
-                obs = row["obs_date"]
-                val = row["value"]
-
-                if sid not in known_series:
-                    upsert_series(cur, sid, obs, val)
-                    insert_count += 1
-                    series_seen.add(sid)
+                if sid not in allowed_set:
+                    unknown_series.add(sid)
                     continue
 
-                if (known_series[sid], obs) not in existing:
-                    upsert_series(cur, sid, obs, val)
-                    insert_count += 1
-                    series_seen.add(sid)
+                if (sid, obs_date) not in existing:
+                    upsert_series(cur, sid, obs_date, value)
+                    rows_inserted += 1
+                    seen_series.add(sid)
 
-        print(f"✓ Loaded {insert_count:,} new rows from {latest.name}")
+        if unknown_series:
+            raise ValueError(f"Unknown series_code(s): {sorted(unknown_series)}")
 
-        if insert_count > 0:
-            subject = "Baker Hughes loader: Success"
-            body = (
-                f"Parsed file: {latest.name}\n"
-                f"Inserted {insert_count:,} new records across {len(series_seen)} unique series."
+        print(f"✓  Inserted {rows_inserted:,} new rows ({len(seen_series)} series)")
+
+        if rows_inserted:
+            send_email(
+                subject="Baker Hughes loader: Success",
+                body=(
+                    f"Parsed:  {latest.name}\n"
+                    f"Rows:    {rows_inserted:,}\n"
+                    f"Series:  {len(seen_series)}"
+                ),
+                to=USER_EMAIL,
             )
-            send_email(subject=subject, body=body, to=USER_EMAIL)
 
-        # ✅ Suppress "no new data" emails — just log
-        else:
-            print(f"No new rows to insert from {latest.name}. All obs_dates already present.")
-
-    except Exception as e:
+    except Exception as exc:
         send_email(
-            subject="Baker Hughes loader: Failed",
-            body=f"Error during load: {str(e)}",
-            to=USER_EMAIL
+            subject="Baker Hughes loader: FAILED",
+            body=f"Error during load\n\n{exc}",
+            to=USER_EMAIL,
         )
         raise
 

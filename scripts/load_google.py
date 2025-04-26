@@ -26,6 +26,18 @@ COLUMNS = {
     "residential_percent_change_from_baseline": "residential",
 }
 
+# ────────────── Canonical Series Mapping ────────────── #
+def load_canonical_mappings():
+    with psycopg2.connect(PG_DSN) as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT series_code FROM core_energy.dim_series")
+            allowed_set = set(r[0] for r in cur.fetchall())
+
+            cur.execute("SELECT alias_code, series_code FROM core_energy.dim_series_alias")
+            alias_map = {alias: series for alias, series in cur.fetchall()}
+
+    return allowed_set, alias_map
+
 # ────────────── Helpers ────────────── #
 def load_existing_obs_dates(conn):
     with conn.cursor() as cur:
@@ -56,12 +68,14 @@ def insert_series_meta(cur, series_code):
         ON CONFLICT (series_code) DO NOTHING;
     """, (series_code, series_code))
 
-def parse_google(path: Path, existing_dates: set) -> list[tuple]:
+def parse_google(path: Path, existing_dates: set, allowed_set: set, alias_map: dict) -> list[tuple]:
     df = pd.read_csv(path, parse_dates=["date"])
     df = df[df["country_region_code"] == "US"]
     df = df[df["sub_region_2"].isna()]
 
     rows = []
+    unknown_series = set()
+
     for _, row in df.iterrows():
         region = ".".join(
             x.strip().lower().replace(" ", "_")
@@ -74,8 +88,18 @@ def parse_google(path: Path, existing_dates: set) -> list[tuple]:
             obs_date = row["date"].date()
             if obs_date in existing_dates:
                 continue
-            sid = f"google_mobility.{region}.{suffix}"
+            sid = f"google_mobility.{region}.{suffix}".lower().strip()
+            sid = alias_map.get(sid, sid)
+
+            if sid not in allowed_set:
+                unknown_series.add(sid)
+                continue
+
             rows.append((sid, obs_date, row[col]))
+
+    if unknown_series:
+        raise ValueError(f"❌ Unapproved or unknown Google Mobility series_code(s): {sorted(unknown_series)}")
+
     return rows
 
 # ────────────── Main ────────────── #
@@ -94,10 +118,12 @@ def main():
         latest = files[-1]
         print(f"📄 Parsing {latest.name}")
 
+        allowed_set, alias_map = load_canonical_mappings()
+
         with psycopg2.connect(PG_DSN) as conn:
             existing_dates = load_existing_obs_dates(conn)
             cached_ids = cache_series_ids(conn)
-            records = parse_google(latest, existing_dates)
+            records = parse_google(latest, existing_dates, allowed_set, alias_map)
 
             print(f"✓ Parsed {len(records):,} new records")
 
@@ -118,7 +144,7 @@ def main():
                     execute_values(cur, f"""
                         INSERT INTO {TABLE} (series_id, obs_date, value, loaded_at_ts)
                         VALUES %s
-                        ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
+                        ON CONFLICT (series_id, obs_date) DO NOTHING;
                     """, rows_to_insert)
 
             conn.commit()

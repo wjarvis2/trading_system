@@ -20,60 +20,32 @@ USER_EMAIL = "jarviswilliamd@gmail.com"
 MIN_PARTITION_DATE = date(1980, 1, 1)
 MAX_PARTITION_DATE = date(2000, 1, 1)
 
+# ────────────── Canonical Mapping ────────────── #
+def load_canonical_mappings():
+    with psycopg2.connect(PG_DSN) as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT series_code FROM core_energy.dim_series")
+            allowed_set = set(r[0] for r in cur.fetchall())
+
+            cur.execute("SELECT alias_code, series_code FROM core_energy.dim_series_alias")
+            alias_map = {alias: series for alias, series in cur.fetchall()}
+
+    return allowed_set, alias_map
+
 # ────────────── Table Parsers ────────────── #
-def parse_table_11_1(path: Path) -> list[dict]:
-    df = pd.read_excel(path, sheet_name="Table 11 - 1", skiprows=5, header=None)
+def parse_table_generic(path: Path, sheet: str, key: str, colname: str) -> list[dict]:
+    df = pd.read_excel(path, sheet_name=sheet, skiprows=5, header=None)
     df = df.dropna(how="all")[df.columns[1:]]
-    df.columns = ["region"] + df.iloc[0].tolist()[1:]
+    df.columns = [colname] + df.iloc[0].tolist()[1:]
     df = df.iloc[1:]
-    df["region"] = df["region"].ffill()
-    df = df.melt(id_vars="region", var_name="obs_date", value_name="value")
+    df[colname] = df[colname].ffill()
+    df = df.melt(id_vars=colname, var_name="obs_date", value_name="value")
     df["obs_date"] = pd.to_datetime(df["obs_date"], errors="coerce").dt.date
     df = df.dropna(subset=["obs_date", "value"])
 
     return [
         {
-            "series_code": "opec.table11_1." + row["region"].strip().lower().replace(" ", "_"),
-            "obs_date": row["obs_date"],
-            "value": row["value"]
-        }
-        for _, row in df.iterrows()
-        if MIN_PARTITION_DATE <= row["obs_date"] < MAX_PARTITION_DATE
-    ]
-
-def parse_table_11_3(path: Path) -> list[dict]:
-    df = pd.read_excel(path, sheet_name="Table 11 - 3", skiprows=5, header=None)
-    df = df.dropna(how="all")[df.columns[1:]]
-    df.columns = ["category"] + df.iloc[0].tolist()[1:]
-    df = df.iloc[1:]
-    df["category"] = df["category"].ffill()
-    df = df.melt(id_vars="category", var_name="obs_date", value_name="value")
-    df["obs_date"] = pd.to_datetime(df["obs_date"], errors="coerce").dt.date
-    df = df.dropna(subset=["obs_date", "value"])
-
-    return [
-        {
-            "series_code": "opec.table11_3." + row["category"].strip().lower().replace(" ", "_"),
-            "obs_date": row["obs_date"],
-            "value": row["value"]
-        }
-        for _, row in df.iterrows()
-        if MIN_PARTITION_DATE <= row["obs_date"] < MAX_PARTITION_DATE
-    ]
-
-def parse_table_11_4(path: Path) -> list[dict]:
-    df = pd.read_excel(path, sheet_name="Table 11 - 4", skiprows=5, header=None)
-    df = df.dropna(how="all")[df.columns[1:]]
-    df.columns = ["country"] + df.iloc[0].tolist()[1:]
-    df = df.iloc[1:]
-    df["country"] = df["country"].ffill()
-    df = df.melt(id_vars="country", var_name="obs_date", value_name="value")
-    df["obs_date"] = pd.to_datetime(df["obs_date"], errors="coerce").dt.date
-    df = df.dropna(subset=["obs_date", "value"])
-
-    return [
-        {
-            "series_code": "opec.table11_4." + row["country"].strip().lower().replace(" ", "_"),
+            "series_code": f"opec.{key}." + row[colname].strip().lower().replace(" ", "_"),
             "obs_date": row["obs_date"],
             "value": row["value"]
         }
@@ -98,7 +70,7 @@ def upsert_series(cur, series_code: str, obs_date: date, value: float):
     cur.execute("""
         INSERT INTO core_energy.fact_series_value (series_id, obs_date, value, loaded_at_ts)
         VALUES (%s, %s, %s, %s)
-        ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
+        ON CONFLICT (series_id, obs_date) DO NOTHING;
     """, (series_id, obs_date, value, datetime.utcnow()))
 
 # ────────────── Main ────────────── #
@@ -109,11 +81,13 @@ def main():
             send_email(subject="OPEC loader: Failed", body="No OPEC Excel files found.", to=USER_EMAIL)
             return
 
+        allowed_set, alias_map = load_canonical_mappings()
         latest = files[-1]
         print(f"📄 Parsing {latest.name}")
 
         total_records = 0
         failures = []
+        unknown_series = set()
 
         with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
             cur.execute("""
@@ -124,19 +98,35 @@ def main():
             """)
             existing = set(cur.fetchall())
 
-            for parser in [parse_table_11_1, parse_table_11_3, parse_table_11_4]:
-                try:
-                    records = parser(latest)
-                    new_records = [r for r in records if (r["series_code"], r["obs_date"]) not in existing]
+            tables = [
+                ("Table 11 - 1", "table11_1", "region"),
+                ("Table 11 - 3", "table11_3", "category"),
+                ("Table 11 - 4", "table11_4", "country")
+            ]
 
-                    print(f"→ {parser.__name__}: {len(new_records)} new records")
+            for sheet, key, colname in tables:
+                try:
+                    records = parse_table_generic(latest, sheet, key, colname)
+
+                    for r in records:
+                        sid = r["series_code"].lower().strip()
+                        sid = alias_map.get(sid, sid)
+                        r["series_code"] = sid
+
+                    unknown_series |= {r["series_code"] for r in records if r["series_code"] not in allowed_set}
+                    if unknown_series:
+                        raise ValueError(f"❌ Unknown or unapproved series_code(s): {sorted(unknown_series)}")
+
+                    new_records = [r for r in records if (r["series_code"], r["obs_date"]) not in existing]
+                    print(f"→ {sheet}: {len(new_records)} new records")
+
                     for r in new_records:
                         upsert_series(cur, r["series_code"], r["obs_date"], r["value"])
-
                     total_records += len(new_records)
+
                 except Exception as e:
-                    print(f"❌ Error in {parser.__name__}: {e}")
-                    failures.append(parser.__name__)
+                    print(f"❌ Error in {sheet}: {e}")
+                    failures.append(sheet)
                     conn.rollback()
 
         # 📨 Email logic

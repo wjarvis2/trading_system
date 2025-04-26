@@ -2,7 +2,6 @@
 # --- scripts/load_stb.py ---
 import os
 import pandas as pd
-import numpy as np
 from datetime import datetime, timezone
 from pathlib import Path
 import psycopg2
@@ -18,6 +17,18 @@ TABLE      = "core_energy.fact_series_value"
 META       = "core_energy.fact_series_meta"
 USER_EMAIL = "jarviswilliamd@gmail.com"
 DEBUG      = True
+
+# ────────────── Canonical Series Mapping ────────────── #
+def load_canonical_mappings():
+    with psycopg2.connect(PG_DSN) as conn:
+        with conn.cursor() as cur:
+            cur.execute("SELECT series_code FROM core_energy.dim_series")
+            allowed_set = set(r[0] for r in cur.fetchall())
+
+            cur.execute("SELECT alias_code, series_code FROM core_energy.dim_series_alias")
+            alias_map = {alias: series for alias, series in cur.fetchall()}
+
+    return allowed_set, alias_map
 
 # ────────────── Logging ────────────── #
 def log(msg, level="INFO"):
@@ -56,7 +67,7 @@ def clean_value(value):
         return float(val)
     except: return None
 
-# ────────────── Table Parsers ────────────── #
+# ────────────── Parsers ────────────── #
 def parse_table_1(path, railroad, obs_date):
     df = safe_read_excel(path, skiprows=4, nrows=8, usecols="A:B", header=None)
     return [
@@ -109,7 +120,6 @@ def parse_table_6(path, railroad, obs_date):
             sid = f"stb.stalled.{railroad}.{slug(row[0])}.{tag}"
             results.append((sid, obs_date, value))
     return results
-
 # ────────────── Upsert Logic ────────────── #
 def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
     log(f"▶️ {series_code} | {obs_date} | {value}")
@@ -129,7 +139,7 @@ def upsert_series(cur, series_code: str, obs_date: datetime, value: float):
     cur.execute(f"""
         INSERT INTO {TABLE} (series_id, obs_date, value, loaded_at_ts)
         VALUES (%s, %s, %s, %s)
-        ON CONFLICT (series_id, obs_date, loaded_at_ts) DO NOTHING;
+        ON CONFLICT (series_id, obs_date) DO NOTHING;
     """, (series_id, obs_date, value, datetime.now(timezone.utc)))
 
 # ────────────── Main ────────────── #
@@ -142,6 +152,7 @@ def main():
         send_email(subject="STB Loader: No files", body="No Excel files found to process.", to=USER_EMAIL)
         return
 
+    allowed_set, alias_map = load_canonical_mappings()
     all_inserted = []
     failures = []
 
@@ -158,6 +169,7 @@ def main():
             log(f"📄 Processing {f.name} — Railroad: {railroad}, Date: {obs_date.date()}")
 
             results = {}
+            unknown_series = set()
             parsers = [
                 ("Speed", parse_table_1),
                 ("Dwell", parse_table_2),
@@ -169,18 +181,25 @@ def main():
             try:
                 for label, parser in parsers:
                     records = parser(f, railroad, obs_date)
-                    new_records = [r for r in records if (r[0], r[1].date()) not in existing]
+                    canonical_records = []
+                    for sid, ts, val in records:
+                        sid = sid.lower().strip()
+                        sid = alias_map.get(sid, sid)
+                        if sid not in allowed_set:
+                            unknown_series.add(sid)
+                            continue
+                        canonical_records.append((sid, ts, val))
+
+                    if unknown_series:
+                        raise ValueError(f"❌ Unknown or unapproved series_code(s): {sorted(unknown_series)}")
+
+                    new_records = [r for r in canonical_records if (r[0], r[1].date()) not in existing]
                     count = 0
                     for sid, ts, val in new_records:
-                        try:
-                            upsert_series(cur, sid, ts, val)
-                            count += 1
-                        except Exception as e:
-                            log(f"❌ Error inserting {sid}: {e}", "ERROR")
-                            conn.rollback()
-                            break
-                    else:
-                        conn.commit()
+                        upsert_series(cur, sid, ts, val)
+                        count += 1
+
+                    conn.commit()
                     all_inserted.extend(new_records)
                     results[label] = f"{count} new records"
 

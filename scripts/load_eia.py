@@ -38,8 +38,8 @@ def group_snapshot(path: Path) -> dict[str, pd.DataFrame]:
     df["value"] = pd.to_numeric(df["value"], errors="coerce")
     df = df[df["obs_date"].notna() & df["value"].notna()]
 
-    if df.duplicated(subset=["series_id", "obs_date"]).any():
-        raise ValueError("Duplicate series_id + obs_date rows found.")
+    df = df.sort_values(["series_id", "obs_date", "value"])
+    df = df.drop_duplicates(subset=["series_id", "obs_date"], keep="last")
 
     grouped = {
         sid: group[["obs_date", "value"]].copy()
@@ -52,7 +52,6 @@ def fetch_existing_obs_dates(cur, series_code: str) -> set:
     result = cur.fetchone()
     if not result:
         return set()
-
     series_id = result[0]
     cur.execute("SELECT obs_date FROM core_energy.fact_series_value WHERE series_id = %s", (series_id,))
     return {row[0] for row in cur.fetchall()}
@@ -86,7 +85,7 @@ def upsert_series(cur, series_code: str, description: str, df: pd.DataFrame) -> 
         f"""
         INSERT INTO {TABLE} (series_id, obs_date, value, loaded_at_ts)
         VALUES %s
-        ON CONFLICT DO NOTHING;
+        ON CONFLICT (series_id, obs_date) DO NOTHING;
         """,
         new_records
     )
@@ -95,26 +94,34 @@ def upsert_series(cur, series_code: str, description: str, df: pd.DataFrame) -> 
 # ────────────── Main ────────────── #
 def main():
     try:
-        try:
-            snap = latest_snapshot()
-        except FileNotFoundError as e:
-            send_email(
-                subject="EIA loader: Failed (no snapshot)",
-                body=str(e),
-                to=USER_EMAIL
-            )
-            raise
-
+        snap = latest_snapshot()
         series_lookup = load_series_lookup()
         grouped = group_snapshot(snap)
 
+        # --- Canonical enforcement ---
+        with psycopg2.connect(PG_DSN) as conn:
+            alias_df = pd.read_sql("SELECT alias_code, series_code FROM core_energy.dim_series_alias", conn)
+            allowed_df = pd.read_sql("SELECT series_code FROM core_energy.dim_series", conn)
+
+        alias_map = alias_df.set_index("alias_code")["series_code"].to_dict()
+        allowed_set = set(allowed_df["series_code"])
+
+        grouped_canonical = {}
+        for sid, df in grouped.items():
+            sid_lower = sid.strip().lower()
+            canonical = alias_map.get(sid_lower, sid_lower)
+            if canonical not in allowed_set:
+                raise ValueError(f"❌ Unapproved or unknown EIA series_code: {canonical}")
+            grouped_canonical[canonical] = df
+
+        # --- Load into DB ---
         total_inserted = 0
         with psycopg2.connect(PG_DSN) as conn, conn.cursor() as cur:
-            for sid, df in grouped.items():
-                description = series_lookup.get(sid, sid)
-                total_inserted += upsert_series(cur, sid, description, df)
+            for series_code, df in grouped_canonical.items():
+                description = series_lookup.get(series_code, series_code)
+                total_inserted += upsert_series(cur, series_code, description, df)
 
-        print(f"✓ Loaded {len(grouped)} series ({total_inserted:,} new rows) from {snap.name}")
+        print(f"✓ Loaded {len(grouped_canonical)} series ({total_inserted:,} new rows) from {snap.name}")
 
         if total_inserted > 0:
             send_email(
@@ -122,7 +129,6 @@ def main():
                 body=f"Inserted {total_inserted:,} new records from {snap.name}",
                 to=USER_EMAIL
             )
-        # ✅ Do not send email if no new data — just log it
         else:
             print(f"No new values inserted from {snap.name}. All obs_dates already exist.")
 
