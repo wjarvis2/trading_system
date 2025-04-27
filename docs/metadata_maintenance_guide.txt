@@ -1,0 +1,66 @@
+**Trading System Metadata Maintenance Guide**
+
+---
+
+# Purpose
+This document explains how to properly maintain and refresh your metadata tables (`dim_series`, `map_model_series`) and your wide view (`v_series_wide`) to keep your production system clean, synchronized, and scalable.
+
+# Key Tables
+- `core_energy.dim_series` — Master metadata for all series
+- `core_energy.map_model_series` — Mapping table for model column aliases
+- `core_energy.v_series_wide` — Wide view for modeling and dashboards
+
+# Standard Procedure
+
+## When you add or modify series
+1. **Update `dim_series`**
+   - Insert or update the necessary series with correct `model_col`, `series_code`, `unit`, `freq`, `description`, and `tags`.
+
+2. **Refresh `map_model_series`**
+   ```sql
+   TRUNCATE core_energy.map_model_series;
+   INSERT INTO core_energy.map_model_series (model_col, series_code)
+   SELECT model_col, series_code
+   FROM core_energy.dim_series;
+   ```
+
+3. **Refresh the `v_series_wide` view**
+   ```sql
+   SELECT core_energy.refresh_v_series_wide();
+   ```
+
+4. **(Optional) Backup `dim_series` to CSV**
+   ```bash
+   python scripts/export_dim_series.py
+   ```
+   - This gives you a versioned backup you can commit to GitHub if desired.
+
+---
+
+# Daily Maintenance
+- Add a DAG or scheduled script to call `SELECT core_energy.refresh_v_series_wide();`
+- Run a simple integrity check occasionally:
+  ```sql
+  SELECT COUNT(*)
+  FROM core_energy.dim_series d
+  LEFT JOIN core_energy.map_model_series m USING (model_col, series_code)
+  WHERE m.series_code IS NULL;
+  ```
+  - Should always return 0.
+
+# Important Notes
+- **dim_series** is the "golden source"; always trust it first.
+- **map_model_series** is fully derived from **dim_series** — always truncate + reload it.
+- **v_series_wide** is derived from the live tables; it needs refreshing after metadata changes.
+- Do NOT manually edit **map_model_series** — always rebuild it from `dim_series`.
+- Always prefer lowercase, snake_case for `model_col` names.
+
+---
+
+# Where to Store This File
+- Recommended path: `docs/metadata_maintenance_guide.txt`
+- You can also create a `docs/` folder at project root (`~/trading_system/docs/`) if you don't have one yet.
+
+---
+
+

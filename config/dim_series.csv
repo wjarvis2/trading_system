@@ -1,1173 +1,167 @@
-model_col,series_code,unit,freq,description,tags
-baker_canada_gas_directional_other,baker.canada.gas.directional.other,rigs,weekly,Baker Canada Gas Directional Other,['baker']
-baker_canada_gas_horizontal_other,baker.canada.gas.horizontal.other,rigs,weekly,Baker Canada Gas Horizontal Other,['baker']
-baker_canada_gas_other_other,baker.canada.gas.other.other,rigs,weekly,Baker Canada Gas Other Other,['baker']
-baker_canada_gas_vertical_other,baker.canada.gas.vertical.other,rigs,weekly,Baker Canada Gas Vertical Other,['baker']
-baker_canada_miscellaneous_directional_other,baker.canada.miscellaneous.directional.other,rigs,weekly,Baker Canada Miscellaneous Directional Other,['baker']
-baker_canada_miscellaneous_horizontal_other,baker.canada.miscellaneous.horizontal.other,rigs,weekly,Baker Canada Miscellaneous Horizontal Other,['baker']
-baker_canada_miscellaneous_vertical_other,baker.canada.miscellaneous.vertical.other,rigs,weekly,Baker Canada Miscellaneous Vertical Other,['baker']
-baker_canada_oil_directional_other,baker.canada.oil.directional.other,rigs,weekly,Baker Canada Oil Directional Other,['baker']
-baker_canada_oil_horizontal_other,baker.canada.oil.horizontal.other,rigs,weekly,Baker Canada Oil Horizontal Other,['baker']
-baker_canada_oil_vertical_other,baker.canada.oil.vertical.other,rigs,weekly,Baker Canada Oil Vertical Other,['baker']
-baker_unitedstates_gas_directional_ardmore_woodford,baker.united states.gas.directional.ardmore_woodford,rigs,weekly,Baker Unitedstates Gas Directional Ardmore Woodford,['baker']
-baker_unitedstates_gas_directional_arkoma_woodford,baker.united states.gas.directional.arkoma_woodford,rigs,weekly,Baker Unitedstates Gas Directional Arkoma Woodford,['baker']
-baker_unitedstates_gas_directional_barnett,baker.united states.gas.directional.barnett,rigs,weekly,Baker Unitedstates Gas Directional Barnett,['baker']
-baker_unitedstates_gas_directional_cana_woodford,baker.united states.gas.directional.cana_woodford,rigs,weekly,Baker Unitedstates Gas Directional Cana Woodford,['baker']
-baker_unitedstates_gas_directional_dj_niobrara,baker.united states.gas.directional.dj-niobrara,rigs,weekly,Baker Unitedstates Gas Directional Dj Niobrara,['baker']
-baker_unitedstates_gas_directional_eagle_ford,baker.united states.gas.directional.eagle_ford,rigs,weekly,Baker Unitedstates Gas Directional Eagle Ford,['baker']
-baker_unitedstates_gas_directional_granite_wash,baker.united states.gas.directional.granite_wash,rigs,weekly,Baker Unitedstates Gas Directional Granite Wash,['baker']
-baker_unitedstates_gas_directional_haynesville,baker.united states.gas.directional.haynesville,rigs,weekly,Baker Unitedstates Gas Directional Haynesville,['baker']
-baker_unitedstates_gas_directional_marcellus,baker.united states.gas.directional.marcellus,rigs,weekly,Baker Unitedstates Gas Directional Marcellus,['baker']
-baker_unitedstates_gas_directional_other,baker.united states.gas.directional.other,rigs,weekly,Baker Unitedstates Gas Directional Other,['baker']
-baker_unitedstates_gas_directional_permian,baker.united states.gas.directional.permian,rigs,weekly,Baker Unitedstates Gas Directional Permian,['baker']
-baker_unitedstates_gas_directional_utica,baker.united states.gas.directional.utica,rigs,weekly,Baker Unitedstates Gas Directional Utica,['baker']
-baker_unitedstates_gas_horizontal_ardmore_woodford,baker.united states.gas.horizontal.ardmore_woodford,rigs,weekly,Baker Unitedstates Gas Horizontal Ardmore Woodford,['baker']
-baker_unitedstates_gas_horizontal_arkoma_woodford,baker.united states.gas.horizontal.arkoma_woodford,rigs,weekly,Baker Unitedstates Gas Horizontal Arkoma Woodford,['baker']
-baker_unitedstates_gas_horizontal_barnett,baker.united states.gas.horizontal.barnett,rigs,weekly,Baker Unitedstates Gas Horizontal Barnett,['baker']
-baker_unitedstates_gas_horizontal_cana_woodford,baker.united states.gas.horizontal.cana_woodford,rigs,weekly,Baker Unitedstates Gas Horizontal Cana Woodford,['baker']
-baker_unitedstates_gas_horizontal_dj_niobrara,baker.united states.gas.horizontal.dj-niobrara,rigs,weekly,Baker Unitedstates Gas Horizontal Dj Niobrara,['baker']
-baker_unitedstates_gas_horizontal_eagle_ford,baker.united states.gas.horizontal.eagle_ford,rigs,weekly,Baker Unitedstates Gas Horizontal Eagle Ford,['baker']
-baker_unitedstates_gas_horizontal_fayetteville,baker.united states.gas.horizontal.fayetteville,rigs,weekly,Baker Unitedstates Gas Horizontal Fayetteville,['baker']
-baker_unitedstates_gas_horizontal_granite_wash,baker.united states.gas.horizontal.granite_wash,rigs,weekly,Baker Unitedstates Gas Horizontal Granite Wash,['baker']
-baker_unitedstates_gas_horizontal_haynesville,baker.united states.gas.horizontal.haynesville,rigs,weekly,Baker Unitedstates Gas Horizontal Haynesville,['baker']
-baker_unitedstates_gas_horizontal_marcellus,baker.united states.gas.horizontal.marcellus,rigs,weekly,Baker Unitedstates Gas Horizontal Marcellus,['baker']
-baker_unitedstates_gas_horizontal_mississippian,baker.united states.gas.horizontal.mississippian,rigs,weekly,Baker Unitedstates Gas Horizontal Mississippian,['baker']
-baker_unitedstates_gas_horizontal_other,baker.united states.gas.horizontal.other,rigs,weekly,Baker Unitedstates Gas Horizontal Other,['baker']
-baker_unitedstates_gas_horizontal_permian,baker.united states.gas.horizontal.permian,rigs,weekly,Baker Unitedstates Gas Horizontal Permian,['baker']
-baker_unitedstates_gas_horizontal_utica,baker.united states.gas.horizontal.utica,rigs,weekly,Baker Unitedstates Gas Horizontal Utica,['baker']
-baker_unitedstates_gas_horizontal_williston,baker.united states.gas.horizontal.williston,rigs,weekly,Baker Unitedstates Gas Horizontal Williston,['baker']
-baker_unitedstates_gas_other_other,baker.united states.gas.other.other,rigs,weekly,Baker Unitedstates Gas Other Other,['baker']
-baker_unitedstates_gas_vertical_ardmore_woodford,baker.united states.gas.vertical.ardmore_woodford,rigs,weekly,Baker Unitedstates Gas Vertical Ardmore Woodford,['baker']
-baker_unitedstates_gas_vertical_arkoma_woodford,baker.united states.gas.vertical.arkoma_woodford,rigs,weekly,Baker Unitedstates Gas Vertical Arkoma Woodford,['baker']
-baker_unitedstates_gas_vertical_barnett,baker.united states.gas.vertical.barnett,rigs,weekly,Baker Unitedstates Gas Vertical Barnett,['baker']
-baker_unitedstates_gas_vertical_cana_woodford,baker.united states.gas.vertical.cana_woodford,rigs,weekly,Baker Unitedstates Gas Vertical Cana Woodford,['baker']
-baker_unitedstates_gas_vertical_dj_niobrara,baker.united states.gas.vertical.dj-niobrara,rigs,weekly,Baker Unitedstates Gas Vertical Dj Niobrara,['baker']
-baker_unitedstates_gas_vertical_eagle_ford,baker.united states.gas.vertical.eagle_ford,rigs,weekly,Baker Unitedstates Gas Vertical Eagle Ford,['baker']
-baker_unitedstates_gas_vertical_fayetteville,baker.united states.gas.vertical.fayetteville,rigs,weekly,Baker Unitedstates Gas Vertical Fayetteville,['baker']
-baker_unitedstates_gas_vertical_granite_wash,baker.united states.gas.vertical.granite_wash,rigs,weekly,Baker Unitedstates Gas Vertical Granite Wash,['baker']
-baker_unitedstates_gas_vertical_haynesville,baker.united states.gas.vertical.haynesville,rigs,weekly,Baker Unitedstates Gas Vertical Haynesville,['baker']
-baker_unitedstates_gas_vertical_marcellus,baker.united states.gas.vertical.marcellus,rigs,weekly,Baker Unitedstates Gas Vertical Marcellus,['baker']
-baker_unitedstates_gas_vertical_mississippian,baker.united states.gas.vertical.mississippian,rigs,weekly,Baker Unitedstates Gas Vertical Mississippian,['baker']
-baker_unitedstates_gas_vertical_other,baker.united states.gas.vertical.other,rigs,weekly,Baker Unitedstates Gas Vertical Other,['baker']
-baker_unitedstates_gas_vertical_permian,baker.united states.gas.vertical.permian,rigs,weekly,Baker Unitedstates Gas Vertical Permian,['baker']
-baker_unitedstates_gas_vertical_utica,baker.united states.gas.vertical.utica,rigs,weekly,Baker Unitedstates Gas Vertical Utica,['baker']
-baker_unitedstates_miscellaneous_directional_eagle_ford,baker.united states.miscellaneous.directional.eagle_ford,rigs,weekly,Baker Unitedstates Miscellaneous Directional Eagle Ford,['baker']
-baker_unitedstates_miscellaneous_directional_marcellus,baker.united states.miscellaneous.directional.marcellus,rigs,weekly,Baker Unitedstates Miscellaneous Directional Marcellus,['baker']
-baker_unitedstates_miscellaneous_directional_other,baker.united states.miscellaneous.directional.other,rigs,weekly,Baker Unitedstates Miscellaneous Directional Other,['baker']
-baker_unitedstates_miscellaneous_directional_utica,baker.united states.miscellaneous.directional.utica,rigs,weekly,Baker Unitedstates Miscellaneous Directional Utica,['baker']
-baker_unitedstates_miscellaneous_directional_williston,baker.united states.miscellaneous.directional.williston,rigs,weekly,Baker Unitedstates Miscellaneous Directional Williston,['baker']
-baker_unitedstates_miscellaneous_horizontal_ardmore_woodford,baker.united states.miscellaneous.horizontal.ardmore_woodford,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Ardmore Woodford,['baker']
-baker_unitedstates_miscellaneous_horizontal_barnett,baker.united states.miscellaneous.horizontal.barnett,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Barnett,['baker']
-baker_unitedstates_miscellaneous_horizontal_cana_woodford,baker.united states.miscellaneous.horizontal.cana_woodford,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Cana Woodford,['baker']
-baker_unitedstates_miscellaneous_horizontal_eagle_ford,baker.united states.miscellaneous.horizontal.eagle_ford,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Eagle Ford,['baker']
-baker_unitedstates_miscellaneous_horizontal_other,baker.united states.miscellaneous.horizontal.other,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Other,['baker']
-baker_unitedstates_miscellaneous_horizontal_permian,baker.united states.miscellaneous.horizontal.permian,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Permian,['baker']
-baker_unitedstates_miscellaneous_horizontal_utica,baker.united states.miscellaneous.horizontal.utica,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Utica,['baker']
-baker_unitedstates_miscellaneous_horizontal_williston,baker.united states.miscellaneous.horizontal.williston,rigs,weekly,Baker Unitedstates Miscellaneous Horizontal Williston,['baker']
-baker_unitedstates_miscellaneous_vertical_eagle_ford,baker.united states.miscellaneous.vertical.eagle_ford,rigs,weekly,Baker Unitedstates Miscellaneous Vertical Eagle Ford,['baker']
-baker_unitedstates_miscellaneous_vertical_haynesville,baker.united states.miscellaneous.vertical.haynesville,rigs,weekly,Baker Unitedstates Miscellaneous Vertical Haynesville,['baker']
-baker_unitedstates_miscellaneous_vertical_marcellus,baker.united states.miscellaneous.vertical.marcellus,rigs,weekly,Baker Unitedstates Miscellaneous Vertical Marcellus,['baker']
-baker_unitedstates_miscellaneous_vertical_other,baker.united states.miscellaneous.vertical.other,rigs,weekly,Baker Unitedstates Miscellaneous Vertical Other,['baker']
-baker_unitedstates_miscellaneous_vertical_permian,baker.united states.miscellaneous.vertical.permian,rigs,weekly,Baker Unitedstates Miscellaneous Vertical Permian,['baker']
-baker_unitedstates_miscellaneous_vertical_utica,baker.united states.miscellaneous.vertical.utica,rigs,weekly,Baker Unitedstates Miscellaneous Vertical Utica,['baker']
-baker_unitedstates_miscellaneous_vertical_williston,baker.united states.miscellaneous.vertical.williston,rigs,weekly,Baker Unitedstates Miscellaneous Vertical Williston,['baker']
-baker_unitedstates_oil_directional_ardmore_woodford,baker.united states.oil.directional.ardmore_woodford,rigs,weekly,Baker Unitedstates Oil Directional Ardmore Woodford,['baker']
-baker_unitedstates_oil_directional_arkoma_woodford,baker.united states.oil.directional.arkoma_woodford,rigs,weekly,Baker Unitedstates Oil Directional Arkoma Woodford,['baker']
-baker_unitedstates_oil_directional_barnett,baker.united states.oil.directional.barnett,rigs,weekly,Baker Unitedstates Oil Directional Barnett,['baker']
-baker_unitedstates_oil_directional_cana_woodford,baker.united states.oil.directional.cana_woodford,rigs,weekly,Baker Unitedstates Oil Directional Cana Woodford,['baker']
-baker_unitedstates_oil_directional_dj_niobrara,baker.united states.oil.directional.dj-niobrara,rigs,weekly,Baker Unitedstates Oil Directional Dj Niobrara,['baker']
-baker_unitedstates_oil_directional_eagle_ford,baker.united states.oil.directional.eagle_ford,rigs,weekly,Baker Unitedstates Oil Directional Eagle Ford,['baker']
-baker_unitedstates_oil_directional_granite_wash,baker.united states.oil.directional.granite_wash,rigs,weekly,Baker Unitedstates Oil Directional Granite Wash,['baker']
-baker_unitedstates_oil_directional_haynesville,baker.united states.oil.directional.haynesville,rigs,weekly,Baker Unitedstates Oil Directional Haynesville,['baker']
-baker_unitedstates_oil_directional_marcellus,baker.united states.oil.directional.marcellus,rigs,weekly,Baker Unitedstates Oil Directional Marcellus,['baker']
-baker_unitedstates_oil_directional_mississippian,baker.united states.oil.directional.mississippian,rigs,weekly,Baker Unitedstates Oil Directional Mississippian,['baker']
-baker_unitedstates_oil_directional_other,baker.united states.oil.directional.other,rigs,weekly,Baker Unitedstates Oil Directional Other,['baker']
-baker_unitedstates_oil_directional_permian,baker.united states.oil.directional.permian,rigs,weekly,Baker Unitedstates Oil Directional Permian,['baker']
-baker_unitedstates_oil_directional_utica,baker.united states.oil.directional.utica,rigs,weekly,Baker Unitedstates Oil Directional Utica,['baker']
-baker_unitedstates_oil_directional_williston,baker.united states.oil.directional.williston,rigs,weekly,Baker Unitedstates Oil Directional Williston,['baker']
-baker_unitedstates_oil_horizontal_ardmore_woodford,baker.united states.oil.horizontal.ardmore_woodford,rigs,weekly,Baker Unitedstates Oil Horizontal Ardmore Woodford,['baker']
-baker_unitedstates_oil_horizontal_arkoma_woodford,baker.united states.oil.horizontal.arkoma_woodford,rigs,weekly,Baker Unitedstates Oil Horizontal Arkoma Woodford,['baker']
-baker_unitedstates_oil_horizontal_barnett,baker.united states.oil.horizontal.barnett,rigs,weekly,Baker Unitedstates Oil Horizontal Barnett,['baker']
-baker_unitedstates_oil_horizontal_cana_woodford,baker.united states.oil.horizontal.cana_woodford,rigs,weekly,Baker Unitedstates Oil Horizontal Cana Woodford,['baker']
-baker_unitedstates_oil_horizontal_dj_niobrara,baker.united states.oil.horizontal.dj-niobrara,rigs,weekly,Baker Unitedstates Oil Horizontal Dj Niobrara,['baker']
-baker_unitedstates_oil_horizontal_eagle_ford,baker.united states.oil.horizontal.eagle_ford,rigs,weekly,Baker Unitedstates Oil Horizontal Eagle Ford,['baker']
-baker_unitedstates_oil_horizontal_granite_wash,baker.united states.oil.horizontal.granite_wash,rigs,weekly,Baker Unitedstates Oil Horizontal Granite Wash,['baker']
-baker_unitedstates_oil_horizontal_haynesville,baker.united states.oil.horizontal.haynesville,rigs,weekly,Baker Unitedstates Oil Horizontal Haynesville,['baker']
-baker_unitedstates_oil_horizontal_marcellus,baker.united states.oil.horizontal.marcellus,rigs,weekly,Baker Unitedstates Oil Horizontal Marcellus,['baker']
-baker_unitedstates_oil_horizontal_mississippian,baker.united states.oil.horizontal.mississippian,rigs,weekly,Baker Unitedstates Oil Horizontal Mississippian,['baker']
-baker_unitedstates_oil_horizontal_other,baker.united states.oil.horizontal.other,rigs,weekly,Baker Unitedstates Oil Horizontal Other,['baker']
-baker_unitedstates_oil_horizontal_permian,baker.united states.oil.horizontal.permian,rigs,weekly,Baker Unitedstates Oil Horizontal Permian,['baker']
-baker_unitedstates_oil_horizontal_utica,baker.united states.oil.horizontal.utica,rigs,weekly,Baker Unitedstates Oil Horizontal Utica,['baker']
-baker_unitedstates_oil_horizontal_williston,baker.united states.oil.horizontal.williston,rigs,weekly,Baker Unitedstates Oil Horizontal Williston,['baker']
-baker_unitedstates_oil_other_other,baker.united states.oil.other.other,rigs,weekly,Baker Unitedstates Oil Other Other,['baker']
-baker_unitedstates_oil_other_permian,baker.united states.oil.other.permian,rigs,weekly,Baker Unitedstates Oil Other Permian,['baker']
-baker_unitedstates_oil_vertical_ardmore_woodford,baker.united states.oil.vertical.ardmore_woodford,rigs,weekly,Baker Unitedstates Oil Vertical Ardmore Woodford,['baker']
-baker_unitedstates_oil_vertical_arkoma_woodford,baker.united states.oil.vertical.arkoma_woodford,rigs,weekly,Baker Unitedstates Oil Vertical Arkoma Woodford,['baker']
-baker_unitedstates_oil_vertical_barnett,baker.united states.oil.vertical.barnett,rigs,weekly,Baker Unitedstates Oil Vertical Barnett,['baker']
-baker_unitedstates_oil_vertical_cana_woodford,baker.united states.oil.vertical.cana_woodford,rigs,weekly,Baker Unitedstates Oil Vertical Cana Woodford,['baker']
-baker_unitedstates_oil_vertical_dj_niobrara,baker.united states.oil.vertical.dj-niobrara,rigs,weekly,Baker Unitedstates Oil Vertical Dj Niobrara,['baker']
-baker_unitedstates_oil_vertical_eagle_ford,baker.united states.oil.vertical.eagle_ford,rigs,weekly,Baker Unitedstates Oil Vertical Eagle Ford,['baker']
-baker_unitedstates_oil_vertical_fayetteville,baker.united states.oil.vertical.fayetteville,rigs,weekly,Baker Unitedstates Oil Vertical Fayetteville,['baker']
-baker_unitedstates_oil_vertical_granite_wash,baker.united states.oil.vertical.granite_wash,rigs,weekly,Baker Unitedstates Oil Vertical Granite Wash,['baker']
-baker_unitedstates_oil_vertical_haynesville,baker.united states.oil.vertical.haynesville,rigs,weekly,Baker Unitedstates Oil Vertical Haynesville,['baker']
-baker_unitedstates_oil_vertical_marcellus,baker.united states.oil.vertical.marcellus,rigs,weekly,Baker Unitedstates Oil Vertical Marcellus,['baker']
-baker_unitedstates_oil_vertical_mississippian,baker.united states.oil.vertical.mississippian,rigs,weekly,Baker Unitedstates Oil Vertical Mississippian,['baker']
-baker_unitedstates_oil_vertical_other,baker.united states.oil.vertical.other,rigs,weekly,Baker Unitedstates Oil Vertical Other,['baker']
-baker_unitedstates_oil_vertical_permian,baker.united states.oil.vertical.permian,rigs,weekly,Baker Unitedstates Oil Vertical Permian,['baker']
-baker_unitedstates_oil_vertical_utica,baker.united states.oil.vertical.utica,rigs,weekly,Baker Unitedstates Oil Vertical Utica,['baker']
-baker_unitedstates_oil_vertical_williston,baker.united states.oil.vertical.williston,rigs,weekly,Baker Unitedstates Oil Vertical Williston,['baker']
-google_mobility_united_states_alabama_grocery,google_mobility.united_states.alabama.grocery,index,daily,Google Mobility United States Alabama Grocery,"['google', 'mobility']"
-google_mobility_united_states_alabama_parks,google_mobility.united_states.alabama.parks,index,daily,Google Mobility United States Alabama Parks,"['google', 'mobility']"
-google_mobility_united_states_alabama_residential,google_mobility.united_states.alabama.residential,index,daily,Google Mobility United States Alabama Residential,"['google', 'mobility']"
-google_mobility_united_states_alabama_retail,google_mobility.united_states.alabama.retail,index,daily,Google Mobility United States Alabama Retail,"['google', 'mobility']"
-google_mobility_united_states_alabama_transit,google_mobility.united_states.alabama.transit,index,daily,Google Mobility United States Alabama Transit,"['google', 'mobility']"
-google_mobility_united_states_alabama_work,google_mobility.united_states.alabama.work,index,daily,Google Mobility United States Alabama Work,"['google', 'mobility']"
-google_mobility_united_states_alaska_grocery,google_mobility.united_states.alaska.grocery,index,daily,Google Mobility United States Alaska Grocery,"['google', 'mobility']"
-google_mobility_united_states_alaska_parks,google_mobility.united_states.alaska.parks,index,daily,Google Mobility United States Alaska Parks,"['google', 'mobility']"
-google_mobility_united_states_alaska_residential,google_mobility.united_states.alaska.residential,index,daily,Google Mobility United States Alaska Residential,"['google', 'mobility']"
-google_mobility_united_states_alaska_retail,google_mobility.united_states.alaska.retail,index,daily,Google Mobility United States Alaska Retail,"['google', 'mobility']"
-google_mobility_united_states_alaska_transit,google_mobility.united_states.alaska.transit,index,daily,Google Mobility United States Alaska Transit,"['google', 'mobility']"
-google_mobility_united_states_alaska_work,google_mobility.united_states.alaska.work,index,daily,Google Mobility United States Alaska Work,"['google', 'mobility']"
-google_mobility_united_states_arizona_grocery,google_mobility.united_states.arizona.grocery,index,daily,Google Mobility United States Arizona Grocery,"['google', 'mobility']"
-google_mobility_united_states_arizona_parks,google_mobility.united_states.arizona.parks,index,daily,Google Mobility United States Arizona Parks,"['google', 'mobility']"
-google_mobility_united_states_arizona_residential,google_mobility.united_states.arizona.residential,index,daily,Google Mobility United States Arizona Residential,"['google', 'mobility']"
-google_mobility_united_states_arizona_retail,google_mobility.united_states.arizona.retail,index,daily,Google Mobility United States Arizona Retail,"['google', 'mobility']"
-google_mobility_united_states_arizona_transit,google_mobility.united_states.arizona.transit,index,daily,Google Mobility United States Arizona Transit,"['google', 'mobility']"
-google_mobility_united_states_arizona_work,google_mobility.united_states.arizona.work,index,daily,Google Mobility United States Arizona Work,"['google', 'mobility']"
-google_mobility_united_states_arkansas_grocery,google_mobility.united_states.arkansas.grocery,index,daily,Google Mobility United States Arkansas Grocery,"['google', 'mobility']"
-google_mobility_united_states_arkansas_parks,google_mobility.united_states.arkansas.parks,index,daily,Google Mobility United States Arkansas Parks,"['google', 'mobility']"
-google_mobility_united_states_arkansas_residential,google_mobility.united_states.arkansas.residential,index,daily,Google Mobility United States Arkansas Residential,"['google', 'mobility']"
-google_mobility_united_states_arkansas_retail,google_mobility.united_states.arkansas.retail,index,daily,Google Mobility United States Arkansas Retail,"['google', 'mobility']"
-google_mobility_united_states_arkansas_transit,google_mobility.united_states.arkansas.transit,index,daily,Google Mobility United States Arkansas Transit,"['google', 'mobility']"
-google_mobility_united_states_arkansas_work,google_mobility.united_states.arkansas.work,index,daily,Google Mobility United States Arkansas Work,"['google', 'mobility']"
-google_mobility_united_states_california_grocery,google_mobility.united_states.california.grocery,index,daily,Google Mobility United States California Grocery,"['google', 'mobility']"
-google_mobility_united_states_california_parks,google_mobility.united_states.california.parks,index,daily,Google Mobility United States California Parks,"['google', 'mobility']"
-google_mobility_united_states_california_residential,google_mobility.united_states.california.residential,index,daily,Google Mobility United States California Residential,"['google', 'mobility']"
-google_mobility_united_states_california_retail,google_mobility.united_states.california.retail,index,daily,Google Mobility United States California Retail,"['google', 'mobility']"
-google_mobility_united_states_california_transit,google_mobility.united_states.california.transit,index,daily,Google Mobility United States California Transit,"['google', 'mobility']"
-google_mobility_united_states_california_work,google_mobility.united_states.california.work,index,daily,Google Mobility United States California Work,"['google', 'mobility']"
-google_mobility_united_states_colorado_grocery,google_mobility.united_states.colorado.grocery,index,daily,Google Mobility United States Colorado Grocery,"['google', 'mobility']"
-google_mobility_united_states_colorado_parks,google_mobility.united_states.colorado.parks,index,daily,Google Mobility United States Colorado Parks,"['google', 'mobility']"
-google_mobility_united_states_colorado_residential,google_mobility.united_states.colorado.residential,index,daily,Google Mobility United States Colorado Residential,"['google', 'mobility']"
-google_mobility_united_states_colorado_retail,google_mobility.united_states.colorado.retail,index,daily,Google Mobility United States Colorado Retail,"['google', 'mobility']"
-google_mobility_united_states_colorado_transit,google_mobility.united_states.colorado.transit,index,daily,Google Mobility United States Colorado Transit,"['google', 'mobility']"
-google_mobility_united_states_colorado_work,google_mobility.united_states.colorado.work,index,daily,Google Mobility United States Colorado Work,"['google', 'mobility']"
-google_mobility_united_states_connecticut_grocery,google_mobility.united_states.connecticut.grocery,index,daily,Google Mobility United States Connecticut Grocery,"['google', 'mobility']"
-google_mobility_united_states_connecticut_parks,google_mobility.united_states.connecticut.parks,index,daily,Google Mobility United States Connecticut Parks,"['google', 'mobility']"
-google_mobility_united_states_connecticut_residential,google_mobility.united_states.connecticut.residential,index,daily,Google Mobility United States Connecticut Residential,"['google', 'mobility']"
-google_mobility_united_states_connecticut_retail,google_mobility.united_states.connecticut.retail,index,daily,Google Mobility United States Connecticut Retail,"['google', 'mobility']"
-google_mobility_united_states_connecticut_transit,google_mobility.united_states.connecticut.transit,index,daily,Google Mobility United States Connecticut Transit,"['google', 'mobility']"
-google_mobility_united_states_connecticut_work,google_mobility.united_states.connecticut.work,index,daily,Google Mobility United States Connecticut Work,"['google', 'mobility']"
-google_mobility_united_states_delaware_grocery,google_mobility.united_states.delaware.grocery,index,daily,Google Mobility United States Delaware Grocery,"['google', 'mobility']"
-google_mobility_united_states_delaware_parks,google_mobility.united_states.delaware.parks,index,daily,Google Mobility United States Delaware Parks,"['google', 'mobility']"
-google_mobility_united_states_delaware_residential,google_mobility.united_states.delaware.residential,index,daily,Google Mobility United States Delaware Residential,"['google', 'mobility']"
-google_mobility_united_states_delaware_retail,google_mobility.united_states.delaware.retail,index,daily,Google Mobility United States Delaware Retail,"['google', 'mobility']"
-google_mobility_united_states_delaware_transit,google_mobility.united_states.delaware.transit,index,daily,Google Mobility United States Delaware Transit,"['google', 'mobility']"
-google_mobility_united_states_delaware_work,google_mobility.united_states.delaware.work,index,daily,Google Mobility United States Delaware Work,"['google', 'mobility']"
-google_mobility_united_states_district_of_columbia_grocery,google_mobility.united_states.district_of_columbia.grocery,index,daily,Google Mobility United States District Of Columbia Grocery,"['google', 'mobility']"
-google_mobility_united_states_district_of_columbia_parks,google_mobility.united_states.district_of_columbia.parks,index,daily,Google Mobility United States District Of Columbia Parks,"['google', 'mobility']"
-google_mobility_united_states_district_of_columbia_residential,google_mobility.united_states.district_of_columbia.residential,index,daily,Google Mobility United States District Of Columbia Residential,"['google', 'mobility']"
-google_mobility_united_states_district_of_columbia_retail,google_mobility.united_states.district_of_columbia.retail,index,daily,Google Mobility United States District Of Columbia Retail,"['google', 'mobility']"
-google_mobility_united_states_district_of_columbia_transit,google_mobility.united_states.district_of_columbia.transit,index,daily,Google Mobility United States District Of Columbia Transit,"['google', 'mobility']"
-google_mobility_united_states_district_of_columbia_work,google_mobility.united_states.district_of_columbia.work,index,daily,Google Mobility United States District Of Columbia Work,"['google', 'mobility']"
-google_mobility_united_states_florida_grocery,google_mobility.united_states.florida.grocery,index,daily,Google Mobility United States Florida Grocery,"['google', 'mobility']"
-google_mobility_united_states_florida_parks,google_mobility.united_states.florida.parks,index,daily,Google Mobility United States Florida Parks,"['google', 'mobility']"
-google_mobility_united_states_florida_residential,google_mobility.united_states.florida.residential,index,daily,Google Mobility United States Florida Residential,"['google', 'mobility']"
-google_mobility_united_states_florida_retail,google_mobility.united_states.florida.retail,index,daily,Google Mobility United States Florida Retail,"['google', 'mobility']"
-google_mobility_united_states_florida_transit,google_mobility.united_states.florida.transit,index,daily,Google Mobility United States Florida Transit,"['google', 'mobility']"
-google_mobility_united_states_florida_work,google_mobility.united_states.florida.work,index,daily,Google Mobility United States Florida Work,"['google', 'mobility']"
-google_mobility_united_states_georgia_grocery,google_mobility.united_states.georgia.grocery,index,daily,Google Mobility United States Georgia Grocery,"['google', 'mobility']"
-google_mobility_united_states_georgia_parks,google_mobility.united_states.georgia.parks,index,daily,Google Mobility United States Georgia Parks,"['google', 'mobility']"
-google_mobility_united_states_georgia_residential,google_mobility.united_states.georgia.residential,index,daily,Google Mobility United States Georgia Residential,"['google', 'mobility']"
-google_mobility_united_states_georgia_retail,google_mobility.united_states.georgia.retail,index,daily,Google Mobility United States Georgia Retail,"['google', 'mobility']"
-google_mobility_united_states_georgia_transit,google_mobility.united_states.georgia.transit,index,daily,Google Mobility United States Georgia Transit,"['google', 'mobility']"
-google_mobility_united_states_georgia_work,google_mobility.united_states.georgia.work,index,daily,Google Mobility United States Georgia Work,"['google', 'mobility']"
-google_mobility_united_states_grocery,google_mobility.united_states.grocery,index,daily,Google Mobility United States Grocery,"['google', 'mobility']"
-google_mobility_united_states_hawaii_grocery,google_mobility.united_states.hawaii.grocery,index,daily,Google Mobility United States Hawaii Grocery,"['google', 'mobility']"
-google_mobility_united_states_hawaii_parks,google_mobility.united_states.hawaii.parks,index,daily,Google Mobility United States Hawaii Parks,"['google', 'mobility']"
-google_mobility_united_states_hawaii_residential,google_mobility.united_states.hawaii.residential,index,daily,Google Mobility United States Hawaii Residential,"['google', 'mobility']"
-google_mobility_united_states_hawaii_retail,google_mobility.united_states.hawaii.retail,index,daily,Google Mobility United States Hawaii Retail,"['google', 'mobility']"
-google_mobility_united_states_hawaii_transit,google_mobility.united_states.hawaii.transit,index,daily,Google Mobility United States Hawaii Transit,"['google', 'mobility']"
-google_mobility_united_states_hawaii_work,google_mobility.united_states.hawaii.work,index,daily,Google Mobility United States Hawaii Work,"['google', 'mobility']"
-google_mobility_united_states_idaho_grocery,google_mobility.united_states.idaho.grocery,index,daily,Google Mobility United States Idaho Grocery,"['google', 'mobility']"
-google_mobility_united_states_idaho_parks,google_mobility.united_states.idaho.parks,index,daily,Google Mobility United States Idaho Parks,"['google', 'mobility']"
-google_mobility_united_states_idaho_residential,google_mobility.united_states.idaho.residential,index,daily,Google Mobility United States Idaho Residential,"['google', 'mobility']"
-google_mobility_united_states_idaho_retail,google_mobility.united_states.idaho.retail,index,daily,Google Mobility United States Idaho Retail,"['google', 'mobility']"
-google_mobility_united_states_idaho_transit,google_mobility.united_states.idaho.transit,index,daily,Google Mobility United States Idaho Transit,"['google', 'mobility']"
-google_mobility_united_states_idaho_work,google_mobility.united_states.idaho.work,index,daily,Google Mobility United States Idaho Work,"['google', 'mobility']"
-google_mobility_united_states_illinois_grocery,google_mobility.united_states.illinois.grocery,index,daily,Google Mobility United States Illinois Grocery,"['google', 'mobility']"
-google_mobility_united_states_illinois_parks,google_mobility.united_states.illinois.parks,index,daily,Google Mobility United States Illinois Parks,"['google', 'mobility']"
-google_mobility_united_states_illinois_residential,google_mobility.united_states.illinois.residential,index,daily,Google Mobility United States Illinois Residential,"['google', 'mobility']"
-google_mobility_united_states_illinois_retail,google_mobility.united_states.illinois.retail,index,daily,Google Mobility United States Illinois Retail,"['google', 'mobility']"
-google_mobility_united_states_illinois_transit,google_mobility.united_states.illinois.transit,index,daily,Google Mobility United States Illinois Transit,"['google', 'mobility']"
-google_mobility_united_states_illinois_work,google_mobility.united_states.illinois.work,index,daily,Google Mobility United States Illinois Work,"['google', 'mobility']"
-google_mobility_united_states_indiana_grocery,google_mobility.united_states.indiana.grocery,index,daily,Google Mobility United States Indiana Grocery,"['google', 'mobility']"
-google_mobility_united_states_indiana_parks,google_mobility.united_states.indiana.parks,index,daily,Google Mobility United States Indiana Parks,"['google', 'mobility']"
-google_mobility_united_states_indiana_residential,google_mobility.united_states.indiana.residential,index,daily,Google Mobility United States Indiana Residential,"['google', 'mobility']"
-google_mobility_united_states_indiana_retail,google_mobility.united_states.indiana.retail,index,daily,Google Mobility United States Indiana Retail,"['google', 'mobility']"
-google_mobility_united_states_indiana_transit,google_mobility.united_states.indiana.transit,index,daily,Google Mobility United States Indiana Transit,"['google', 'mobility']"
-google_mobility_united_states_indiana_work,google_mobility.united_states.indiana.work,index,daily,Google Mobility United States Indiana Work,"['google', 'mobility']"
-google_mobility_united_states_iowa_grocery,google_mobility.united_states.iowa.grocery,index,daily,Google Mobility United States Iowa Grocery,"['google', 'mobility']"
-google_mobility_united_states_iowa_parks,google_mobility.united_states.iowa.parks,index,daily,Google Mobility United States Iowa Parks,"['google', 'mobility']"
-google_mobility_united_states_iowa_residential,google_mobility.united_states.iowa.residential,index,daily,Google Mobility United States Iowa Residential,"['google', 'mobility']"
-google_mobility_united_states_iowa_retail,google_mobility.united_states.iowa.retail,index,daily,Google Mobility United States Iowa Retail,"['google', 'mobility']"
-google_mobility_united_states_iowa_transit,google_mobility.united_states.iowa.transit,index,daily,Google Mobility United States Iowa Transit,"['google', 'mobility']"
-google_mobility_united_states_iowa_work,google_mobility.united_states.iowa.work,index,daily,Google Mobility United States Iowa Work,"['google', 'mobility']"
-google_mobility_united_states_kansas_grocery,google_mobility.united_states.kansas.grocery,index,daily,Google Mobility United States Kansas Grocery,"['google', 'mobility']"
-google_mobility_united_states_kansas_parks,google_mobility.united_states.kansas.parks,index,daily,Google Mobility United States Kansas Parks,"['google', 'mobility']"
-google_mobility_united_states_kansas_residential,google_mobility.united_states.kansas.residential,index,daily,Google Mobility United States Kansas Residential,"['google', 'mobility']"
-google_mobility_united_states_kansas_retail,google_mobility.united_states.kansas.retail,index,daily,Google Mobility United States Kansas Retail,"['google', 'mobility']"
-google_mobility_united_states_kansas_transit,google_mobility.united_states.kansas.transit,index,daily,Google Mobility United States Kansas Transit,"['google', 'mobility']"
-google_mobility_united_states_kansas_work,google_mobility.united_states.kansas.work,index,daily,Google Mobility United States Kansas Work,"['google', 'mobility']"
-google_mobility_united_states_kentucky_grocery,google_mobility.united_states.kentucky.grocery,index,daily,Google Mobility United States Kentucky Grocery,"['google', 'mobility']"
-google_mobility_united_states_kentucky_parks,google_mobility.united_states.kentucky.parks,index,daily,Google Mobility United States Kentucky Parks,"['google', 'mobility']"
-google_mobility_united_states_kentucky_residential,google_mobility.united_states.kentucky.residential,index,daily,Google Mobility United States Kentucky Residential,"['google', 'mobility']"
-google_mobility_united_states_kentucky_retail,google_mobility.united_states.kentucky.retail,index,daily,Google Mobility United States Kentucky Retail,"['google', 'mobility']"
-google_mobility_united_states_kentucky_transit,google_mobility.united_states.kentucky.transit,index,daily,Google Mobility United States Kentucky Transit,"['google', 'mobility']"
-google_mobility_united_states_kentucky_work,google_mobility.united_states.kentucky.work,index,daily,Google Mobility United States Kentucky Work,"['google', 'mobility']"
-google_mobility_united_states_louisiana_grocery,google_mobility.united_states.louisiana.grocery,index,daily,Google Mobility United States Louisiana Grocery,"['google', 'mobility']"
-google_mobility_united_states_louisiana_parks,google_mobility.united_states.louisiana.parks,index,daily,Google Mobility United States Louisiana Parks,"['google', 'mobility']"
-google_mobility_united_states_louisiana_residential,google_mobility.united_states.louisiana.residential,index,daily,Google Mobility United States Louisiana Residential,"['google', 'mobility']"
-google_mobility_united_states_louisiana_retail,google_mobility.united_states.louisiana.retail,index,daily,Google Mobility United States Louisiana Retail,"['google', 'mobility']"
-google_mobility_united_states_louisiana_transit,google_mobility.united_states.louisiana.transit,index,daily,Google Mobility United States Louisiana Transit,"['google', 'mobility']"
-google_mobility_united_states_louisiana_work,google_mobility.united_states.louisiana.work,index,daily,Google Mobility United States Louisiana Work,"['google', 'mobility']"
-google_mobility_united_states_maine_grocery,google_mobility.united_states.maine.grocery,index,daily,Google Mobility United States Maine Grocery,"['google', 'mobility']"
-google_mobility_united_states_maine_parks,google_mobility.united_states.maine.parks,index,daily,Google Mobility United States Maine Parks,"['google', 'mobility']"
-google_mobility_united_states_maine_residential,google_mobility.united_states.maine.residential,index,daily,Google Mobility United States Maine Residential,"['google', 'mobility']"
-google_mobility_united_states_maine_retail,google_mobility.united_states.maine.retail,index,daily,Google Mobility United States Maine Retail,"['google', 'mobility']"
-google_mobility_united_states_maine_transit,google_mobility.united_states.maine.transit,index,daily,Google Mobility United States Maine Transit,"['google', 'mobility']"
-google_mobility_united_states_maine_work,google_mobility.united_states.maine.work,index,daily,Google Mobility United States Maine Work,"['google', 'mobility']"
-google_mobility_united_states_maryland_grocery,google_mobility.united_states.maryland.grocery,index,daily,Google Mobility United States Maryland Grocery,"['google', 'mobility']"
-google_mobility_united_states_maryland_parks,google_mobility.united_states.maryland.parks,index,daily,Google Mobility United States Maryland Parks,"['google', 'mobility']"
-google_mobility_united_states_maryland_residential,google_mobility.united_states.maryland.residential,index,daily,Google Mobility United States Maryland Residential,"['google', 'mobility']"
-google_mobility_united_states_maryland_retail,google_mobility.united_states.maryland.retail,index,daily,Google Mobility United States Maryland Retail,"['google', 'mobility']"
-google_mobility_united_states_maryland_transit,google_mobility.united_states.maryland.transit,index,daily,Google Mobility United States Maryland Transit,"['google', 'mobility']"
-google_mobility_united_states_maryland_work,google_mobility.united_states.maryland.work,index,daily,Google Mobility United States Maryland Work,"['google', 'mobility']"
-google_mobility_united_states_massachusetts_grocery,google_mobility.united_states.massachusetts.grocery,index,daily,Google Mobility United States Massachusetts Grocery,"['google', 'mobility']"
-google_mobility_united_states_massachusetts_parks,google_mobility.united_states.massachusetts.parks,index,daily,Google Mobility United States Massachusetts Parks,"['google', 'mobility']"
-google_mobility_united_states_massachusetts_residential,google_mobility.united_states.massachusetts.residential,index,daily,Google Mobility United States Massachusetts Residential,"['google', 'mobility']"
-google_mobility_united_states_massachusetts_retail,google_mobility.united_states.massachusetts.retail,index,daily,Google Mobility United States Massachusetts Retail,"['google', 'mobility']"
-google_mobility_united_states_massachusetts_transit,google_mobility.united_states.massachusetts.transit,index,daily,Google Mobility United States Massachusetts Transit,"['google', 'mobility']"
-google_mobility_united_states_massachusetts_work,google_mobility.united_states.massachusetts.work,index,daily,Google Mobility United States Massachusetts Work,"['google', 'mobility']"
-google_mobility_united_states_michigan_grocery,google_mobility.united_states.michigan.grocery,index,daily,Google Mobility United States Michigan Grocery,"['google', 'mobility']"
-google_mobility_united_states_michigan_parks,google_mobility.united_states.michigan.parks,index,daily,Google Mobility United States Michigan Parks,"['google', 'mobility']"
-google_mobility_united_states_michigan_residential,google_mobility.united_states.michigan.residential,index,daily,Google Mobility United States Michigan Residential,"['google', 'mobility']"
-google_mobility_united_states_michigan_retail,google_mobility.united_states.michigan.retail,index,daily,Google Mobility United States Michigan Retail,"['google', 'mobility']"
-google_mobility_united_states_michigan_transit,google_mobility.united_states.michigan.transit,index,daily,Google Mobility United States Michigan Transit,"['google', 'mobility']"
-google_mobility_united_states_michigan_work,google_mobility.united_states.michigan.work,index,daily,Google Mobility United States Michigan Work,"['google', 'mobility']"
-google_mobility_united_states_minnesota_grocery,google_mobility.united_states.minnesota.grocery,index,daily,Google Mobility United States Minnesota Grocery,"['google', 'mobility']"
-google_mobility_united_states_minnesota_parks,google_mobility.united_states.minnesota.parks,index,daily,Google Mobility United States Minnesota Parks,"['google', 'mobility']"
-google_mobility_united_states_minnesota_residential,google_mobility.united_states.minnesota.residential,index,daily,Google Mobility United States Minnesota Residential,"['google', 'mobility']"
-google_mobility_united_states_minnesota_retail,google_mobility.united_states.minnesota.retail,index,daily,Google Mobility United States Minnesota Retail,"['google', 'mobility']"
-google_mobility_united_states_minnesota_transit,google_mobility.united_states.minnesota.transit,index,daily,Google Mobility United States Minnesota Transit,"['google', 'mobility']"
-google_mobility_united_states_minnesota_work,google_mobility.united_states.minnesota.work,index,daily,Google Mobility United States Minnesota Work,"['google', 'mobility']"
-google_mobility_united_states_mississippi_grocery,google_mobility.united_states.mississippi.grocery,index,daily,Google Mobility United States Mississippi Grocery,"['google', 'mobility']"
-google_mobility_united_states_mississippi_parks,google_mobility.united_states.mississippi.parks,index,daily,Google Mobility United States Mississippi Parks,"['google', 'mobility']"
-google_mobility_united_states_mississippi_residential,google_mobility.united_states.mississippi.residential,index,daily,Google Mobility United States Mississippi Residential,"['google', 'mobility']"
-google_mobility_united_states_mississippi_retail,google_mobility.united_states.mississippi.retail,index,daily,Google Mobility United States Mississippi Retail,"['google', 'mobility']"
-google_mobility_united_states_mississippi_transit,google_mobility.united_states.mississippi.transit,index,daily,Google Mobility United States Mississippi Transit,"['google', 'mobility']"
-google_mobility_united_states_mississippi_work,google_mobility.united_states.mississippi.work,index,daily,Google Mobility United States Mississippi Work,"['google', 'mobility']"
-google_mobility_united_states_missouri_grocery,google_mobility.united_states.missouri.grocery,index,daily,Google Mobility United States Missouri Grocery,"['google', 'mobility']"
-google_mobility_united_states_missouri_parks,google_mobility.united_states.missouri.parks,index,daily,Google Mobility United States Missouri Parks,"['google', 'mobility']"
-google_mobility_united_states_missouri_residential,google_mobility.united_states.missouri.residential,index,daily,Google Mobility United States Missouri Residential,"['google', 'mobility']"
-google_mobility_united_states_missouri_retail,google_mobility.united_states.missouri.retail,index,daily,Google Mobility United States Missouri Retail,"['google', 'mobility']"
-google_mobility_united_states_missouri_transit,google_mobility.united_states.missouri.transit,index,daily,Google Mobility United States Missouri Transit,"['google', 'mobility']"
-google_mobility_united_states_missouri_work,google_mobility.united_states.missouri.work,index,daily,Google Mobility United States Missouri Work,"['google', 'mobility']"
-google_mobility_united_states_montana_grocery,google_mobility.united_states.montana.grocery,index,daily,Google Mobility United States Montana Grocery,"['google', 'mobility']"
-google_mobility_united_states_montana_parks,google_mobility.united_states.montana.parks,index,daily,Google Mobility United States Montana Parks,"['google', 'mobility']"
-google_mobility_united_states_montana_residential,google_mobility.united_states.montana.residential,index,daily,Google Mobility United States Montana Residential,"['google', 'mobility']"
-google_mobility_united_states_montana_retail,google_mobility.united_states.montana.retail,index,daily,Google Mobility United States Montana Retail,"['google', 'mobility']"
-google_mobility_united_states_montana_transit,google_mobility.united_states.montana.transit,index,daily,Google Mobility United States Montana Transit,"['google', 'mobility']"
-google_mobility_united_states_montana_work,google_mobility.united_states.montana.work,index,daily,Google Mobility United States Montana Work,"['google', 'mobility']"
-google_mobility_united_states_nebraska_grocery,google_mobility.united_states.nebraska.grocery,index,daily,Google Mobility United States Nebraska Grocery,"['google', 'mobility']"
-google_mobility_united_states_nebraska_parks,google_mobility.united_states.nebraska.parks,index,daily,Google Mobility United States Nebraska Parks,"['google', 'mobility']"
-google_mobility_united_states_nebraska_residential,google_mobility.united_states.nebraska.residential,index,daily,Google Mobility United States Nebraska Residential,"['google', 'mobility']"
-google_mobility_united_states_nebraska_retail,google_mobility.united_states.nebraska.retail,index,daily,Google Mobility United States Nebraska Retail,"['google', 'mobility']"
-google_mobility_united_states_nebraska_transit,google_mobility.united_states.nebraska.transit,index,daily,Google Mobility United States Nebraska Transit,"['google', 'mobility']"
-google_mobility_united_states_nebraska_work,google_mobility.united_states.nebraska.work,index,daily,Google Mobility United States Nebraska Work,"['google', 'mobility']"
-google_mobility_united_states_nevada_grocery,google_mobility.united_states.nevada.grocery,index,daily,Google Mobility United States Nevada Grocery,"['google', 'mobility']"
-google_mobility_united_states_nevada_parks,google_mobility.united_states.nevada.parks,index,daily,Google Mobility United States Nevada Parks,"['google', 'mobility']"
-google_mobility_united_states_nevada_residential,google_mobility.united_states.nevada.residential,index,daily,Google Mobility United States Nevada Residential,"['google', 'mobility']"
-google_mobility_united_states_nevada_retail,google_mobility.united_states.nevada.retail,index,daily,Google Mobility United States Nevada Retail,"['google', 'mobility']"
-google_mobility_united_states_nevada_transit,google_mobility.united_states.nevada.transit,index,daily,Google Mobility United States Nevada Transit,"['google', 'mobility']"
-google_mobility_united_states_nevada_work,google_mobility.united_states.nevada.work,index,daily,Google Mobility United States Nevada Work,"['google', 'mobility']"
-google_mobility_united_states_new_hampshire_grocery,google_mobility.united_states.new_hampshire.grocery,index,daily,Google Mobility United States New Hampshire Grocery,"['google', 'mobility']"
-google_mobility_united_states_new_hampshire_parks,google_mobility.united_states.new_hampshire.parks,index,daily,Google Mobility United States New Hampshire Parks,"['google', 'mobility']"
-google_mobility_united_states_new_hampshire_residential,google_mobility.united_states.new_hampshire.residential,index,daily,Google Mobility United States New Hampshire Residential,"['google', 'mobility']"
-google_mobility_united_states_new_hampshire_retail,google_mobility.united_states.new_hampshire.retail,index,daily,Google Mobility United States New Hampshire Retail,"['google', 'mobility']"
-google_mobility_united_states_new_hampshire_transit,google_mobility.united_states.new_hampshire.transit,index,daily,Google Mobility United States New Hampshire Transit,"['google', 'mobility']"
-google_mobility_united_states_new_hampshire_work,google_mobility.united_states.new_hampshire.work,index,daily,Google Mobility United States New Hampshire Work,"['google', 'mobility']"
-google_mobility_united_states_new_jersey_grocery,google_mobility.united_states.new_jersey.grocery,index,daily,Google Mobility United States New Jersey Grocery,"['google', 'mobility']"
-google_mobility_united_states_new_jersey_parks,google_mobility.united_states.new_jersey.parks,index,daily,Google Mobility United States New Jersey Parks,"['google', 'mobility']"
-google_mobility_united_states_new_jersey_residential,google_mobility.united_states.new_jersey.residential,index,daily,Google Mobility United States New Jersey Residential,"['google', 'mobility']"
-google_mobility_united_states_new_jersey_retail,google_mobility.united_states.new_jersey.retail,index,daily,Google Mobility United States New Jersey Retail,"['google', 'mobility']"
-google_mobility_united_states_new_jersey_transit,google_mobility.united_states.new_jersey.transit,index,daily,Google Mobility United States New Jersey Transit,"['google', 'mobility']"
-google_mobility_united_states_new_jersey_work,google_mobility.united_states.new_jersey.work,index,daily,Google Mobility United States New Jersey Work,"['google', 'mobility']"
-google_mobility_united_states_new_mexico_grocery,google_mobility.united_states.new_mexico.grocery,index,daily,Google Mobility United States New Mexico Grocery,"['google', 'mobility']"
-google_mobility_united_states_new_mexico_parks,google_mobility.united_states.new_mexico.parks,index,daily,Google Mobility United States New Mexico Parks,"['google', 'mobility']"
-google_mobility_united_states_new_mexico_residential,google_mobility.united_states.new_mexico.residential,index,daily,Google Mobility United States New Mexico Residential,"['google', 'mobility']"
-google_mobility_united_states_new_mexico_retail,google_mobility.united_states.new_mexico.retail,index,daily,Google Mobility United States New Mexico Retail,"['google', 'mobility']"
-google_mobility_united_states_new_mexico_transit,google_mobility.united_states.new_mexico.transit,index,daily,Google Mobility United States New Mexico Transit,"['google', 'mobility']"
-google_mobility_united_states_new_mexico_work,google_mobility.united_states.new_mexico.work,index,daily,Google Mobility United States New Mexico Work,"['google', 'mobility']"
-google_mobility_united_states_new_york_grocery,google_mobility.united_states.new_york.grocery,index,daily,Google Mobility United States New York Grocery,"['google', 'mobility']"
-google_mobility_united_states_new_york_parks,google_mobility.united_states.new_york.parks,index,daily,Google Mobility United States New York Parks,"['google', 'mobility']"
-google_mobility_united_states_new_york_residential,google_mobility.united_states.new_york.residential,index,daily,Google Mobility United States New York Residential,"['google', 'mobility']"
-google_mobility_united_states_new_york_retail,google_mobility.united_states.new_york.retail,index,daily,Google Mobility United States New York Retail,"['google', 'mobility']"
-google_mobility_united_states_new_york_transit,google_mobility.united_states.new_york.transit,index,daily,Google Mobility United States New York Transit,"['google', 'mobility']"
-google_mobility_united_states_new_york_work,google_mobility.united_states.new_york.work,index,daily,Google Mobility United States New York Work,"['google', 'mobility']"
-google_mobility_united_states_north_carolina_grocery,google_mobility.united_states.north_carolina.grocery,index,daily,Google Mobility United States North Carolina Grocery,"['google', 'mobility']"
-google_mobility_united_states_north_carolina_parks,google_mobility.united_states.north_carolina.parks,index,daily,Google Mobility United States North Carolina Parks,"['google', 'mobility']"
-google_mobility_united_states_north_carolina_residential,google_mobility.united_states.north_carolina.residential,index,daily,Google Mobility United States North Carolina Residential,"['google', 'mobility']"
-google_mobility_united_states_north_carolina_retail,google_mobility.united_states.north_carolina.retail,index,daily,Google Mobility United States North Carolina Retail,"['google', 'mobility']"
-google_mobility_united_states_north_carolina_transit,google_mobility.united_states.north_carolina.transit,index,daily,Google Mobility United States North Carolina Transit,"['google', 'mobility']"
-google_mobility_united_states_north_carolina_work,google_mobility.united_states.north_carolina.work,index,daily,Google Mobility United States North Carolina Work,"['google', 'mobility']"
-google_mobility_united_states_north_dakota_grocery,google_mobility.united_states.north_dakota.grocery,index,daily,Google Mobility United States North Dakota Grocery,"['google', 'mobility']"
-google_mobility_united_states_north_dakota_parks,google_mobility.united_states.north_dakota.parks,index,daily,Google Mobility United States North Dakota Parks,"['google', 'mobility']"
-google_mobility_united_states_north_dakota_residential,google_mobility.united_states.north_dakota.residential,index,daily,Google Mobility United States North Dakota Residential,"['google', 'mobility']"
-google_mobility_united_states_north_dakota_retail,google_mobility.united_states.north_dakota.retail,index,daily,Google Mobility United States North Dakota Retail,"['google', 'mobility']"
-google_mobility_united_states_north_dakota_transit,google_mobility.united_states.north_dakota.transit,index,daily,Google Mobility United States North Dakota Transit,"['google', 'mobility']"
-google_mobility_united_states_north_dakota_work,google_mobility.united_states.north_dakota.work,index,daily,Google Mobility United States North Dakota Work,"['google', 'mobility']"
-google_mobility_united_states_ohio_grocery,google_mobility.united_states.ohio.grocery,index,daily,Google Mobility United States Ohio Grocery,"['google', 'mobility']"
-google_mobility_united_states_ohio_parks,google_mobility.united_states.ohio.parks,index,daily,Google Mobility United States Ohio Parks,"['google', 'mobility']"
-google_mobility_united_states_ohio_residential,google_mobility.united_states.ohio.residential,index,daily,Google Mobility United States Ohio Residential,"['google', 'mobility']"
-google_mobility_united_states_ohio_retail,google_mobility.united_states.ohio.retail,index,daily,Google Mobility United States Ohio Retail,"['google', 'mobility']"
-google_mobility_united_states_ohio_transit,google_mobility.united_states.ohio.transit,index,daily,Google Mobility United States Ohio Transit,"['google', 'mobility']"
-google_mobility_united_states_ohio_work,google_mobility.united_states.ohio.work,index,daily,Google Mobility United States Ohio Work,"['google', 'mobility']"
-google_mobility_united_states_oklahoma_grocery,google_mobility.united_states.oklahoma.grocery,index,daily,Google Mobility United States Oklahoma Grocery,"['google', 'mobility']"
-google_mobility_united_states_oklahoma_parks,google_mobility.united_states.oklahoma.parks,index,daily,Google Mobility United States Oklahoma Parks,"['google', 'mobility']"
-google_mobility_united_states_oklahoma_residential,google_mobility.united_states.oklahoma.residential,index,daily,Google Mobility United States Oklahoma Residential,"['google', 'mobility']"
-google_mobility_united_states_oklahoma_retail,google_mobility.united_states.oklahoma.retail,index,daily,Google Mobility United States Oklahoma Retail,"['google', 'mobility']"
-google_mobility_united_states_oklahoma_transit,google_mobility.united_states.oklahoma.transit,index,daily,Google Mobility United States Oklahoma Transit,"['google', 'mobility']"
-google_mobility_united_states_oklahoma_work,google_mobility.united_states.oklahoma.work,index,daily,Google Mobility United States Oklahoma Work,"['google', 'mobility']"
-google_mobility_united_states_oregon_grocery,google_mobility.united_states.oregon.grocery,index,daily,Google Mobility United States Oregon Grocery,"['google', 'mobility']"
-google_mobility_united_states_oregon_parks,google_mobility.united_states.oregon.parks,index,daily,Google Mobility United States Oregon Parks,"['google', 'mobility']"
-google_mobility_united_states_oregon_residential,google_mobility.united_states.oregon.residential,index,daily,Google Mobility United States Oregon Residential,"['google', 'mobility']"
-google_mobility_united_states_oregon_retail,google_mobility.united_states.oregon.retail,index,daily,Google Mobility United States Oregon Retail,"['google', 'mobility']"
-google_mobility_united_states_oregon_transit,google_mobility.united_states.oregon.transit,index,daily,Google Mobility United States Oregon Transit,"['google', 'mobility']"
-google_mobility_united_states_oregon_work,google_mobility.united_states.oregon.work,index,daily,Google Mobility United States Oregon Work,"['google', 'mobility']"
-google_mobility_united_states_parks,google_mobility.united_states.parks,index,daily,Google Mobility United States Parks,"['google', 'mobility']"
-google_mobility_united_states_pennsylvania_grocery,google_mobility.united_states.pennsylvania.grocery,index,daily,Google Mobility United States Pennsylvania Grocery,"['google', 'mobility']"
-google_mobility_united_states_pennsylvania_parks,google_mobility.united_states.pennsylvania.parks,index,daily,Google Mobility United States Pennsylvania Parks,"['google', 'mobility']"
-google_mobility_united_states_pennsylvania_residential,google_mobility.united_states.pennsylvania.residential,index,daily,Google Mobility United States Pennsylvania Residential,"['google', 'mobility']"
-google_mobility_united_states_pennsylvania_retail,google_mobility.united_states.pennsylvania.retail,index,daily,Google Mobility United States Pennsylvania Retail,"['google', 'mobility']"
-google_mobility_united_states_pennsylvania_transit,google_mobility.united_states.pennsylvania.transit,index,daily,Google Mobility United States Pennsylvania Transit,"['google', 'mobility']"
-google_mobility_united_states_pennsylvania_work,google_mobility.united_states.pennsylvania.work,index,daily,Google Mobility United States Pennsylvania Work,"['google', 'mobility']"
-google_mobility_united_states_residential,google_mobility.united_states.residential,index,daily,Google Mobility United States Residential,"['google', 'mobility']"
-google_mobility_united_states_retail,google_mobility.united_states.retail,index,daily,Google Mobility United States Retail,"['google', 'mobility']"
-google_mobility_united_states_rhode_island_grocery,google_mobility.united_states.rhode_island.grocery,index,daily,Google Mobility United States Rhode Island Grocery,"['google', 'mobility']"
-google_mobility_united_states_rhode_island_parks,google_mobility.united_states.rhode_island.parks,index,daily,Google Mobility United States Rhode Island Parks,"['google', 'mobility']"
-google_mobility_united_states_rhode_island_residential,google_mobility.united_states.rhode_island.residential,index,daily,Google Mobility United States Rhode Island Residential,"['google', 'mobility']"
-google_mobility_united_states_rhode_island_retail,google_mobility.united_states.rhode_island.retail,index,daily,Google Mobility United States Rhode Island Retail,"['google', 'mobility']"
-google_mobility_united_states_rhode_island_transit,google_mobility.united_states.rhode_island.transit,index,daily,Google Mobility United States Rhode Island Transit,"['google', 'mobility']"
-google_mobility_united_states_rhode_island_work,google_mobility.united_states.rhode_island.work,index,daily,Google Mobility United States Rhode Island Work,"['google', 'mobility']"
-google_mobility_united_states_south_carolina_grocery,google_mobility.united_states.south_carolina.grocery,index,daily,Google Mobility United States South Carolina Grocery,"['google', 'mobility']"
-google_mobility_united_states_south_carolina_parks,google_mobility.united_states.south_carolina.parks,index,daily,Google Mobility United States South Carolina Parks,"['google', 'mobility']"
-google_mobility_united_states_south_carolina_residential,google_mobility.united_states.south_carolina.residential,index,daily,Google Mobility United States South Carolina Residential,"['google', 'mobility']"
-google_mobility_united_states_south_carolina_retail,google_mobility.united_states.south_carolina.retail,index,daily,Google Mobility United States South Carolina Retail,"['google', 'mobility']"
-google_mobility_united_states_south_carolina_transit,google_mobility.united_states.south_carolina.transit,index,daily,Google Mobility United States South Carolina Transit,"['google', 'mobility']"
-google_mobility_united_states_south_carolina_work,google_mobility.united_states.south_carolina.work,index,daily,Google Mobility United States South Carolina Work,"['google', 'mobility']"
-google_mobility_united_states_south_dakota_grocery,google_mobility.united_states.south_dakota.grocery,index,daily,Google Mobility United States South Dakota Grocery,"['google', 'mobility']"
-google_mobility_united_states_south_dakota_parks,google_mobility.united_states.south_dakota.parks,index,daily,Google Mobility United States South Dakota Parks,"['google', 'mobility']"
-google_mobility_united_states_south_dakota_residential,google_mobility.united_states.south_dakota.residential,index,daily,Google Mobility United States South Dakota Residential,"['google', 'mobility']"
-google_mobility_united_states_south_dakota_retail,google_mobility.united_states.south_dakota.retail,index,daily,Google Mobility United States South Dakota Retail,"['google', 'mobility']"
-google_mobility_united_states_south_dakota_transit,google_mobility.united_states.south_dakota.transit,index,daily,Google Mobility United States South Dakota Transit,"['google', 'mobility']"
-google_mobility_united_states_south_dakota_work,google_mobility.united_states.south_dakota.work,index,daily,Google Mobility United States South Dakota Work,"['google', 'mobility']"
-google_mobility_united_states_tennessee_grocery,google_mobility.united_states.tennessee.grocery,index,daily,Google Mobility United States Tennessee Grocery,"['google', 'mobility']"
-google_mobility_united_states_tennessee_parks,google_mobility.united_states.tennessee.parks,index,daily,Google Mobility United States Tennessee Parks,"['google', 'mobility']"
-google_mobility_united_states_tennessee_residential,google_mobility.united_states.tennessee.residential,index,daily,Google Mobility United States Tennessee Residential,"['google', 'mobility']"
-google_mobility_united_states_tennessee_retail,google_mobility.united_states.tennessee.retail,index,daily,Google Mobility United States Tennessee Retail,"['google', 'mobility']"
-google_mobility_united_states_tennessee_transit,google_mobility.united_states.tennessee.transit,index,daily,Google Mobility United States Tennessee Transit,"['google', 'mobility']"
-google_mobility_united_states_tennessee_work,google_mobility.united_states.tennessee.work,index,daily,Google Mobility United States Tennessee Work,"['google', 'mobility']"
-google_mobility_united_states_texas_grocery,google_mobility.united_states.texas.grocery,index,daily,Google Mobility United States Texas Grocery,"['google', 'mobility']"
-google_mobility_united_states_texas_parks,google_mobility.united_states.texas.parks,index,daily,Google Mobility United States Texas Parks,"['google', 'mobility']"
-google_mobility_united_states_texas_residential,google_mobility.united_states.texas.residential,index,daily,Google Mobility United States Texas Residential,"['google', 'mobility']"
-google_mobility_united_states_texas_retail,google_mobility.united_states.texas.retail,index,daily,Google Mobility United States Texas Retail,"['google', 'mobility']"
-google_mobility_united_states_texas_transit,google_mobility.united_states.texas.transit,index,daily,Google Mobility United States Texas Transit,"['google', 'mobility']"
-google_mobility_united_states_texas_work,google_mobility.united_states.texas.work,index,daily,Google Mobility United States Texas Work,"['google', 'mobility']"
-google_mobility_united_states_transit,google_mobility.united_states.transit,index,daily,Google Mobility United States Transit,"['google', 'mobility']"
-google_mobility_united_states_utah_grocery,google_mobility.united_states.utah.grocery,index,daily,Google Mobility United States Utah Grocery,"['google', 'mobility']"
-google_mobility_united_states_utah_parks,google_mobility.united_states.utah.parks,index,daily,Google Mobility United States Utah Parks,"['google', 'mobility']"
-google_mobility_united_states_utah_residential,google_mobility.united_states.utah.residential,index,daily,Google Mobility United States Utah Residential,"['google', 'mobility']"
-google_mobility_united_states_utah_retail,google_mobility.united_states.utah.retail,index,daily,Google Mobility United States Utah Retail,"['google', 'mobility']"
-google_mobility_united_states_utah_transit,google_mobility.united_states.utah.transit,index,daily,Google Mobility United States Utah Transit,"['google', 'mobility']"
-google_mobility_united_states_utah_work,google_mobility.united_states.utah.work,index,daily,Google Mobility United States Utah Work,"['google', 'mobility']"
-google_mobility_united_states_vermont_grocery,google_mobility.united_states.vermont.grocery,index,daily,Google Mobility United States Vermont Grocery,"['google', 'mobility']"
-google_mobility_united_states_vermont_parks,google_mobility.united_states.vermont.parks,index,daily,Google Mobility United States Vermont Parks,"['google', 'mobility']"
-google_mobility_united_states_vermont_residential,google_mobility.united_states.vermont.residential,index,daily,Google Mobility United States Vermont Residential,"['google', 'mobility']"
-google_mobility_united_states_vermont_retail,google_mobility.united_states.vermont.retail,index,daily,Google Mobility United States Vermont Retail,"['google', 'mobility']"
-google_mobility_united_states_vermont_transit,google_mobility.united_states.vermont.transit,index,daily,Google Mobility United States Vermont Transit,"['google', 'mobility']"
-google_mobility_united_states_vermont_work,google_mobility.united_states.vermont.work,index,daily,Google Mobility United States Vermont Work,"['google', 'mobility']"
-google_mobility_united_states_virginia_grocery,google_mobility.united_states.virginia.grocery,index,daily,Google Mobility United States Virginia Grocery,"['google', 'mobility']"
-google_mobility_united_states_virginia_parks,google_mobility.united_states.virginia.parks,index,daily,Google Mobility United States Virginia Parks,"['google', 'mobility']"
-google_mobility_united_states_virginia_residential,google_mobility.united_states.virginia.residential,index,daily,Google Mobility United States Virginia Residential,"['google', 'mobility']"
-google_mobility_united_states_virginia_retail,google_mobility.united_states.virginia.retail,index,daily,Google Mobility United States Virginia Retail,"['google', 'mobility']"
-google_mobility_united_states_virginia_transit,google_mobility.united_states.virginia.transit,index,daily,Google Mobility United States Virginia Transit,"['google', 'mobility']"
-google_mobility_united_states_virginia_work,google_mobility.united_states.virginia.work,index,daily,Google Mobility United States Virginia Work,"['google', 'mobility']"
-google_mobility_united_states_washington_grocery,google_mobility.united_states.washington.grocery,index,daily,Google Mobility United States Washington Grocery,"['google', 'mobility']"
-google_mobility_united_states_washington_parks,google_mobility.united_states.washington.parks,index,daily,Google Mobility United States Washington Parks,"['google', 'mobility']"
-google_mobility_united_states_washington_residential,google_mobility.united_states.washington.residential,index,daily,Google Mobility United States Washington Residential,"['google', 'mobility']"
-google_mobility_united_states_washington_retail,google_mobility.united_states.washington.retail,index,daily,Google Mobility United States Washington Retail,"['google', 'mobility']"
-google_mobility_united_states_washington_transit,google_mobility.united_states.washington.transit,index,daily,Google Mobility United States Washington Transit,"['google', 'mobility']"
-google_mobility_united_states_washington_work,google_mobility.united_states.washington.work,index,daily,Google Mobility United States Washington Work,"['google', 'mobility']"
-google_mobility_united_states_west_virginia_grocery,google_mobility.united_states.west_virginia.grocery,index,daily,Google Mobility United States West Virginia Grocery,"['google', 'mobility']"
-google_mobility_united_states_west_virginia_parks,google_mobility.united_states.west_virginia.parks,index,daily,Google Mobility United States West Virginia Parks,"['google', 'mobility']"
-google_mobility_united_states_west_virginia_residential,google_mobility.united_states.west_virginia.residential,index,daily,Google Mobility United States West Virginia Residential,"['google', 'mobility']"
-google_mobility_united_states_west_virginia_retail,google_mobility.united_states.west_virginia.retail,index,daily,Google Mobility United States West Virginia Retail,"['google', 'mobility']"
-google_mobility_united_states_west_virginia_transit,google_mobility.united_states.west_virginia.transit,index,daily,Google Mobility United States West Virginia Transit,"['google', 'mobility']"
-google_mobility_united_states_west_virginia_work,google_mobility.united_states.west_virginia.work,index,daily,Google Mobility United States West Virginia Work,"['google', 'mobility']"
-google_mobility_united_states_wisconsin_grocery,google_mobility.united_states.wisconsin.grocery,index,daily,Google Mobility United States Wisconsin Grocery,"['google', 'mobility']"
-google_mobility_united_states_wisconsin_parks,google_mobility.united_states.wisconsin.parks,index,daily,Google Mobility United States Wisconsin Parks,"['google', 'mobility']"
-google_mobility_united_states_wisconsin_residential,google_mobility.united_states.wisconsin.residential,index,daily,Google Mobility United States Wisconsin Residential,"['google', 'mobility']"
-google_mobility_united_states_wisconsin_retail,google_mobility.united_states.wisconsin.retail,index,daily,Google Mobility United States Wisconsin Retail,"['google', 'mobility']"
-google_mobility_united_states_wisconsin_transit,google_mobility.united_states.wisconsin.transit,index,daily,Google Mobility United States Wisconsin Transit,"['google', 'mobility']"
-google_mobility_united_states_wisconsin_work,google_mobility.united_states.wisconsin.work,index,daily,Google Mobility United States Wisconsin Work,"['google', 'mobility']"
-google_mobility_united_states_work,google_mobility.united_states.work,index,daily,Google Mobility United States Work,"['google', 'mobility']"
-google_mobility_united_states_wyoming_grocery,google_mobility.united_states.wyoming.grocery,index,daily,Google Mobility United States Wyoming Grocery,"['google', 'mobility']"
-google_mobility_united_states_wyoming_parks,google_mobility.united_states.wyoming.parks,index,daily,Google Mobility United States Wyoming Parks,"['google', 'mobility']"
-google_mobility_united_states_wyoming_residential,google_mobility.united_states.wyoming.residential,index,daily,Google Mobility United States Wyoming Residential,"['google', 'mobility']"
-google_mobility_united_states_wyoming_retail,google_mobility.united_states.wyoming.retail,index,daily,Google Mobility United States Wyoming Retail,"['google', 'mobility']"
-google_mobility_united_states_wyoming_transit,google_mobility.united_states.wyoming.transit,index,daily,Google Mobility United States Wyoming Transit,"['google', 'mobility']"
-google_mobility_united_states_wyoming_work,google_mobility.united_states.wyoming.work,index,daily,Google Mobility United States Wyoming Work,"['google', 'mobility']"
-paj_crude_end_inventory,paj.crude.end_inventory,10 thousand kls,monthly,Paj Crude End Inventory,"['paj', 'inventory']"
-paj_crude_import,paj.crude.import,kb,monthly,Paj Crude Import,['paj']
-paj_crude_non_refining_use,paj.crude.non_refining_use,kb,monthly,Paj Crude Non Refining Use,['paj']
-paj_crude_production,paj.crude.production,kb,monthly,Paj Crude Production,"['paj', 'production']"
-paj_crude_refinery_throughput,paj.crude.refinery_throughput,kb,monthly,Paj Crude Refinery Throughput,['paj']
-paj_crude_refining_capacity,paj.crude.refining_capacity,kb,monthly,Paj Crude Refining Capacity,['paj']
-paj_crude_utilization_pct,paj.crude.utilization_pct,kb,monthly,Paj Crude Utilization Pct,['paj']
-paj_prices_dollars_crude_oil,paj.prices.dollars.crude_oil,kb,monthly,Paj Prices Dollars Crude Oil,"['paj', 'price']"
-paj_prices_dollars_fuel_oil_a,paj.prices.dollars.fuel_oil_a,kb,monthly,Paj Prices Dollars Fuel Oil A,"['paj', 'price']"
-paj_prices_dollars_fuel_oil_c,paj.prices.dollars.fuel_oil_c,kb,monthly,Paj Prices Dollars Fuel Oil C,"['paj', 'price']"
-paj_prices_dollars_gas_oil,paj.prices.dollars.gas_oil,kb,monthly,Paj Prices Dollars Gas Oil,"['paj', 'price']"
-paj_prices_dollars_gasoline,paj.prices.dollars.gasoline,kb,monthly,Paj Prices Dollars Gasoline,"['paj', 'price']"
-paj_prices_dollars_kerosene,paj.prices.dollars.kerosene,kb,monthly,Paj Prices Dollars Kerosene,"['paj', 'price']"
-paj_prices_dollars_naphtha,paj.prices.dollars.naphtha,kb,monthly,Paj Prices Dollars Naphtha,"['paj', 'price']"
-paj_prices_volume_crude_oil,paj.prices.volume.crude_oil,kb,monthly,Paj Prices Volume Crude Oil,"['paj', 'price']"
-paj_prices_volume_fuel_oil_a,paj.prices.volume.fuel_oil_a,kb,monthly,Paj Prices Volume Fuel Oil A,"['paj', 'price']"
-paj_prices_volume_fuel_oil_c,paj.prices.volume.fuel_oil_c,kb,monthly,Paj Prices Volume Fuel Oil C,"['paj', 'price']"
-paj_prices_volume_gas_oil,paj.prices.volume.gas_oil,kb,monthly,Paj Prices Volume Gas Oil,"['paj', 'price']"
-paj_prices_volume_gasoline,paj.prices.volume.gasoline,kb,monthly,Paj Prices Volume Gasoline,"['paj', 'price']"
-paj_prices_volume_kerosene,paj.prices.volume.kerosene,kb,monthly,Paj Prices Volume Kerosene,"['paj', 'price']"
-paj_prices_volume_naphtha,paj.prices.volume.naphtha,kb,monthly,Paj Prices Volume Naphtha,"['paj', 'price']"
-paj_products_export_asphalt,paj.products.export.asphalt,kb,monthly,Paj Products Export Asphalt,['paj']
-paj_products_export_fuel_oil_a,paj.products.export.fuel_oil_a,kb,monthly,Paj Products Export Fuel Oil A,['paj']
-paj_products_export_fuel_oil_bc,paj.products.export.fuel_oil_bc,kb,monthly,Paj Products Export Fuel Oil Bc,['paj']
-paj_products_export_fuel_oil_total,paj.products.export.fuel_oil_total,kb,monthly,Paj Products Export Fuel Oil Total,['paj']
-paj_products_export_gas_oil,paj.products.export.gas_oil,kb,monthly,Paj Products Export Gas Oil,['paj']
-paj_products_export_gasoline,paj.products.export.gasoline,kb,monthly,Paj Products Export Gasoline,['paj']
-paj_products_export_jet_fuel,paj.products.export.jet_fuel,kb,monthly,Paj Products Export Jet Fuel,['paj']
-paj_products_export_kerosene,paj.products.export.kerosene,kb,monthly,Paj Products Export Kerosene,['paj']
-paj_products_export_lubricating_oil,paj.products.export.lubricating_oil,kb,monthly,Paj Products Export Lubricating Oil,['paj']
-paj_products_export_naphtha,paj.products.export.naphtha,kb,monthly,Paj Products Export Naphtha,['paj']
-paj_products_export_paraffin_wax,paj.products.export.paraffin_wax,kb,monthly,Paj Products Export Paraffin Wax,['paj']
-paj_products_export_product_subtotal,paj.products.export.product_subtotal,kb,monthly,Paj Products Export Product Subtotal,['paj']
-paj_products_import_asphalt,paj.products.import.asphalt,kb,monthly,Paj Products Import Asphalt,['paj']
-paj_products_import_fuel_oil_a,paj.products.import.fuel_oil_a,kb,monthly,Paj Products Import Fuel Oil A,['paj']
-paj_products_import_fuel_oil_bc,paj.products.import.fuel_oil_bc,kb,monthly,Paj Products Import Fuel Oil Bc,['paj']
-paj_products_import_fuel_oil_total,paj.products.import.fuel_oil_total,kb,monthly,Paj Products Import Fuel Oil Total,['paj']
-paj_products_import_gas_oil,paj.products.import.gas_oil,kb,monthly,Paj Products Import Gas Oil,['paj']
-paj_products_import_gasoline,paj.products.import.gasoline,kb,monthly,Paj Products Import Gasoline,['paj']
-paj_products_import_jet_fuel,paj.products.import.jet_fuel,kb,monthly,Paj Products Import Jet Fuel,['paj']
-paj_products_import_kerosene,paj.products.import.kerosene,kb,monthly,Paj Products Import Kerosene,['paj']
-paj_products_import_lubricating_oil,paj.products.import.lubricating_oil,kb,monthly,Paj Products Import Lubricating Oil,['paj']
-paj_products_import_naphtha,paj.products.import.naphtha,kb,monthly,Paj Products Import Naphtha,['paj']
-paj_products_import_paraffin_wax,paj.products.import.paraffin_wax,kb,monthly,Paj Products Import Paraffin Wax,['paj']
-paj_products_import_product_subtotal,paj.products.import.product_subtotal,kb,monthly,Paj Products Import Product Subtotal,['paj']
-paj_products_inventory_asphalt,paj.products.inventory.asphalt,10 thousand kls,monthly,Paj Products Inventory Asphalt,"['paj', 'inventory']"
-paj_products_inventory_fuel_oil_a,paj.products.inventory.fuel_oil_a,10 thousand kls,monthly,Paj Products Inventory Fuel Oil A,"['paj', 'inventory']"
-paj_products_inventory_fuel_oil_bc,paj.products.inventory.fuel_oil_bc,10 thousand kls,monthly,Paj Products Inventory Fuel Oil Bc,"['paj', 'inventory']"
-paj_products_inventory_fuel_oil_total,paj.products.inventory.fuel_oil_total,10 thousand kls,monthly,Paj Products Inventory Fuel Oil Total,"['paj', 'inventory']"
-paj_products_inventory_gas_oil,paj.products.inventory.gas_oil,10 thousand kls,monthly,Paj Products Inventory Gas Oil,"['paj', 'inventory']"
-paj_products_inventory_gasoline,paj.products.inventory.gasoline,10 thousand kls,monthly,Paj Products Inventory Gasoline,"['paj', 'inventory']"
-paj_products_inventory_jet_fuel,paj.products.inventory.jet_fuel,10 thousand kls,monthly,Paj Products Inventory Jet Fuel,"['paj', 'inventory']"
-paj_products_inventory_kerosene,paj.products.inventory.kerosene,10 thousand kls,monthly,Paj Products Inventory Kerosene,"['paj', 'inventory']"
-paj_products_inventory_lubricating_oil,paj.products.inventory.lubricating_oil,10 thousand kls,monthly,Paj Products Inventory Lubricating Oil,"['paj', 'inventory']"
-paj_products_inventory_naphtha,paj.products.inventory.naphtha,10 thousand kls,monthly,Paj Products Inventory Naphtha,"['paj', 'inventory']"
-paj_products_inventory_paraffin_wax,paj.products.inventory.paraffin_wax,10 thousand kls,monthly,Paj Products Inventory Paraffin Wax,"['paj', 'inventory']"
-paj_products_inventory_product_subtotal,paj.products.inventory.product_subtotal,10 thousand kls,monthly,Paj Products Inventory Product Subtotal,"['paj', 'inventory']"
-paj_products_production_asphalt,paj.products.production.asphalt,kb,monthly,Paj Products Production Asphalt,"['paj', 'production']"
-paj_products_production_fuel_oil_a,paj.products.production.fuel_oil_a,kb,monthly,Paj Products Production Fuel Oil A,"['paj', 'production']"
-paj_products_production_fuel_oil_bc,paj.products.production.fuel_oil_bc,kb,monthly,Paj Products Production Fuel Oil Bc,"['paj', 'production']"
-paj_products_production_fuel_oil_total,paj.products.production.fuel_oil_total,kb,monthly,Paj Products Production Fuel Oil Total,"['paj', 'production']"
-paj_products_production_gas_oil,paj.products.production.gas_oil,kb,monthly,Paj Products Production Gas Oil,"['paj', 'production']"
-paj_products_production_gasoline,paj.products.production.gasoline,kb,monthly,Paj Products Production Gasoline,"['paj', 'production']"
-paj_products_production_jet_fuel,paj.products.production.jet_fuel,kb,monthly,Paj Products Production Jet Fuel,"['paj', 'production']"
-paj_products_production_kerosene,paj.products.production.kerosene,kb,monthly,Paj Products Production Kerosene,"['paj', 'production']"
-paj_products_production_lubricating_oil,paj.products.production.lubricating_oil,kb,monthly,Paj Products Production Lubricating Oil,"['paj', 'production']"
-paj_products_production_naphtha,paj.products.production.naphtha,kb,monthly,Paj Products Production Naphtha,"['paj', 'production']"
-paj_products_production_paraffin_wax,paj.products.production.paraffin_wax,kb,monthly,Paj Products Production Paraffin Wax,"['paj', 'production']"
-paj_products_production_product_subtotal,paj.products.production.product_subtotal,kb,monthly,Paj Products Production Product Subtotal,"['paj', 'production']"
-paj_products_sales_asphalt,paj.products.sales.asphalt,kb,monthly,Paj Products Sales Asphalt,['paj']
-paj_products_sales_fuel_oil_a,paj.products.sales.fuel_oil_a,kb,monthly,Paj Products Sales Fuel Oil A,['paj']
-paj_products_sales_fuel_oil_bc,paj.products.sales.fuel_oil_bc,kb,monthly,Paj Products Sales Fuel Oil Bc,['paj']
-paj_products_sales_fuel_oil_total,paj.products.sales.fuel_oil_total,kb,monthly,Paj Products Sales Fuel Oil Total,['paj']
-paj_products_sales_gas_oil,paj.products.sales.gas_oil,kb,monthly,Paj Products Sales Gas Oil,['paj']
-paj_products_sales_gasoline,paj.products.sales.gasoline,kb,monthly,Paj Products Sales Gasoline,['paj']
-paj_products_sales_jet_fuel,paj.products.sales.jet_fuel,kb,monthly,Paj Products Sales Jet Fuel,['paj']
-paj_products_sales_kerosene,paj.products.sales.kerosene,kb,monthly,Paj Products Sales Kerosene,['paj']
-paj_products_sales_lubricating_oil,paj.products.sales.lubricating_oil,kb,monthly,Paj Products Sales Lubricating Oil,['paj']
-paj_products_sales_naphtha,paj.products.sales.naphtha,kb,monthly,Paj Products Sales Naphtha,['paj']
-paj_products_sales_paraffin_wax,paj.products.sales.paraffin_wax,kb,monthly,Paj Products Sales Paraffin Wax,['paj']
-paj_products_sales_product_subtotal,paj.products.sales.product_subtotal,kb,monthly,Paj Products Sales Product Subtotal,['paj']
-pet_eer_epd2dxl0_pf4_rgc_dpg_w,PET.EER_EPD2DXL0_PF4_RGC_DPG.W,unknown,unknown,Pet Eer Epd2Dxl0 Pf4 Rgc Dpg W,['other']
-pet_eer_epmru_pf4_rgc_dpg_w,PET.EER_EPMRU_PF4_RGC_DPG.W,unknown,unknown,Pet Eer Epmru Pf4 Rgc Dpg W,['other']
-pet_rbrte_d,PET.RBRTE.D,unknown,unknown,Pet Rbrte D,['other']
-pet_rwtc_d,PET.RWTC.D,unknown,unknown,Pet Rwtc D,['other']
-pet_wdistus1_w,PET.WDISTUS1.W,unknown,unknown,Pet Wdistus1 W,['other']
-pet_wdiupus2_w,PET.WDIUPUS2.W,unknown,unknown,Pet Wdiupus2 W,['other']
-pet_w_epd0_ypy_nus_mbbld_w,PET.W_EPD0_YPY_NUS_MBBLD.W,unknown,unknown,Pet W Epd0 Ypy Nus Mbbld W,['other']
-pet_w_epjk_ypy_nus_mbbld_w,PET.W_EPJK_YPY_NUS_MBBLD.W,unknown,unknown,Pet W Epjk Ypy Nus Mbbld W,['other']
-pet_wgfrpus2_w,PET.WGFRPUS2.W,unknown,unknown,Pet Wgfrpus2 W,['other']
-pet_wgfupus2_w,PET.WGFUPUS2.W,unknown,unknown,Pet Wgfupus2 W,['other']
-pet_wgtstus1_w,PET.WGTSTUS1.W,unknown,unknown,Pet Wgtstus1 W,['other']
-pet_wkjstus1_w,PET.WKJSTUS1.W,unknown,unknown,Pet Wkjstus1 W,['other']
-pet_wkjupus2_w,PET.WKJUPUS2.W,unknown,unknown,Pet Wkjupus2 W,['other']
-stb_carsonline_bnsf_box,stb.carsonline.bnsf.box,count,weekly,Stb Carsonline Bnsf Box,['stb']
-stb_carsonline_bnsf_covered_hopper,stb.carsonline.bnsf.covered_hopper,count,weekly,Stb Carsonline Bnsf Covered Hopper,['stb']
-stb_carsonline_bnsf_gondola,stb.carsonline.bnsf.gondola,count,weekly,Stb Carsonline Bnsf Gondola,['stb']
-stb_carsonline_bnsf_intermodal,stb.carsonline.bnsf.intermodal,count,weekly,Stb Carsonline Bnsf Intermodal,['stb']
-stb_carsonline_bnsf_multilevel_automotive,stb.carsonline.bnsf.multilevel_automotive,count,weekly,Stb Carsonline Bnsf Multilevel Automotive,['stb']
-stb_carsonline_bnsf_open_hopper,stb.carsonline.bnsf.open_hopper,count,weekly,Stb Carsonline Bnsf Open Hopper,['stb']
-stb_carsonline_bnsf_other,stb.carsonline.bnsf.other,count,weekly,Stb Carsonline Bnsf Other,['stb']
-stb_carsonline_bnsf_tank,stb.carsonline.bnsf.tank,count,weekly,Stb Carsonline Bnsf Tank,['stb']
-stb_carsonline_bnsf_tulsa_ok,stb.carsonline.bnsf.tulsa_ok,count,weekly,Stb Carsonline Bnsf Tulsa Ok,['stb']
-stb_carsonline_cn_box,stb.carsonline.cn.box,count,weekly,Stb Carsonline Cn Box,['stb']
-stb_carsonline_cn_covered_hopper,stb.carsonline.cn.covered_hopper,count,weekly,Stb Carsonline Cn Covered Hopper,['stb']
-stb_carsonline_cn_gondola,stb.carsonline.cn.gondola,count,weekly,Stb Carsonline Cn Gondola,['stb']
-stb_carsonline_cn_intermodal,stb.carsonline.cn.intermodal,count,weekly,Stb Carsonline Cn Intermodal,['stb']
-stb_carsonline_cn_multilevel,stb.carsonline.cn.multilevel,count,weekly,Stb Carsonline Cn Multilevel,['stb']
-stb_carsonline_cn_open_hopper,stb.carsonline.cn.open_hopper,count,weekly,Stb Carsonline Cn Open Hopper,['stb']
-stb_carsonline_cn_other,stb.carsonline.cn.other,count,weekly,Stb Carsonline Cn Other,['stb']
-stb_carsonline_cn_tank,stb.carsonline.cn.tank,count,weekly,Stb Carsonline Cn Tank,['stb']
-stb_carsonline_cn_total,stb.carsonline.cn.total,count,weekly,Stb Carsonline Cn Total,['stb']
-stb_carsonline_cp_box,stb.carsonline.cp.box,count,weekly,Stb Carsonline Cp Box,['stb']
-stb_carsonline_cp_covered_hopper,stb.carsonline.cp.covered_hopper,count,weekly,Stb Carsonline Cp Covered Hopper,['stb']
-stb_carsonline_cp_gondola,stb.carsonline.cp.gondola,count,weekly,Stb Carsonline Cp Gondola,['stb']
-stb_carsonline_cp_intermodal,stb.carsonline.cp.intermodal,count,weekly,Stb Carsonline Cp Intermodal,['stb']
-stb_carsonline_cp_multilevel_automotive,stb.carsonline.cp.multilevel_automotive,count,weekly,Stb Carsonline Cp Multilevel Automotive,['stb']
-stb_carsonline_cp_open_hopper,stb.carsonline.cp.open_hopper,count,weekly,Stb Carsonline Cp Open Hopper,['stb']
-stb_carsonline_cp_other,stb.carsonline.cp.other,count,weekly,Stb Carsonline Cp Other,['stb']
-stb_carsonline_cp_st_paul,stb.carsonline.cp.st_paul,count,weekly,Stb Carsonline Cp St Paul,['stb']
-stb_carsonline_cp_tank,stb.carsonline.cp.tank,count,weekly,Stb Carsonline Cp Tank,['stb']
-stb_carsonline_cp_total,stb.carsonline.cp.total,count,weekly,Stb Carsonline Cp Total,['stb']
-stb_carsonline_csx_box,stb.carsonline.csx.box,count,weekly,Stb Carsonline Csx Box,['stb']
-stb_carsonline_csx_covered_hopper,stb.carsonline.csx.covered_hopper,count,weekly,Stb Carsonline Csx Covered Hopper,['stb']
-stb_carsonline_csx_gondola,stb.carsonline.csx.gondola,count,weekly,Stb Carsonline Csx Gondola,['stb']
-stb_carsonline_csx_intermodal,stb.carsonline.csx.intermodal,count,weekly,Stb Carsonline Csx Intermodal,['stb']
-stb_carsonline_csx_multilevel_automotive,stb.carsonline.csx.multilevel_automotive,count,weekly,Stb Carsonline Csx Multilevel Automotive,['stb']
-stb_carsonline_csx_open_hopper,stb.carsonline.csx.open_hopper,count,weekly,Stb Carsonline Csx Open Hopper,['stb']
-stb_carsonline_csx_other,stb.carsonline.csx.other,count,weekly,Stb Carsonline Csx Other,['stb']
-stb_carsonline_csx_tank,stb.carsonline.csx.tank,count,weekly,Stb Carsonline Csx Tank,['stb']
-stb_carsonline_csx_total,stb.carsonline.csx.total,count,weekly,Stb Carsonline Csx Total,['stb']
-stb_carsonline_csx_willard_oh,stb.carsonline.csx.willard_oh,count,weekly,Stb Carsonline Csx Willard Oh,['stb']
-stb_carsonline_ctco_average,stb.carsonline.ctco.average,count,weekly,Stb Carsonline Ctco Average,['stb']
-stb_carsonline_ctco_brc,stb.carsonline.ctco.brc,count,weekly,Stb Carsonline Ctco Brc,['stb']
-stb_carsonline_ctco_cicero_bnsf,stb.carsonline.ctco.cicero_bnsf,count,weekly,Stb Carsonline Ctco Cicero Bnsf,['stb']
-stb_carsonline_ctco_ihb,stb.carsonline.ctco.ihb,count,weekly,Stb Carsonline Ctco Ihb,['stb']
-stb_carsonline_ctco_ns,stb.carsonline.ctco.ns,count,weekly,Stb Carsonline Ctco Ns,['stb']
-stb_carsonline_ctco_subtotal_i/c,stb.carsonline.ctco.subtotal_i/c,count,weekly,Stb Carsonline Ctco Subtotal I/C,['stb']
-stb_carsonline_ctco_terminating_i/c,stb.carsonline.ctco.terminating_i/c,count,weekly,Stb Carsonline Ctco Terminating I/C,['stb']
-stb_carsonline_ctco_terminating_no_i/c,stb.carsonline.ctco.terminating_no_i/c,count,weekly,Stb Carsonline Ctco Terminating No I/C,['stb']
-stb_carsonline_ctco_through_i/c,stb.carsonline.ctco.through_i/c,count,weekly,Stb Carsonline Ctco Through I/C,['stb']
-stb_carsonline_ctco_up,stb.carsonline.ctco.up,count,weekly,Stb Carsonline Ctco Up,['stb']
-stb_carsonline_kcs_10_  _baton_rouge,stb.carsonline.kcs.10.  _baton_rouge,count,weekly,Stb Carsonline Kcs 10    Baton Rouge,['stb']
-stb_carsonline_kcs_box,stb.carsonline.kcs.box,count,weekly,Stb Carsonline Kcs Box,['stb']
-stb_carsonline_kcs_covered_hopper,stb.carsonline.kcs.covered_hopper,count,weekly,Stb Carsonline Kcs Covered Hopper,['stb']
-stb_carsonline_kcs_gondola,stb.carsonline.kcs.gondola,count,weekly,Stb Carsonline Kcs Gondola,['stb']
-stb_carsonline_kcs_intermodal,stb.carsonline.kcs.intermodal,count,weekly,Stb Carsonline Kcs Intermodal,['stb']
-stb_carsonline_kcs_multilevel_automotive,stb.carsonline.kcs.multilevel_automotive,count,weekly,Stb Carsonline Kcs Multilevel Automotive,['stb']
-stb_carsonline_kcs_open_hopper,stb.carsonline.kcs.open_hopper,count,weekly,Stb Carsonline Kcs Open Hopper,['stb']
-stb_carsonline_kcs_other,stb.carsonline.kcs.other,count,weekly,Stb Carsonline Kcs Other,['stb']
-stb_carsonline_kcs_tank,stb.carsonline.kcs.tank,count,weekly,Stb Carsonline Kcs Tank,['stb']
-stb_carsonline_ns_box,stb.carsonline.ns.box,count,weekly,Stb Carsonline Ns Box,['stb']
-stb_carsonline_ns_chattanooga,stb.carsonline.ns.chattanooga,count,weekly,Stb Carsonline Ns Chattanooga,['stb']
-stb_carsonline_ns_conway,stb.carsonline.ns.conway,count,weekly,Stb Carsonline Ns Conway,['stb']
-stb_carsonline_ns_covered_hopper,stb.carsonline.ns.covered_hopper,count,weekly,Stb Carsonline Ns Covered Hopper,['stb']
-stb_carsonline_ns_decatur,stb.carsonline.ns.decatur,count,weekly,Stb Carsonline Ns Decatur,['stb']
-stb_carsonline_ns_elkhart,stb.carsonline.ns.elkhart,count,weekly,Stb Carsonline Ns Elkhart,['stb']
-stb_carsonline_ns_gondola,stb.carsonline.ns.gondola,count,weekly,Stb Carsonline Ns Gondola,['stb']
-stb_carsonline_ns_harrisburg,stb.carsonline.ns.harrisburg,count,weekly,Stb Carsonline Ns Harrisburg,['stb']
-stb_carsonline_ns_intermodal,stb.carsonline.ns.intermodal,count,weekly,Stb Carsonline Ns Intermodal,['stb']
-stb_carsonline_ns_macon,stb.carsonline.ns.macon,count,weekly,Stb Carsonline Ns Macon,['stb']
-stb_carsonline_ns_multi_level,stb.carsonline.ns.multi-level,count,weekly,Stb Carsonline Ns Multi Level,['stb']
-stb_carsonline_ns_multilevel_automotive,stb.carsonline.ns.multilevel_automotive,count,weekly,Stb Carsonline Ns Multilevel Automotive,['stb']
-stb_carsonline_ns_open_hopper,stb.carsonline.ns.open_hopper,count,weekly,Stb Carsonline Ns Open Hopper,['stb']
-stb_carsonline_ns_other,stb.carsonline.ns.other,count,weekly,Stb Carsonline Ns Other,['stb']
-stb_carsonline_ns_roanoke,stb.carsonline.ns.roanoke,count,weekly,Stb Carsonline Ns Roanoke,['stb']
-stb_carsonline_ns_system,stb.carsonline.ns.system,count,weekly,Stb Carsonline Ns System,['stb']
-stb_carsonline_ns_tank,stb.carsonline.ns.tank,count,weekly,Stb Carsonline Ns Tank,['stb']
-stb_carsonline_up_10__west_colton_ca,stb.carsonline.up.10__west_colton_ca,count,weekly,Stb Carsonline Up 10  West Colton Ca,['stb']
-stb_carsonline_up_6__north_platte_east_ne,stb.carsonline.up.6__north_platte_east_ne,count,weekly,Stb Carsonline Up 6  North Platte East Ne,['stb']
-stb_carsonline_up_6__north_platte_west_ne,stb.carsonline.up.6__north_platte_west_ne,count,weekly,Stb Carsonline Up 6  North Platte West Ne,['stb']
-stb_carsonline_up_7__north_platte_west_ne,stb.carsonline.up.7__north_platte_west_ne,count,weekly,Stb Carsonline Up 7  North Platte West Ne,['stb']
-stb_carsonline_up_7__pine_bluff_ar,stb.carsonline.up.7__pine_bluff_ar,count,weekly,Stb Carsonline Up 7  Pine Bluff Ar,['stb']
-stb_carsonline_up_8__pine_bluff_ar,stb.carsonline.up.8__pine_bluff_ar,count,weekly,Stb Carsonline Up 8  Pine Bluff Ar,['stb']
-stb_carsonline_up_8__roseville_ca,stb.carsonline.up.8__roseville_ca,count,weekly,Stb Carsonline Up 8  Roseville Ca,['stb']
-stb_carsonline_up_9__roseville_ca,stb.carsonline.up.9__roseville_ca,count,weekly,Stb Carsonline Up 9  Roseville Ca,['stb']
-stb_carsonline_up_9__santa_teresa_nm,stb.carsonline.up.9__santa_teresa_nm,count,weekly,Stb Carsonline Up 9  Santa Teresa Nm,['stb']
-stb_carsonline_up_box,stb.carsonline.up.box,count,weekly,Stb Carsonline Up Box,['stb']
-stb_carsonline_up_covered_hopper,stb.carsonline.up.covered_hopper,count,weekly,Stb Carsonline Up Covered Hopper,['stb']
-stb_carsonline_up_gondola,stb.carsonline.up.gondola,count,weekly,Stb Carsonline Up Gondola,['stb']
-stb_carsonline_up_intermodal,stb.carsonline.up.intermodal,count,weekly,Stb Carsonline Up Intermodal,['stb']
-stb_carsonline_up_multilevel_automotive,stb.carsonline.up.multilevel_automotive,count,weekly,Stb Carsonline Up Multilevel Automotive,['stb']
-stb_carsonline_up_open_hopper,stb.carsonline.up.open_hopper,count,weekly,Stb Carsonline Up Open Hopper,['stb']
-stb_carsonline_up_other,stb.carsonline.up.other,count,weekly,Stb Carsonline Up Other,['stb']
-stb_carsonline_up_tank,stb.carsonline.up.tank,count,weekly,Stb Carsonline Up Tank,['stb']
-stb_dwell_bnsf_barstow_ca,stb.dwell.bnsf.barstow_ca,hours,weekly,Stb Dwell Bnsf Barstow Ca,['stb']
-stb_dwell_bnsf_denver_co,stb.dwell.bnsf.denver_co,hours,weekly,Stb Dwell Bnsf Denver Co,['stb']
-stb_dwell_bnsf_fort_worth_tx,stb.dwell.bnsf.fort_worth_tx,hours,weekly,Stb Dwell Bnsf Fort Worth Tx,['stb']
-stb_dwell_bnsf_galesburg_il,stb.dwell.bnsf.galesburg_il,hours,weekly,Stb Dwell Bnsf Galesburg Il,['stb']
-stb_dwell_bnsf_kansas_city_ks,stb.dwell.bnsf.kansas_city_ks,hours,weekly,Stb Dwell Bnsf Kansas City Ks,['stb']
-stb_dwell_bnsf_lincoln_ne,stb.dwell.bnsf.lincoln_ne,hours,weekly,Stb Dwell Bnsf Lincoln Ne,['stb']
-stb_dwell_bnsf_memphis_tn,stb.dwell.bnsf.memphis_tn,hours,weekly,Stb Dwell Bnsf Memphis Tn,['stb']
-stb_dwell_bnsf_northtown_mn,stb.dwell.bnsf.northtown_mn,hours,weekly,Stb Dwell Bnsf Northtown Mn,['stb']
-stb_dwell_bnsf_pasco_wa,stb.dwell.bnsf.pasco_wa,hours,weekly,Stb Dwell Bnsf Pasco Wa,['stb']
-stb_dwell_bnsf_system_average,stb.dwell.bnsf.system_average,hours,weekly,Stb Dwell Bnsf System Average,['stb']
-stb_dwell_cn_baton_rouge,stb.dwell.cn.baton_rouge,hours,weekly,Stb Dwell Cn Baton Rouge,['stb']
-stb_dwell_cn_champaign,stb.dwell.cn.champaign,hours,weekly,Stb Dwell Cn Champaign,['stb']
-stb_dwell_cn_fond_du_lac,stb.dwell.cn.fond_du_lac,hours,weekly,Stb Dwell Cn Fond Du Lac,['stb']
-stb_dwell_cn_geismar,stb.dwell.cn.geismar,hours,weekly,Stb Dwell Cn Geismar,['stb']
-stb_dwell_cn_jackson,stb.dwell.cn.jackson,hours,weekly,Stb Dwell Cn Jackson,['stb']
-stb_dwell_cn_kirk_yard,stb.dwell.cn.kirk_yard,hours,weekly,Stb Dwell Cn Kirk Yard,['stb']
-stb_dwell_cn_markham,stb.dwell.cn.markham,hours,weekly,Stb Dwell Cn Markham,['stb']
-stb_dwell_cn_memphis,stb.dwell.cn.memphis,hours,weekly,Stb Dwell Cn Memphis,['stb']
-stb_dwell_cn_proctor,stb.dwell.cn.proctor,hours,weekly,Stb Dwell Cn Proctor,['stb']
-stb_dwell_cn_stevens_point,stb.dwell.cn.stevens_point,hours,weekly,Stb Dwell Cn Stevens Point,['stb']
-stb_dwell_cp_albany,stb.dwell.cp.albany,hours,weekly,Stb Dwell Cp Albany,['stb']
-stb_dwell_cp_bensenville,stb.dwell.cp.bensenville,hours,weekly,Stb Dwell Cp Bensenville,['stb']
-stb_dwell_cp_glenwood,stb.dwell.cp.glenwood,hours,weekly,Stb Dwell Cp Glenwood,['stb']
-stb_dwell_cp_harvey,stb.dwell.cp.harvey,hours,weekly,Stb Dwell Cp Harvey,['stb']
-stb_dwell_cp_la_crosse,stb.dwell.cp.la_crosse,hours,weekly,Stb Dwell Cp La Crosse,['stb']
-stb_dwell_cp_mason_city,stb.dwell.cp.mason_city,hours,weekly,Stb Dwell Cp Mason City,['stb']
-stb_dwell_cp_milwaukee,stb.dwell.cp.milwaukee,hours,weekly,Stb Dwell Cp Milwaukee,['stb']
-stb_dwell_cp_nahant,stb.dwell.cp.nahant,hours,weekly,Stb Dwell Cp Nahant,['stb']
-stb_dwell_cp_saratoga_springs,stb.dwell.cp.saratoga_springs,hours,weekly,Stb Dwell Cp Saratoga Springs,['stb']
-stb_dwell_cp_system_average,stb.dwell.cp.system_average,hours,weekly,Stb Dwell Cp System Average,['stb']
-stb_dwell_csx_baltimore_md,stb.dwell.csx.baltimore_md,hours,weekly,Stb Dwell Csx Baltimore Md,['stb']
-stb_dwell_csx_chicago_il,stb.dwell.csx.chicago_il,hours,weekly,Stb Dwell Csx Chicago Il,['stb']
-stb_dwell_csx_cincinnati_oh,stb.dwell.csx.cincinnati_oh,hours,weekly,Stb Dwell Csx Cincinnati Oh,['stb']
-stb_dwell_csx_cumberland_md,stb.dwell.csx.cumberland_md,hours,weekly,Stb Dwell Csx Cumberland Md,['stb']
-stb_dwell_csx_hamlet_nc,stb.dwell.csx.hamlet_nc,hours,weekly,Stb Dwell Csx Hamlet Nc,['stb']
-stb_dwell_csx_indianapolis_in,stb.dwell.csx.indianapolis_in,hours,weekly,Stb Dwell Csx Indianapolis In,['stb']
-stb_dwell_csx_jacksonville_fl,stb.dwell.csx.jacksonville_fl,hours,weekly,Stb Dwell Csx Jacksonville Fl,['stb']
-stb_dwell_csx_louisville_ky,stb.dwell.csx.louisville_ky,hours,weekly,Stb Dwell Csx Louisville Ky,['stb']
-stb_dwell_csx_nashville_tn,stb.dwell.csx.nashville_tn,hours,weekly,Stb Dwell Csx Nashville Tn,['stb']
-stb_dwell_csx_rocky_mount_nc,stb.dwell.csx.rocky_mount_nc,hours,weekly,Stb Dwell Csx Rocky Mount Nc,['stb']
-stb_dwell_csx_selkirk_ny,stb.dwell.csx.selkirk_ny,hours,weekly,Stb Dwell Csx Selkirk Ny,['stb']
-stb_dwell_csx_system_average,stb.dwell.csx.system_average,hours,weekly,Stb Dwell Csx System Average,['stb']
-stb_dwell_csx_toledo_oh,stb.dwell.csx.toledo_oh,hours,weekly,Stb Dwell Csx Toledo Oh,['stb']
-stb_dwell_csx_waycross_ga,stb.dwell.csx.waycross_ga,hours,weekly,Stb Dwell Csx Waycross Ga,['stb']
-stb_dwell_ctco_barr_boct_csxt,stb.dwell.ctco.barr_boct-csxt,hours,weekly,Stb Dwell Ctco Barr Boct Csxt,['stb']
-stb_dwell_ctco_bensenville_cprs,stb.dwell.ctco.bensenville_cprs,hours,weekly,Stb Dwell Ctco Bensenville Cprs,['stb']
-stb_dwell_ctco_blue_island_ihb,stb.dwell.ctco.blue_island_ihb,hours,weekly,Stb Dwell Ctco Blue Island Ihb,['stb']
-stb_dwell_ctco_bnsf,stb.dwell.ctco.bnsf,hours,weekly,Stb Dwell Ctco Bnsf,['stb']
-stb_dwell_ctco_brc,stb.dwell.ctco.brc,hours,weekly,Stb Dwell Ctco Brc,['stb']
-stb_dwell_ctco_cicero_bnsf,stb.dwell.ctco.cicero_bnsf,hours,weekly,Stb Dwell Ctco Cicero Bnsf,['stb']
-stb_dwell_ctco_clearing_brc,stb.dwell.ctco.clearing_brc,hours,weekly,Stb Dwell Ctco Clearing Brc,['stb']
-stb_dwell_ctco_cn,stb.dwell.ctco.cn,hours,weekly,Stb Dwell Ctco Cn,['stb']
-stb_dwell_ctco_corwith,stb.dwell.ctco.corwith,hours,weekly,Stb Dwell Ctco Corwith,['stb']
-stb_dwell_ctco_gibson,stb.dwell.ctco.gibson,hours,weekly,Stb Dwell Ctco Gibson,['stb']
-stb_dwell_ctco_ihb,stb.dwell.ctco.ihb,hours,weekly,Stb Dwell Ctco Ihb,['stb']
-stb_dwell_ctco_ihb_autos_ihb,stb.dwell.ctco.ihb_autos_ihb,hours,weekly,Stb Dwell Ctco Ihb Autos Ihb,['stb']
-stb_dwell_ctco_kirk,stb.dwell.ctco.kirk,hours,weekly,Stb Dwell Ctco Kirk,['stb']
-stb_dwell_ctco_kirk_cn,stb.dwell.ctco.kirk_cn,hours,weekly,Stb Dwell Ctco Kirk Cn,['stb']
-stb_dwell_ctco_markham,stb.dwell.ctco.markham,hours,weekly,Stb Dwell Ctco Markham,['stb']
-stb_dwell_ctco_markham_cn,stb.dwell.ctco.markham_cn,hours,weekly,Stb Dwell Ctco Markham Cn,['stb']
-stb_dwell_ctco_ns,stb.dwell.ctco.ns,hours,weekly,Stb Dwell Ctco Ns,['stb']
-"stb_dwell_ctco_other_yards
-*see_ep_724_sub_no_3*","stb.dwell.ctco.other_yards
-*see_ep_724_sub-no.3*",hours,weekly,"Stb Dwell Ctco Other Yards
-*See Ep 724 Sub No 3*",['stb']
-stb_dwell_ctco_proviso,stb.dwell.ctco.proviso,hours,weekly,Stb Dwell Ctco Proviso,['stb']
-stb_dwell_ctco_totals,stb.dwell.ctco.totals,hours,weekly,Stb Dwell Ctco Totals,['stb']
-stb_dwell_ctco_up,stb.dwell.ctco.up,hours,weekly,Stb Dwell Ctco Up,['stb']
-stb_dwell_kcs_1___shreveport,stb.dwell.kcs.1.__shreveport,hours,weekly,Stb Dwell Kcs 1   Shreveport,['stb']
-stb_dwell_kcs_1_      _shreveport,stb.dwell.kcs.1.      _shreveport,hours,weekly,Stb Dwell Kcs 1        Shreveport,['stb']
-stb_dwell_kcs_1___shreveport_yard,stb.dwell.kcs.1.__shreveport_yard,hours,weekly,Stb Dwell Kcs 1   Shreveport Yard,['stb']
-stb_dwell_kcs_2_      _jackson,stb.dwell.kcs.2.      _jackson,hours,weekly,Stb Dwell Kcs 2        Jackson,['stb']
-stb_dwell_kcs_2___kansas_city,stb.dwell.kcs.2.__kansas_city,hours,weekly,Stb Dwell Kcs 2   Kansas City,['stb']
-stb_dwell_kcs_3_      _kansas_city,stb.dwell.kcs.3.      _kansas_city,hours,weekly,Stb Dwell Kcs 3        Kansas City,['stb']
-stb_dwell_kcs_3___laredo,stb.dwell.kcs.3.__laredo,hours,weekly,Stb Dwell Kcs 3   Laredo,['stb']
-stb_dwell_kcs_4___jackson,stb.dwell.kcs.4.__jackson,hours,weekly,Stb Dwell Kcs 4   Jackson,['stb']
-stb_dwell_kcs_4_      _laredo,stb.dwell.kcs.4.      _laredo,hours,weekly,Stb Dwell Kcs 4        Laredo,['stb']
-stb_dwell_kcs_4_      _laredo_yard,stb.dwell.kcs.4.      _laredo_yard,hours,weekly,Stb Dwell Kcs 4        Laredo Yard,['stb']
-stb_dwell_kcs_5___artesia,stb.dwell.kcs.5.__artesia,hours,weekly,Stb Dwell Kcs 5   Artesia,['stb']
-stb_dwell_kcs_5_      _port_arthur,stb.dwell.kcs.5.      _port_arthur,hours,weekly,Stb Dwell Kcs 5        Port Arthur,['stb']
-stb_dwell_kcs_6___baton_rouge,stb.dwell.kcs.6.__baton_rouge,hours,weekly,Stb Dwell Kcs 6   Baton Rouge,['stb']
-stb_dwell_kcs_6_      _wylie,stb.dwell.kcs.6.      _wylie,hours,weekly,Stb Dwell Kcs 6        Wylie,['stb']
-stb_dwell_kcs_7_      _artesia,stb.dwell.kcs.7.      _artesia,hours,weekly,Stb Dwell Kcs 7        Artesia,['stb']
-stb_dwell_kcs_7___meridian,stb.dwell.kcs.7.__meridian,hours,weekly,Stb Dwell Kcs 7   Meridian,['stb']
-stb_dwell_kcs_8_      _heavener,stb.dwell.kcs.8.      _heavener,hours,weekly,Stb Dwell Kcs 8        Heavener,['stb']
-stb_dwell_kcs_8___latanier,stb.dwell.kcs.8.__latanier,hours,weekly,Stb Dwell Kcs 8   Latanier,['stb']
-stb_dwell_kcs_9___beaumont,stb.dwell.kcs.9.__beaumont,hours,weekly,Stb Dwell Kcs 9   Beaumont,['stb']
-stb_dwell_kcs_9_      _leesville,stb.dwell.kcs.9.      _leesville,hours,weekly,Stb Dwell Kcs 9        Leesville,['stb']
-stb_dwell_kcs_system_average,stb.dwell.kcs.system_average,hours,weekly,Stb Dwell Kcs System Average,['stb']
-stb_dwell_ns_allentown,stb.dwell.ns.allentown,hours,weekly,Stb Dwell Ns Allentown,['stb']
-stb_dwell_ns_atlanta,stb.dwell.ns.atlanta,hours,weekly,Stb Dwell Ns Atlanta,['stb']
-stb_dwell_ns_bellevue,stb.dwell.ns.bellevue,hours,weekly,Stb Dwell Ns Bellevue,['stb']
-stb_dwell_ns_birmingham,stb.dwell.ns.birmingham,hours,weekly,Stb Dwell Ns Birmingham,['stb']
-stb_dwell_ns_chattanooga,stb.dwell.ns.chattanooga,hours,weekly,Stb Dwell Ns Chattanooga,['stb']
-stb_dwell_ns_conway,stb.dwell.ns.conway,hours,weekly,Stb Dwell Ns Conway,['stb']
-stb_dwell_ns_crude_oil_unit,stb.dwell.ns.crude_oil_unit,hours,weekly,Stb Dwell Ns Crude Oil Unit,['stb']
-stb_dwell_ns_decatur,stb.dwell.ns.decatur,hours,weekly,Stb Dwell Ns Decatur,['stb']
-stb_dwell_ns_elkhart,stb.dwell.ns.elkhart,hours,weekly,Stb Dwell Ns Elkhart,['stb']
-stb_dwell_ns_ethanol_unit,stb.dwell.ns.ethanol_unit,hours,weekly,Stb Dwell Ns Ethanol Unit,['stb']
-stb_dwell_ns_harrisburg,stb.dwell.ns.harrisburg,hours,weekly,Stb Dwell Ns Harrisburg,['stb']
-stb_dwell_ns_linwood,stb.dwell.ns.linwood,hours,weekly,Stb Dwell Ns Linwood,['stb']
-stb_dwell_ns_macon,stb.dwell.ns.macon,hours,weekly,Stb Dwell Ns Macon,['stb']
-stb_dwell_ns_manifest,stb.dwell.ns.manifest,hours,weekly,Stb Dwell Ns Manifest,['stb']
-stb_dwell_ns_system,stb.dwell.ns.system,hours,weekly,Stb Dwell Ns System,['stb']
-stb_dwell_up_1__chicago_proviso_il,stb.dwell.up.1__chicago_proviso_il,hours,weekly,Stb Dwell Up 1  Chicago Proviso Il,['stb']
-stb_dwell_up_2__fort_worth_tx,stb.dwell.up.2__fort_worth_tx,hours,weekly,Stb Dwell Up 2  Fort Worth Tx,['stb']
-stb_dwell_up_3__houston_englewood_tx,stb.dwell.up.3__houston_englewood_tx,hours,weekly,Stb Dwell Up 3  Houston Englewood Tx,['stb']
-stb_dwell_up_4__livonia_la,stb.dwell.up.4__livonia_la,hours,weekly,Stb Dwell Up 4  Livonia La,['stb']
-stb_dwell_up_5__north_little_rock_ar,stb.dwell.up.5__north_little_rock_ar,hours,weekly,Stb Dwell Up 5  North Little Rock Ar,['stb']
-stb_dwell_up_6__north_platte_east_ne,stb.dwell.up.6__north_platte_east_ne,hours,weekly,Stb Dwell Up 6  North Platte East Ne,['stb']
-stb_dwell_up_6__north_platte_west_ne,stb.dwell.up.6__north_platte_west_ne,hours,weekly,Stb Dwell Up 6  North Platte West Ne,['stb']
-stb_dwell_up_7__pine_bluff_ar,stb.dwell.up.7__pine_bluff_ar,hours,weekly,Stb Dwell Up 7  Pine Bluff Ar,['stb']
-stb_dwell_up_8__roseville_ca,stb.dwell.up.8__roseville_ca,hours,weekly,Stb Dwell Up 8  Roseville Ca,['stb']
-stb_dwell_up_9__santa_teresa_nm,stb.dwell.up.9__santa_teresa_nm,hours,weekly,Stb Dwell Up 9  Santa Teresa Nm,['stb']
-stb_dwell_up_crude_oil_unit,stb.dwell.up.crude_oil_unit,hours,weekly,Stb Dwell Up Crude Oil Unit,['stb']
-stb_dwell_up_ethanol_unit,stb.dwell.up.ethanol_unit,hours,weekly,Stb Dwell Up Ethanol Unit,['stb']
-stb_dwell_up_manifest,stb.dwell.up.manifest,hours,weekly,Stb Dwell Up Manifest,['stb']
-stb_dwell_up_system_average,stb.dwell.up.system_average,hours,weekly,Stb Dwell Up System Average,['stb']
-stb_holding_bnsf_automotive_unit_crew,stb.holding.bnsf.automotive_unit.crew,count,weekly,Stb Holding Bnsf Automotive Unit Crew,['stb']
-stb_holding_bnsf_automotive_unit_other,stb.holding.bnsf.automotive_unit.other,count,weekly,Stb Holding Bnsf Automotive Unit Other,['stb']
-stb_holding_bnsf_automotive_unit_power,stb.holding.bnsf.automotive_unit.power,count,weekly,Stb Holding Bnsf Automotive Unit Power,['stb']
-stb_holding_bnsf_automotive_unit_total,stb.holding.bnsf.automotive_unit.total,count,weekly,Stb Holding Bnsf Automotive Unit Total,['stb']
-stb_holding_bnsf_coal_unit_crew,stb.holding.bnsf.coal_unit.crew,count,weekly,Stb Holding Bnsf Coal Unit Crew,['stb']
-stb_holding_bnsf_coal_unit_other,stb.holding.bnsf.coal_unit.other,count,weekly,Stb Holding Bnsf Coal Unit Other,['stb']
-stb_holding_bnsf_coal_unit_power,stb.holding.bnsf.coal_unit.power,count,weekly,Stb Holding Bnsf Coal Unit Power,['stb']
-stb_holding_bnsf_coal_unit_total,stb.holding.bnsf.coal_unit.total,count,weekly,Stb Holding Bnsf Coal Unit Total,['stb']
-stb_holding_bnsf_crude_oil_unit_crew,stb.holding.bnsf.crude_oil_unit.crew,count,weekly,Stb Holding Bnsf Crude Oil Unit Crew,['stb']
-stb_holding_bnsf_crude_oil_unit_other,stb.holding.bnsf.crude_oil_unit.other,count,weekly,Stb Holding Bnsf Crude Oil Unit Other,['stb']
-stb_holding_bnsf_crude_oil_unit_power,stb.holding.bnsf.crude_oil_unit.power,count,weekly,Stb Holding Bnsf Crude Oil Unit Power,['stb']
-stb_holding_bnsf_crude_oil_unit_total,stb.holding.bnsf.crude_oil_unit.total,count,weekly,Stb Holding Bnsf Crude Oil Unit Total,['stb']
-stb_holding_bnsf_ethanol_unit_crew,stb.holding.bnsf.ethanol_unit.crew,count,weekly,Stb Holding Bnsf Ethanol Unit Crew,['stb']
-stb_holding_bnsf_ethanol_unit_other,stb.holding.bnsf.ethanol_unit.other,count,weekly,Stb Holding Bnsf Ethanol Unit Other,['stb']
-stb_holding_bnsf_ethanol_unit_power,stb.holding.bnsf.ethanol_unit.power,count,weekly,Stb Holding Bnsf Ethanol Unit Power,['stb']
-stb_holding_bnsf_ethanol_unit_total,stb.holding.bnsf.ethanol_unit.total,count,weekly,Stb Holding Bnsf Ethanol Unit Total,['stb']
-stb_holding_bnsf_grain_unit_crew,stb.holding.bnsf.grain_unit.crew,count,weekly,Stb Holding Bnsf Grain Unit Crew,['stb']
-stb_holding_bnsf_grain_unit_other,stb.holding.bnsf.grain_unit.other,count,weekly,Stb Holding Bnsf Grain Unit Other,['stb']
-stb_holding_bnsf_grain_unit_power,stb.holding.bnsf.grain_unit.power,count,weekly,Stb Holding Bnsf Grain Unit Power,['stb']
-stb_holding_bnsf_grain_unit_total,stb.holding.bnsf.grain_unit.total,count,weekly,Stb Holding Bnsf Grain Unit Total,['stb']
-stb_holding_bnsf_intermodal_crew,stb.holding.bnsf.intermodal.crew,count,weekly,Stb Holding Bnsf Intermodal Crew,['stb']
-stb_holding_bnsf_intermodal_other,stb.holding.bnsf.intermodal.other,count,weekly,Stb Holding Bnsf Intermodal Other,['stb']
-stb_holding_bnsf_intermodal_power,stb.holding.bnsf.intermodal.power,count,weekly,Stb Holding Bnsf Intermodal Power,['stb']
-stb_holding_bnsf_intermodal_total,stb.holding.bnsf.intermodal.total,count,weekly,Stb Holding Bnsf Intermodal Total,['stb']
-stb_holding_bnsf_other_unit_crew,stb.holding.bnsf.other_unit.crew,count,weekly,Stb Holding Bnsf Other Unit Crew,['stb']
-stb_holding_bnsf_other_unit_other,stb.holding.bnsf.other_unit.other,count,weekly,Stb Holding Bnsf Other Unit Other,['stb']
-stb_holding_bnsf_other_unit_power,stb.holding.bnsf.other_unit.power,count,weekly,Stb Holding Bnsf Other Unit Power,['stb']
-stb_holding_bnsf_other_unit_total,stb.holding.bnsf.other_unit.total,count,weekly,Stb Holding Bnsf Other Unit Total,['stb']
-stb_holding_cn_coal_crew,stb.holding.cn.coal.crew,count,weekly,Stb Holding Cn Coal Crew,['stb']
-stb_holding_cn_coal_other,stb.holding.cn.coal.other,count,weekly,Stb Holding Cn Coal Other,['stb']
-stb_holding_cn_coal_power,stb.holding.cn.coal.power,count,weekly,Stb Holding Cn Coal Power,['stb']
-stb_holding_cn_coal_total,stb.holding.cn.coal.total,count,weekly,Stb Holding Cn Coal Total,['stb']
-stb_holding_cn_crude_crew,stb.holding.cn.crude.crew,count,weekly,Stb Holding Cn Crude Crew,['stb']
-stb_holding_cn_crude_other,stb.holding.cn.crude.other,count,weekly,Stb Holding Cn Crude Other,['stb']
-stb_holding_cn_crude_power,stb.holding.cn.crude.power,count,weekly,Stb Holding Cn Crude Power,['stb']
-stb_holding_cn_crude_total,stb.holding.cn.crude.total,count,weekly,Stb Holding Cn Crude Total,['stb']
-stb_holding_cn_ethanol_crew,stb.holding.cn.ethanol.crew,count,weekly,Stb Holding Cn Ethanol Crew,['stb']
-stb_holding_cn_ethanol_other,stb.holding.cn.ethanol.other,count,weekly,Stb Holding Cn Ethanol Other,['stb']
-stb_holding_cn_ethanol_power,stb.holding.cn.ethanol.power,count,weekly,Stb Holding Cn Ethanol Power,['stb']
-stb_holding_cn_ethanol_total,stb.holding.cn.ethanol.total,count,weekly,Stb Holding Cn Ethanol Total,['stb']
-stb_holding_cn_grain_crew,stb.holding.cn.grain.crew,count,weekly,Stb Holding Cn Grain Crew,['stb']
-stb_holding_cn_grain_other,stb.holding.cn.grain.other,count,weekly,Stb Holding Cn Grain Other,['stb']
-stb_holding_cn_grain_power,stb.holding.cn.grain.power,count,weekly,Stb Holding Cn Grain Power,['stb']
-stb_holding_cn_grain_total,stb.holding.cn.grain.total,count,weekly,Stb Holding Cn Grain Total,['stb']
-stb_holding_cn_intermodal_crew,stb.holding.cn.intermodal.crew,count,weekly,Stb Holding Cn Intermodal Crew,['stb']
-stb_holding_cn_intermodal_other,stb.holding.cn.intermodal.other,count,weekly,Stb Holding Cn Intermodal Other,['stb']
-stb_holding_cn_intermodal_power,stb.holding.cn.intermodal.power,count,weekly,Stb Holding Cn Intermodal Power,['stb']
-stb_holding_cn_intermodal_total,stb.holding.cn.intermodal.total,count,weekly,Stb Holding Cn Intermodal Total,['stb']
-stb_holding_cn_manifest_crew,stb.holding.cn.manifest.crew,count,weekly,Stb Holding Cn Manifest Crew,['stb']
-stb_holding_cn_manifest_other,stb.holding.cn.manifest.other,count,weekly,Stb Holding Cn Manifest Other,['stb']
-stb_holding_cn_manifest_power,stb.holding.cn.manifest.power,count,weekly,Stb Holding Cn Manifest Power,['stb']
-stb_holding_cn_manifest_total,stb.holding.cn.manifest.total,count,weekly,Stb Holding Cn Manifest Total,['stb']
-stb_holding_cn_other_unit_crew,stb.holding.cn.other_unit.crew,count,weekly,Stb Holding Cn Other Unit Crew,['stb']
-stb_holding_cn_other_unit_other,stb.holding.cn.other_unit.other,count,weekly,Stb Holding Cn Other Unit Other,['stb']
-stb_holding_cn_other_unit_power,stb.holding.cn.other_unit.power,count,weekly,Stb Holding Cn Other Unit Power,['stb']
-stb_holding_cn_other_unit_total,stb.holding.cn.other_unit.total,count,weekly,Stb Holding Cn Other Unit Total,['stb']
-stb_holding_cn_total_crew,stb.holding.cn.total.crew,count,weekly,Stb Holding Cn Total Crew,['stb']
-stb_holding_cn_total_other,stb.holding.cn.total.other,count,weekly,Stb Holding Cn Total Other,['stb']
-stb_holding_cn_total_power,stb.holding.cn.total.power,count,weekly,Stb Holding Cn Total Power,['stb']
-stb_holding_cn_total_total,stb.holding.cn.total.total,count,weekly,Stb Holding Cn Total Total,['stb']
-stb_holding_cp_automotive_unit_crew,stb.holding.cp.automotive_unit.crew,count,weekly,Stb Holding Cp Automotive Unit Crew,['stb']
-stb_holding_cp_automotive_unit_other,stb.holding.cp.automotive_unit.other,count,weekly,Stb Holding Cp Automotive Unit Other,['stb']
-stb_holding_cp_automotive_unit_power,stb.holding.cp.automotive_unit.power,count,weekly,Stb Holding Cp Automotive Unit Power,['stb']
-stb_holding_cp_automotive_unit_total,stb.holding.cp.automotive_unit.total,count,weekly,Stb Holding Cp Automotive Unit Total,['stb']
-stb_holding_cp_coal_unit_crew,stb.holding.cp.coal_unit.crew,count,weekly,Stb Holding Cp Coal Unit Crew,['stb']
-stb_holding_cp_coal_unit_other,stb.holding.cp.coal_unit.other,count,weekly,Stb Holding Cp Coal Unit Other,['stb']
-stb_holding_cp_coal_unit_power,stb.holding.cp.coal_unit.power,count,weekly,Stb Holding Cp Coal Unit Power,['stb']
-stb_holding_cp_coal_unit_total,stb.holding.cp.coal_unit.total,count,weekly,Stb Holding Cp Coal Unit Total,['stb']
-stb_holding_cp_crude_oil_unit_crew,stb.holding.cp.crude_oil_unit.crew,count,weekly,Stb Holding Cp Crude Oil Unit Crew,['stb']
-stb_holding_cp_crude_oil_unit_other,stb.holding.cp.crude_oil_unit.other,count,weekly,Stb Holding Cp Crude Oil Unit Other,['stb']
-stb_holding_cp_crude_oil_unit_power,stb.holding.cp.crude_oil_unit.power,count,weekly,Stb Holding Cp Crude Oil Unit Power,['stb']
-stb_holding_cp_crude_oil_unit_total,stb.holding.cp.crude_oil_unit.total,count,weekly,Stb Holding Cp Crude Oil Unit Total,['stb']
-stb_holding_cp_ethanol_unit_crew,stb.holding.cp.ethanol_unit.crew,count,weekly,Stb Holding Cp Ethanol Unit Crew,['stb']
-stb_holding_cp_ethanol_unit_other,stb.holding.cp.ethanol_unit.other,count,weekly,Stb Holding Cp Ethanol Unit Other,['stb']
-stb_holding_cp_ethanol_unit_power,stb.holding.cp.ethanol_unit.power,count,weekly,Stb Holding Cp Ethanol Unit Power,['stb']
-stb_holding_cp_ethanol_unit_total,stb.holding.cp.ethanol_unit.total,count,weekly,Stb Holding Cp Ethanol Unit Total,['stb']
-stb_holding_cp_grain_unit_crew,stb.holding.cp.grain_unit.crew,count,weekly,Stb Holding Cp Grain Unit Crew,['stb']
-stb_holding_cp_grain_unit_other,stb.holding.cp.grain_unit.other,count,weekly,Stb Holding Cp Grain Unit Other,['stb']
-stb_holding_cp_grain_unit_power,stb.holding.cp.grain_unit.power,count,weekly,Stb Holding Cp Grain Unit Power,['stb']
-stb_holding_cp_grain_unit_total,stb.holding.cp.grain_unit.total,count,weekly,Stb Holding Cp Grain Unit Total,['stb']
-stb_holding_cp_intermodal_crew,stb.holding.cp.intermodal.crew,count,weekly,Stb Holding Cp Intermodal Crew,['stb']
-stb_holding_cp_intermodal_other,stb.holding.cp.intermodal.other,count,weekly,Stb Holding Cp Intermodal Other,['stb']
-stb_holding_cp_intermodal_power,stb.holding.cp.intermodal.power,count,weekly,Stb Holding Cp Intermodal Power,['stb']
-stb_holding_cp_intermodal_total,stb.holding.cp.intermodal.total,count,weekly,Stb Holding Cp Intermodal Total,['stb']
-stb_holding_cp_other_unit_crew,stb.holding.cp.other_unit.crew,count,weekly,Stb Holding Cp Other Unit Crew,['stb']
-stb_holding_cp_other_unit_other,stb.holding.cp.other_unit.other,count,weekly,Stb Holding Cp Other Unit Other,['stb']
-stb_holding_cp_other_unit_power,stb.holding.cp.other_unit.power,count,weekly,Stb Holding Cp Other Unit Power,['stb']
-stb_holding_cp_other_unit_total,stb.holding.cp.other_unit.total,count,weekly,Stb Holding Cp Other Unit Total,['stb']
-stb_holding_csx_automotive_unit_crew,stb.holding.csx.automotive_unit.crew,count,weekly,Stb Holding Csx Automotive Unit Crew,['stb']
-stb_holding_csx_automotive_unit_other,stb.holding.csx.automotive_unit.other,count,weekly,Stb Holding Csx Automotive Unit Other,['stb']
-stb_holding_csx_automotive_unit_power,stb.holding.csx.automotive_unit.power,count,weekly,Stb Holding Csx Automotive Unit Power,['stb']
-stb_holding_csx_automotive_unit_total,stb.holding.csx.automotive_unit.total,count,weekly,Stb Holding Csx Automotive Unit Total,['stb']
-stb_holding_csx_coal_unit_crew,stb.holding.csx.coal_unit.crew,count,weekly,Stb Holding Csx Coal Unit Crew,['stb']
-stb_holding_csx_coal_unit_other,stb.holding.csx.coal_unit.other,count,weekly,Stb Holding Csx Coal Unit Other,['stb']
-stb_holding_csx_coal_unit_power,stb.holding.csx.coal_unit.power,count,weekly,Stb Holding Csx Coal Unit Power,['stb']
-stb_holding_csx_coal_unit_total,stb.holding.csx.coal_unit.total,count,weekly,Stb Holding Csx Coal Unit Total,['stb']
-stb_holding_csx_crude_oil_unit_crew,stb.holding.csx.crude_oil_unit.crew,count,weekly,Stb Holding Csx Crude Oil Unit Crew,['stb']
-stb_holding_csx_crude_oil_unit_other,stb.holding.csx.crude_oil_unit.other,count,weekly,Stb Holding Csx Crude Oil Unit Other,['stb']
-stb_holding_csx_crude_oil_unit_power,stb.holding.csx.crude_oil_unit.power,count,weekly,Stb Holding Csx Crude Oil Unit Power,['stb']
-stb_holding_csx_crude_oil_unit_total,stb.holding.csx.crude_oil_unit.total,count,weekly,Stb Holding Csx Crude Oil Unit Total,['stb']
-stb_holding_csx_ethanol_unit_crew,stb.holding.csx.ethanol_unit.crew,count,weekly,Stb Holding Csx Ethanol Unit Crew,['stb']
-stb_holding_csx_ethanol_unit_other,stb.holding.csx.ethanol_unit.other,count,weekly,Stb Holding Csx Ethanol Unit Other,['stb']
-stb_holding_csx_ethanol_unit_power,stb.holding.csx.ethanol_unit.power,count,weekly,Stb Holding Csx Ethanol Unit Power,['stb']
-stb_holding_csx_ethanol_unit_total,stb.holding.csx.ethanol_unit.total,count,weekly,Stb Holding Csx Ethanol Unit Total,['stb']
-stb_holding_csx_grain_unit_crew,stb.holding.csx.grain_unit.crew,count,weekly,Stb Holding Csx Grain Unit Crew,['stb']
-stb_holding_csx_grain_unit_other,stb.holding.csx.grain_unit.other,count,weekly,Stb Holding Csx Grain Unit Other,['stb']
-stb_holding_csx_grain_unit_power,stb.holding.csx.grain_unit.power,count,weekly,Stb Holding Csx Grain Unit Power,['stb']
-stb_holding_csx_grain_unit_total,stb.holding.csx.grain_unit.total,count,weekly,Stb Holding Csx Grain Unit Total,['stb']
-stb_holding_csx_intermodal_crew,stb.holding.csx.intermodal.crew,count,weekly,Stb Holding Csx Intermodal Crew,['stb']
-stb_holding_csx_intermodal_other,stb.holding.csx.intermodal.other,count,weekly,Stb Holding Csx Intermodal Other,['stb']
-stb_holding_csx_intermodal_power,stb.holding.csx.intermodal.power,count,weekly,Stb Holding Csx Intermodal Power,['stb']
-stb_holding_csx_intermodal_total,stb.holding.csx.intermodal.total,count,weekly,Stb Holding Csx Intermodal Total,['stb']
-stb_holding_csx_other_unit_crew,stb.holding.csx.other_unit.crew,count,weekly,Stb Holding Csx Other Unit Crew,['stb']
-stb_holding_csx_other_unit_other,stb.holding.csx.other_unit.other,count,weekly,Stb Holding Csx Other Unit Other,['stb']
-stb_holding_csx_other_unit_power,stb.holding.csx.other_unit.power,count,weekly,Stb Holding Csx Other Unit Power,['stb']
-stb_holding_csx_other_unit_total,stb.holding.csx.other_unit.total,count,weekly,Stb Holding Csx Other Unit Total,['stb']
-stb_holding_csx_total_crew,stb.holding.csx.total.crew,count,weekly,Stb Holding Csx Total Crew,['stb']
-stb_holding_kcs_automotive_unit_crew,stb.holding.kcs.automotive_unit.crew,count,weekly,Stb Holding Kcs Automotive Unit Crew,['stb']
-stb_holding_kcs_automotive_unit_other,stb.holding.kcs.automotive_unit.other,count,weekly,Stb Holding Kcs Automotive Unit Other,['stb']
-stb_holding_kcs_automotive_unit_power,stb.holding.kcs.automotive_unit.power,count,weekly,Stb Holding Kcs Automotive Unit Power,['stb']
-stb_holding_kcs_automotive_unit_total,stb.holding.kcs.automotive_unit.total,count,weekly,Stb Holding Kcs Automotive Unit Total,['stb']
-stb_holding_kcs_coal_unit_crew,stb.holding.kcs.coal_unit.crew,count,weekly,Stb Holding Kcs Coal Unit Crew,['stb']
-stb_holding_kcs_coal_unit_other,stb.holding.kcs.coal_unit.other,count,weekly,Stb Holding Kcs Coal Unit Other,['stb']
-stb_holding_kcs_coal_unit_power,stb.holding.kcs.coal_unit.power,count,weekly,Stb Holding Kcs Coal Unit Power,['stb']
-stb_holding_kcs_coal_unit_total,stb.holding.kcs.coal_unit.total,count,weekly,Stb Holding Kcs Coal Unit Total,['stb']
-stb_holding_kcs_crude_oil_unit_crew,stb.holding.kcs.crude_oil_unit.crew,count,weekly,Stb Holding Kcs Crude Oil Unit Crew,['stb']
-stb_holding_kcs_crude_oil_unit_other,stb.holding.kcs.crude_oil_unit.other,count,weekly,Stb Holding Kcs Crude Oil Unit Other,['stb']
-stb_holding_kcs_crude_oil_unit_power,stb.holding.kcs.crude_oil_unit.power,count,weekly,Stb Holding Kcs Crude Oil Unit Power,['stb']
-stb_holding_kcs_crude_oil_unit_total,stb.holding.kcs.crude_oil_unit.total,count,weekly,Stb Holding Kcs Crude Oil Unit Total,['stb']
-stb_holding_kcs_ethanol_unit_crew,stb.holding.kcs.ethanol_unit.crew,count,weekly,Stb Holding Kcs Ethanol Unit Crew,['stb']
-stb_holding_kcs_ethanol_unit_other,stb.holding.kcs.ethanol_unit.other,count,weekly,Stb Holding Kcs Ethanol Unit Other,['stb']
-stb_holding_kcs_ethanol_unit_power,stb.holding.kcs.ethanol_unit.power,count,weekly,Stb Holding Kcs Ethanol Unit Power,['stb']
-stb_holding_kcs_ethanol_unit_total,stb.holding.kcs.ethanol_unit.total,count,weekly,Stb Holding Kcs Ethanol Unit Total,['stb']
-stb_holding_kcs_grain_unit_crew,stb.holding.kcs.grain_unit.crew,count,weekly,Stb Holding Kcs Grain Unit Crew,['stb']
-stb_holding_kcs_grain_unit_other,stb.holding.kcs.grain_unit.other,count,weekly,Stb Holding Kcs Grain Unit Other,['stb']
-stb_holding_kcs_grain_unit_power,stb.holding.kcs.grain_unit.power,count,weekly,Stb Holding Kcs Grain Unit Power,['stb']
-stb_holding_kcs_grain_unit_total,stb.holding.kcs.grain_unit.total,count,weekly,Stb Holding Kcs Grain Unit Total,['stb']
-stb_holding_kcs_intermodal_crew,stb.holding.kcs.intermodal.crew,count,weekly,Stb Holding Kcs Intermodal Crew,['stb']
-stb_holding_kcs_intermodal_other,stb.holding.kcs.intermodal.other,count,weekly,Stb Holding Kcs Intermodal Other,['stb']
-stb_holding_kcs_intermodal_power,stb.holding.kcs.intermodal.power,count,weekly,Stb Holding Kcs Intermodal Power,['stb']
-stb_holding_kcs_intermodal_total,stb.holding.kcs.intermodal.total,count,weekly,Stb Holding Kcs Intermodal Total,['stb']
-stb_holding_kcs_manifest_crew,stb.holding.kcs.manifest.crew,count,weekly,Stb Holding Kcs Manifest Crew,['stb']
-stb_holding_kcs_manifest_other,stb.holding.kcs.manifest.other,count,weekly,Stb Holding Kcs Manifest Other,['stb']
-stb_holding_kcs_manifest_power,stb.holding.kcs.manifest.power,count,weekly,Stb Holding Kcs Manifest Power,['stb']
-stb_holding_kcs_manifest_total,stb.holding.kcs.manifest.total,count,weekly,Stb Holding Kcs Manifest Total,['stb']
-stb_holding_kcs_other_unit_crew,stb.holding.kcs.other_unit.crew,count,weekly,Stb Holding Kcs Other Unit Crew,['stb']
-stb_holding_kcs_other_unit_other,stb.holding.kcs.other_unit.other,count,weekly,Stb Holding Kcs Other Unit Other,['stb']
-stb_holding_kcs_other_unit_power,stb.holding.kcs.other_unit.power,count,weekly,Stb Holding Kcs Other Unit Power,['stb']
-stb_holding_kcs_other_unit_total,stb.holding.kcs.other_unit.total,count,weekly,Stb Holding Kcs Other Unit Total,['stb']
-stb_holding_ns_automotive_unit_crew,stb.holding.ns.automotive_unit.crew,count,weekly,Stb Holding Ns Automotive Unit Crew,['stb']
-stb_holding_ns_automotive_unit_other,stb.holding.ns.automotive_unit.other,count,weekly,Stb Holding Ns Automotive Unit Other,['stb']
-stb_holding_ns_automotive_unit_power,stb.holding.ns.automotive_unit.power,count,weekly,Stb Holding Ns Automotive Unit Power,['stb']
-stb_holding_ns_automotive_unit_total,stb.holding.ns.automotive_unit.total,count,weekly,Stb Holding Ns Automotive Unit Total,['stb']
-stb_holding_ns_coal_unit_crew,stb.holding.ns.coal_unit.crew,count,weekly,Stb Holding Ns Coal Unit Crew,['stb']
-stb_holding_ns_coal_unit_other,stb.holding.ns.coal_unit.other,count,weekly,Stb Holding Ns Coal Unit Other,['stb']
-stb_holding_ns_coal_unit_power,stb.holding.ns.coal_unit.power,count,weekly,Stb Holding Ns Coal Unit Power,['stb']
-stb_holding_ns_coal_unit_total,stb.holding.ns.coal_unit.total,count,weekly,Stb Holding Ns Coal Unit Total,['stb']
-stb_holding_ns_crude_oil_unit_crew,stb.holding.ns.crude_oil_unit.crew,count,weekly,Stb Holding Ns Crude Oil Unit Crew,['stb']
-stb_holding_ns_crude_oil_unit_other,stb.holding.ns.crude_oil_unit.other,count,weekly,Stb Holding Ns Crude Oil Unit Other,['stb']
-stb_holding_ns_crude_oil_unit_power,stb.holding.ns.crude_oil_unit.power,count,weekly,Stb Holding Ns Crude Oil Unit Power,['stb']
-stb_holding_ns_crude_oil_unit_total,stb.holding.ns.crude_oil_unit.total,count,weekly,Stb Holding Ns Crude Oil Unit Total,['stb']
-stb_holding_ns_ethanol_unit_crew,stb.holding.ns.ethanol_unit.crew,count,weekly,Stb Holding Ns Ethanol Unit Crew,['stb']
-stb_holding_ns_ethanol_unit_other,stb.holding.ns.ethanol_unit.other,count,weekly,Stb Holding Ns Ethanol Unit Other,['stb']
-stb_holding_ns_ethanol_unit_power,stb.holding.ns.ethanol_unit.power,count,weekly,Stb Holding Ns Ethanol Unit Power,['stb']
-stb_holding_ns_ethanol_unit_total,stb.holding.ns.ethanol_unit.total,count,weekly,Stb Holding Ns Ethanol Unit Total,['stb']
-stb_holding_ns_grain_unit_crew,stb.holding.ns.grain_unit.crew,count,weekly,Stb Holding Ns Grain Unit Crew,['stb']
-stb_holding_ns_grain_unit_other,stb.holding.ns.grain_unit.other,count,weekly,Stb Holding Ns Grain Unit Other,['stb']
-stb_holding_ns_grain_unit_power,stb.holding.ns.grain_unit.power,count,weekly,Stb Holding Ns Grain Unit Power,['stb']
-stb_holding_ns_grain_unit_total,stb.holding.ns.grain_unit.total,count,weekly,Stb Holding Ns Grain Unit Total,['stb']
-stb_holding_ns_intermodal_crew,stb.holding.ns.intermodal.crew,count,weekly,Stb Holding Ns Intermodal Crew,['stb']
-stb_holding_ns_intermodal_other,stb.holding.ns.intermodal.other,count,weekly,Stb Holding Ns Intermodal Other,['stb']
-stb_holding_ns_intermodal_power,stb.holding.ns.intermodal.power,count,weekly,Stb Holding Ns Intermodal Power,['stb']
-stb_holding_ns_intermodal_total,stb.holding.ns.intermodal.total,count,weekly,Stb Holding Ns Intermodal Total,['stb']
-stb_holding_ns_open_hopper_crew,stb.holding.ns.open_hopper.crew,count,weekly,Stb Holding Ns Open Hopper Crew,['stb']
-stb_holding_ns_other_crew,stb.holding.ns.other.crew,count,weekly,Stb Holding Ns Other Crew,['stb']
-stb_holding_ns_other_unit_crew,stb.holding.ns.other_unit.crew,count,weekly,Stb Holding Ns Other Unit Crew,['stb']
-stb_holding_ns_other_unit_other,stb.holding.ns.other_unit.other,count,weekly,Stb Holding Ns Other Unit Other,['stb']
-stb_holding_ns_other_unit_power,stb.holding.ns.other_unit.power,count,weekly,Stb Holding Ns Other Unit Power,['stb']
-stb_holding_ns_other_unit_total,stb.holding.ns.other_unit.total,count,weekly,Stb Holding Ns Other Unit Total,['stb']
-stb_holding_ns_tank_crew,stb.holding.ns.tank.crew,count,weekly,Stb Holding Ns Tank Crew,['stb']
-stb_holding_ns_total_crew,stb.holding.ns.total.crew,count,weekly,Stb Holding Ns Total Crew,['stb']
-stb_holding_up_automotive_unit_crew,stb.holding.up.automotive_unit.crew,count,weekly,Stb Holding Up Automotive Unit Crew,['stb']
-stb_holding_up_automotive_unit_other,stb.holding.up.automotive_unit.other,count,weekly,Stb Holding Up Automotive Unit Other,['stb']
-stb_holding_up_automotive_unit_power,stb.holding.up.automotive_unit.power,count,weekly,Stb Holding Up Automotive Unit Power,['stb']
-stb_holding_up_automotive_unit_total,stb.holding.up.automotive_unit.total,count,weekly,Stb Holding Up Automotive Unit Total,['stb']
-stb_holding_up_coal_unit_crew,stb.holding.up.coal_unit.crew,count,weekly,Stb Holding Up Coal Unit Crew,['stb']
-stb_holding_up_coal_unit_other,stb.holding.up.coal_unit.other,count,weekly,Stb Holding Up Coal Unit Other,['stb']
-stb_holding_up_coal_unit_power,stb.holding.up.coal_unit.power,count,weekly,Stb Holding Up Coal Unit Power,['stb']
-stb_holding_up_coal_unit_total,stb.holding.up.coal_unit.total,count,weekly,Stb Holding Up Coal Unit Total,['stb']
-stb_holding_up_crude_oil_unit_crew,stb.holding.up.crude_oil_unit.crew,count,weekly,Stb Holding Up Crude Oil Unit Crew,['stb']
-stb_holding_up_crude_oil_unit_other,stb.holding.up.crude_oil_unit.other,count,weekly,Stb Holding Up Crude Oil Unit Other,['stb']
-stb_holding_up_crude_oil_unit_power,stb.holding.up.crude_oil_unit.power,count,weekly,Stb Holding Up Crude Oil Unit Power,['stb']
-stb_holding_up_crude_oil_unit_total,stb.holding.up.crude_oil_unit.total,count,weekly,Stb Holding Up Crude Oil Unit Total,['stb']
-stb_holding_up_ethanol_unit_crew,stb.holding.up.ethanol_unit.crew,count,weekly,Stb Holding Up Ethanol Unit Crew,['stb']
-stb_holding_up_ethanol_unit_other,stb.holding.up.ethanol_unit.other,count,weekly,Stb Holding Up Ethanol Unit Other,['stb']
-stb_holding_up_ethanol_unit_power,stb.holding.up.ethanol_unit.power,count,weekly,Stb Holding Up Ethanol Unit Power,['stb']
-stb_holding_up_ethanol_unit_total,stb.holding.up.ethanol_unit.total,count,weekly,Stb Holding Up Ethanol Unit Total,['stb']
-stb_holding_up_grain_unit_crew,stb.holding.up.grain_unit.crew,count,weekly,Stb Holding Up Grain Unit Crew,['stb']
-stb_holding_up_grain_unit_other,stb.holding.up.grain_unit.other,count,weekly,Stb Holding Up Grain Unit Other,['stb']
-stb_holding_up_grain_unit_power,stb.holding.up.grain_unit.power,count,weekly,Stb Holding Up Grain Unit Power,['stb']
-stb_holding_up_grain_unit_total,stb.holding.up.grain_unit.total,count,weekly,Stb Holding Up Grain Unit Total,['stb']
-stb_holding_up_intermodal_crew,stb.holding.up.intermodal.crew,count,weekly,Stb Holding Up Intermodal Crew,['stb']
-stb_holding_up_intermodal_other,stb.holding.up.intermodal.other,count,weekly,Stb Holding Up Intermodal Other,['stb']
-stb_holding_up_intermodal_power,stb.holding.up.intermodal.power,count,weekly,Stb Holding Up Intermodal Power,['stb']
-stb_holding_up_intermodal_total,stb.holding.up.intermodal.total,count,weekly,Stb Holding Up Intermodal Total,['stb']
-stb_holding_up_other_unit_crew,stb.holding.up.other_unit.crew,count,weekly,Stb Holding Up Other Unit Crew,['stb']
-stb_holding_up_other_unit_other,stb.holding.up.other_unit.other,count,weekly,Stb Holding Up Other Unit Other,['stb']
-stb_holding_up_other_unit_power,stb.holding.up.other_unit.power,count,weekly,Stb Holding Up Other Unit Power,['stb']
-stb_holding_up_other_unit_total,stb.holding.up.other_unit.total,count,weekly,Stb Holding Up Other Unit Total,['stb']
-stb_speed_bnsf_automotive_unit,stb.speed.bnsf.automotive_unit,mph,weekly,Stb Speed Bnsf Automotive Unit,['stb']
-stb_speed_bnsf_coal_unit,stb.speed.bnsf.coal_unit,mph,weekly,Stb Speed Bnsf Coal Unit,['stb']
-stb_speed_bnsf_crude_oil_unit,stb.speed.bnsf.crude_oil_unit,mph,weekly,Stb Speed Bnsf Crude Oil Unit,['stb']
-stb_speed_bnsf_ethanol_unit,stb.speed.bnsf.ethanol_unit,mph,weekly,Stb Speed Bnsf Ethanol Unit,['stb']
-stb_speed_bnsf_grain_unit,stb.speed.bnsf.grain_unit,mph,weekly,Stb Speed Bnsf Grain Unit,['stb']
-stb_speed_bnsf_intermodal,stb.speed.bnsf.intermodal,mph,weekly,Stb Speed Bnsf Intermodal,['stb']
-stb_speed_bnsf_manifest,stb.speed.bnsf.manifest,mph,weekly,Stb Speed Bnsf Manifest,['stb']
-stb_speed_cn_coal,stb.speed.cn.coal,mph,weekly,Stb Speed Cn Coal,['stb']
-stb_speed_cn_crude,stb.speed.cn.crude,mph,weekly,Stb Speed Cn Crude,['stb']
-stb_speed_cn_ethanol,stb.speed.cn.ethanol,mph,weekly,Stb Speed Cn Ethanol,['stb']
-stb_speed_cn_grain,stb.speed.cn.grain,mph,weekly,Stb Speed Cn Grain,['stb']
-stb_speed_cn_intermodal,stb.speed.cn.intermodal,mph,weekly,Stb Speed Cn Intermodal,['stb']
-stb_speed_cn_manifest,stb.speed.cn.manifest,mph,weekly,Stb Speed Cn Manifest,['stb']
-stb_speed_cn_other_unit,stb.speed.cn.other_unit,mph,weekly,Stb Speed Cn Other Unit,['stb']
-stb_speed_cp_automotive_unit,stb.speed.cp.automotive_unit,mph,weekly,Stb Speed Cp Automotive Unit,['stb']
-stb_speed_cp_coal_unit,stb.speed.cp.coal_unit,mph,weekly,Stb Speed Cp Coal Unit,['stb']
-stb_speed_cp_crude_oil_unit,stb.speed.cp.crude_oil_unit,mph,weekly,Stb Speed Cp Crude Oil Unit,['stb']
-stb_speed_cp_ethanol_unit,stb.speed.cp.ethanol_unit,mph,weekly,Stb Speed Cp Ethanol Unit,['stb']
-stb_speed_cp_grain_unit,stb.speed.cp.grain_unit,mph,weekly,Stb Speed Cp Grain Unit,['stb']
-stb_speed_cp_intermodal,stb.speed.cp.intermodal,mph,weekly,Stb Speed Cp Intermodal,['stb']
-stb_speed_cp_manifest,stb.speed.cp.manifest,mph,weekly,Stb Speed Cp Manifest,['stb']
-stb_speed_csx_automotive_unit,stb.speed.csx.automotive_unit,mph,weekly,Stb Speed Csx Automotive Unit,['stb']
-stb_speed_csx_coal_unit,stb.speed.csx.coal_unit,mph,weekly,Stb Speed Csx Coal Unit,['stb']
-stb_speed_csx_crude_oil_unit,stb.speed.csx.crude_oil_unit,mph,weekly,Stb Speed Csx Crude Oil Unit,['stb']
-stb_speed_csx_ethanol_unit,stb.speed.csx.ethanol_unit,mph,weekly,Stb Speed Csx Ethanol Unit,['stb']
-stb_speed_csx_grain_unit,stb.speed.csx.grain_unit,mph,weekly,Stb Speed Csx Grain Unit,['stb']
-stb_speed_csx_intermodal,stb.speed.csx.intermodal,mph,weekly,Stb Speed Csx Intermodal,['stb']
-stb_speed_csx_manifest,stb.speed.csx.manifest,mph,weekly,Stb Speed Csx Manifest,['stb']
-stb_speed_ctco_barr,stb.speed.ctco.barr,mph,weekly,Stb Speed Ctco Barr,['stb']
-stb_speed_ctco_barr_boct_csxt,stb.speed.ctco.barr_boct-csxt,mph,weekly,Stb Speed Ctco Barr Boct Csxt,['stb']
-stb_speed_ctco_bensenville,stb.speed.ctco.bensenville,mph,weekly,Stb Speed Ctco Bensenville,['stb']
-stb_speed_ctco_bensenville_cprs,stb.speed.ctco.bensenville_cprs,mph,weekly,Stb Speed Ctco Bensenville Cprs,['stb']
-stb_speed_ctco_blue_island,stb.speed.ctco.blue_island,mph,weekly,Stb Speed Ctco Blue Island,['stb']
-stb_speed_ctco_blue_island_ihb,stb.speed.ctco.blue_island_ihb,mph,weekly,Stb Speed Ctco Blue Island Ihb,['stb']
-stb_speed_ctco_calumet,stb.speed.ctco.calumet,mph,weekly,Stb Speed Ctco Calumet,['stb']
-stb_speed_ctco_calumet_ns,stb.speed.ctco.calumet_ns,mph,weekly,Stb Speed Ctco Calumet Ns,['stb']
-stb_speed_ctco_clearing_brc,stb.speed.ctco.clearing_brc,mph,weekly,Stb Speed Ctco Clearing Brc,['stb']
-stb_speed_ctco_ihb_autos_ihb,stb.speed.ctco.ihb_autos_ihb,mph,weekly,Stb Speed Ctco Ihb Autos Ihb,['stb']
-stb_speed_ctco_kirk_cn,stb.speed.ctco.kirk_cn,mph,weekly,Stb Speed Ctco Kirk Cn,['stb']
-stb_speed_ctco_markham_cn,stb.speed.ctco.markham_cn,mph,weekly,Stb Speed Ctco Markham Cn,['stb']
-stb_speed_kcs_automotive_unit,stb.speed.kcs.automotive_unit,mph,weekly,Stb Speed Kcs Automotive Unit,['stb']
-stb_speed_kcs_coal_unit,stb.speed.kcs.coal_unit,mph,weekly,Stb Speed Kcs Coal Unit,['stb']
-stb_speed_kcs_crude_oil_unit,stb.speed.kcs.crude_oil_unit,mph,weekly,Stb Speed Kcs Crude Oil Unit,['stb']
-stb_speed_kcs_ethanol_unit,stb.speed.kcs.ethanol_unit,mph,weekly,Stb Speed Kcs Ethanol Unit,['stb']
-stb_speed_kcs_grain_unit,stb.speed.kcs.grain_unit,mph,weekly,Stb Speed Kcs Grain Unit,['stb']
-stb_speed_kcs_intermodal,stb.speed.kcs.intermodal,mph,weekly,Stb Speed Kcs Intermodal,['stb']
-stb_speed_kcs_manifest,stb.speed.kcs.manifest,mph,weekly,Stb Speed Kcs Manifest,['stb']
-stb_speed_ns_automotive_unit,stb.speed.ns.automotive_unit,mph,weekly,Stb Speed Ns Automotive Unit,['stb']
-stb_speed_ns_coal_unit,stb.speed.ns.coal_unit,mph,weekly,Stb Speed Ns Coal Unit,['stb']
-stb_speed_ns_crude_oil_unit,stb.speed.ns.crude_oil_unit,mph,weekly,Stb Speed Ns Crude Oil Unit,['stb']
-stb_speed_ns_ethanol_unit,stb.speed.ns.ethanol_unit,mph,weekly,Stb Speed Ns Ethanol Unit,['stb']
-stb_speed_ns_grain_unit,stb.speed.ns.grain_unit,mph,weekly,Stb Speed Ns Grain Unit,['stb']
-stb_speed_ns_intermodal,stb.speed.ns.intermodal,mph,weekly,Stb Speed Ns Intermodal,['stb']
-stb_speed_ns_manifest,stb.speed.ns.manifest,mph,weekly,Stb Speed Ns Manifest,['stb']
-stb_speed_up_automotive_unit,stb.speed.up.automotive_unit,mph,weekly,Stb Speed Up Automotive Unit,['stb']
-stb_speed_up_coal_unit,stb.speed.up.coal_unit,mph,weekly,Stb Speed Up Coal Unit,['stb']
-stb_speed_up_crude_oil_unit,stb.speed.up.crude_oil_unit,mph,weekly,Stb Speed Up Crude Oil Unit,['stb']
-stb_speed_up_ethanol_unit,stb.speed.up.ethanol_unit,mph,weekly,Stb Speed Up Ethanol Unit,['stb']
-stb_speed_up_grain_unit,stb.speed.up.grain_unit,mph,weekly,Stb Speed Up Grain Unit,['stb']
-stb_speed_up_intermodal,stb.speed.up.intermodal,mph,weekly,Stb Speed Up Intermodal,['stb']
-stb_speed_up_manifest,stb.speed.up.manifest,mph,weekly,Stb Speed Up Manifest,['stb']
-stb_speed_up_system_average,stb.speed.up.system_average,mph,weekly,Stb Speed Up System Average,['stb']
-stb_stalled_bnsf_all_other_empty,stb.stalled.bnsf.all_other.empty,count,weekly,Stb Stalled Bnsf All Other Empty,['stb']
-stb_stalled_bnsf_all_other_loaded,stb.stalled.bnsf.all_other.loaded,count,weekly,Stb Stalled Bnsf All Other Loaded,['stb']
-stb_stalled_bnsf_automotive_empty,stb.stalled.bnsf.automotive.empty,count,weekly,Stb Stalled Bnsf Automotive Empty,['stb']
-stb_stalled_bnsf_automotive_loaded,stb.stalled.bnsf.automotive.loaded,count,weekly,Stb Stalled Bnsf Automotive Loaded,['stb']
-stb_stalled_bnsf_chem_misc_empty,stb.stalled.bnsf.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.empty,count,weekly,Stb Stalled Bnsf Chem Misc Empty,['stb']
-stb_stalled_bnsf_chem_misc_loaded,stb.stalled.bnsf.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.loaded,count,weekly,Stb Stalled Bnsf Chem Misc Loaded,['stb']
-stb_stalled_bnsf_coal_empty,stb.stalled.bnsf.coal.empty,count,weekly,Stb Stalled Bnsf Coal Empty,['stb']
-stb_stalled_bnsf_coal_loaded,stb.stalled.bnsf.coal.loaded,count,weekly,Stb Stalled Bnsf Coal Loaded,['stb']
-stb_stalled_bnsf_crude_oil_empty,stb.stalled.bnsf.crude_oil.empty,count,weekly,Stb Stalled Bnsf Crude Oil Empty,['stb']
-stb_stalled_bnsf_crude_oil_loaded,stb.stalled.bnsf.crude_oil.loaded,count,weekly,Stb Stalled Bnsf Crude Oil Loaded,['stb']
-stb_stalled_bnsf_ethanol_empty,stb.stalled.bnsf.ethanol.empty,count,weekly,Stb Stalled Bnsf Ethanol Empty,['stb']
-stb_stalled_bnsf_ethanol_loaded,stb.stalled.bnsf.ethanol.loaded,count,weekly,Stb Stalled Bnsf Ethanol Loaded,['stb']
-stb_stalled_bnsf_fertilizer_empty,stb.stalled.bnsf.fertilizer.empty,count,weekly,Stb Stalled Bnsf Fertilizer Empty,['stb']
-stb_stalled_bnsf_fertilizer_loaded,stb.stalled.bnsf.fertilizer.loaded,count,weekly,Stb Stalled Bnsf Fertilizer Loaded,['stb']
-stb_stalled_bnsf_grain_empty,stb.stalled.bnsf.grain.empty,count,weekly,Stb Stalled Bnsf Grain Empty,['stb']
-stb_stalled_bnsf_grain_loaded,stb.stalled.bnsf.grain.loaded,count,weekly,Stb Stalled Bnsf Grain Loaded,['stb']
-stb_stalled_bnsf_intermodal_empty,stb.stalled.bnsf.intermodal.empty,count,weekly,Stb Stalled Bnsf Intermodal Empty,['stb']
-stb_stalled_bnsf_intermodal_loaded,stb.stalled.bnsf.intermodal.loaded,count,weekly,Stb Stalled Bnsf Intermodal Loaded,['stb']
-stb_stalled_bnsf_total_empty,stb.stalled.bnsf.total.empty,count,weekly,Stb Stalled Bnsf Total Empty,['stb']
-stb_stalled_bnsf_total_loaded,stb.stalled.bnsf.total.loaded,count,weekly,Stb Stalled Bnsf Total Loaded,['stb']
-stb_stalled_cn_automotive_empty,stb.stalled.cn.automotive.empty,count,weekly,Stb Stalled Cn Automotive Empty,['stb']
-stb_stalled_cn_automotive_loaded,stb.stalled.cn.automotive.loaded,count,weekly,Stb Stalled Cn Automotive Loaded,['stb']
-stb_stalled_cn_chemical_or_plastics_empty,stb.stalled.cn.chemical_or_plastics.empty,count,weekly,Stb Stalled Cn Chemical Or Plastics Empty,['stb']
-stb_stalled_cn_chemical_or_plastics_loaded,stb.stalled.cn.chemical_or_plastics.loaded,count,weekly,Stb Stalled Cn Chemical Or Plastics Loaded,['stb']
-stb_stalled_cn_coal_empty,stb.stalled.cn.coal.empty,count,weekly,Stb Stalled Cn Coal Empty,['stb']
-stb_stalled_cn_coal_loaded,stb.stalled.cn.coal.loaded,count,weekly,Stb Stalled Cn Coal Loaded,['stb']
-stb_stalled_cn_crude_empty,stb.stalled.cn.crude.empty,count,weekly,Stb Stalled Cn Crude Empty,['stb']
-stb_stalled_cn_crude_loaded,stb.stalled.cn.crude.loaded,count,weekly,Stb Stalled Cn Crude Loaded,['stb']
-stb_stalled_cn_ethanol_empty,stb.stalled.cn.ethanol.empty,count,weekly,Stb Stalled Cn Ethanol Empty,['stb']
-stb_stalled_cn_ethanol_loaded,stb.stalled.cn.ethanol.loaded,count,weekly,Stb Stalled Cn Ethanol Loaded,['stb']
-stb_stalled_cn_fertilizer_empty,stb.stalled.cn.fertilizer.empty,count,weekly,Stb Stalled Cn Fertilizer Empty,['stb']
-stb_stalled_cn_fertilizer_loaded,stb.stalled.cn.fertilizer.loaded,count,weekly,Stb Stalled Cn Fertilizer Loaded,['stb']
-stb_stalled_cn_grain_empty,stb.stalled.cn.grain.empty,count,weekly,Stb Stalled Cn Grain Empty,['stb']
-stb_stalled_cn_grain_loaded,stb.stalled.cn.grain.loaded,count,weekly,Stb Stalled Cn Grain Loaded,['stb']
-stb_stalled_cn_intermodal_empty,stb.stalled.cn.intermodal.empty,count,weekly,Stb Stalled Cn Intermodal Empty,['stb']
-stb_stalled_cn_intermodal_loaded,stb.stalled.cn.intermodal.loaded,count,weekly,Stb Stalled Cn Intermodal Loaded,['stb']
-stb_stalled_cn_other_empty,stb.stalled.cn.other.empty,count,weekly,Stb Stalled Cn Other Empty,['stb']
-stb_stalled_cn_other_loaded,stb.stalled.cn.other.loaded,count,weekly,Stb Stalled Cn Other Loaded,['stb']
-stb_stalled_cp_all_other_empty,stb.stalled.cp.all_other.empty,count,weekly,Stb Stalled Cp All Other Empty,['stb']
-stb_stalled_cp_all_other_loaded,stb.stalled.cp.all_other.loaded,count,weekly,Stb Stalled Cp All Other Loaded,['stb']
-stb_stalled_cp_automotive_empty,stb.stalled.cp.automotive.empty,count,weekly,Stb Stalled Cp Automotive Empty,['stb']
-stb_stalled_cp_automotive_loaded,stb.stalled.cp.automotive.loaded,count,weekly,Stb Stalled Cp Automotive Loaded,['stb']
-stb_stalled_cp_chem_misc_empty,stb.stalled.cp.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.empty,count,weekly,Stb Stalled Cp Chem Misc Empty,['stb']
-stb_stalled_cp_chem_misc_loaded,stb.stalled.cp.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.loaded,count,weekly,Stb Stalled Cp Chem Misc Loaded,['stb']
-stb_stalled_cp_coal_empty,stb.stalled.cp.coal.empty,count,weekly,Stb Stalled Cp Coal Empty,['stb']
-stb_stalled_cp_coal_loaded,stb.stalled.cp.coal.loaded,count,weekly,Stb Stalled Cp Coal Loaded,['stb']
-stb_stalled_cp_crude_oil_empty,stb.stalled.cp.crude_oil.empty,count,weekly,Stb Stalled Cp Crude Oil Empty,['stb']
-stb_stalled_cp_crude_oil_loaded,stb.stalled.cp.crude_oil.loaded,count,weekly,Stb Stalled Cp Crude Oil Loaded,['stb']
-stb_stalled_cp_ethanol_empty,stb.stalled.cp.ethanol.empty,count,weekly,Stb Stalled Cp Ethanol Empty,['stb']
-stb_stalled_cp_ethanol_loaded,stb.stalled.cp.ethanol.loaded,count,weekly,Stb Stalled Cp Ethanol Loaded,['stb']
-stb_stalled_cp_fertilizer_empty,stb.stalled.cp.fertilizer.empty,count,weekly,Stb Stalled Cp Fertilizer Empty,['stb']
-stb_stalled_cp_fertilizer_loaded,stb.stalled.cp.fertilizer.loaded,count,weekly,Stb Stalled Cp Fertilizer Loaded,['stb']
-stb_stalled_cp_grain_empty,stb.stalled.cp.grain.empty,count,weekly,Stb Stalled Cp Grain Empty,['stb']
-stb_stalled_cp_grain_loaded,stb.stalled.cp.grain.loaded,count,weekly,Stb Stalled Cp Grain Loaded,['stb']
-stb_stalled_cp_intermodal_empty,stb.stalled.cp.intermodal.empty,count,weekly,Stb Stalled Cp Intermodal Empty,['stb']
-stb_stalled_cp_intermodal_loaded,stb.stalled.cp.intermodal.loaded,count,weekly,Stb Stalled Cp Intermodal Loaded,['stb']
-stb_stalled_cp_total_empty,stb.stalled.cp.total.empty,count,weekly,Stb Stalled Cp Total Empty,['stb']
-stb_stalled_cp_total_loaded,stb.stalled.cp.total.loaded,count,weekly,Stb Stalled Cp Total Loaded,['stb']
-stb_stalled_csx_all_other_empty,stb.stalled.csx.all_other.empty,count,weekly,Stb Stalled Csx All Other Empty,['stb']
-stb_stalled_csx_all_other_loaded,stb.stalled.csx.all_other.loaded,count,weekly,Stb Stalled Csx All Other Loaded,['stb']
-stb_stalled_csx_automotive_empty,stb.stalled.csx.automotive.empty,count,weekly,Stb Stalled Csx Automotive Empty,['stb']
-stb_stalled_csx_automotive_loaded,stb.stalled.csx.automotive.loaded,count,weekly,Stb Stalled Csx Automotive Loaded,['stb']
-stb_stalled_csx_chem_misc_empty,stb.stalled.csx.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.empty,count,weekly,Stb Stalled Csx Chem Misc Empty,['stb']
-stb_stalled_csx_chem_misc_loaded,stb.stalled.csx.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.loaded,count,weekly,Stb Stalled Csx Chem Misc Loaded,['stb']
-stb_stalled_csx_coal_empty,stb.stalled.csx.coal.empty,count,weekly,Stb Stalled Csx Coal Empty,['stb']
-stb_stalled_csx_coal_loaded,stb.stalled.csx.coal.loaded,count,weekly,Stb Stalled Csx Coal Loaded,['stb']
-stb_stalled_csx_crude_oil_empty,stb.stalled.csx.crude_oil.empty,count,weekly,Stb Stalled Csx Crude Oil Empty,['stb']
-stb_stalled_csx_crude_oil_loaded,stb.stalled.csx.crude_oil.loaded,count,weekly,Stb Stalled Csx Crude Oil Loaded,['stb']
-stb_stalled_csx_ethanol_empty,stb.stalled.csx.ethanol.empty,count,weekly,Stb Stalled Csx Ethanol Empty,['stb']
-stb_stalled_csx_ethanol_loaded,stb.stalled.csx.ethanol.loaded,count,weekly,Stb Stalled Csx Ethanol Loaded,['stb']
-stb_stalled_csx_fertilizer_empty,stb.stalled.csx.fertilizer.empty,count,weekly,Stb Stalled Csx Fertilizer Empty,['stb']
-stb_stalled_csx_fertilizer_loaded,stb.stalled.csx.fertilizer.loaded,count,weekly,Stb Stalled Csx Fertilizer Loaded,['stb']
-stb_stalled_csx_grain_empty,stb.stalled.csx.grain.empty,count,weekly,Stb Stalled Csx Grain Empty,['stb']
-stb_stalled_csx_grain_loaded,stb.stalled.csx.grain.loaded,count,weekly,Stb Stalled Csx Grain Loaded,['stb']
-stb_stalled_csx_intermodal_empty,stb.stalled.csx.intermodal.empty,count,weekly,Stb Stalled Csx Intermodal Empty,['stb']
-stb_stalled_csx_intermodal_flat_cars_empty,stb.stalled.csx.intermodal_flat_cars.empty,count,weekly,Stb Stalled Csx Intermodal Flat Cars Empty,['stb']
-stb_stalled_csx_intermodal_flat_cars_loaded,stb.stalled.csx.intermodal_flat_cars.loaded,count,weekly,Stb Stalled Csx Intermodal Flat Cars Loaded,['stb']
-stb_stalled_csx_intermodal_loaded,stb.stalled.csx.intermodal.loaded,count,weekly,Stb Stalled Csx Intermodal Loaded,['stb']
-stb_stalled_csx_total_empty,stb.stalled.csx.total.empty,count,weekly,Stb Stalled Csx Total Empty,['stb']
-stb_stalled_csx_total_loaded,stb.stalled.csx.total.loaded,count,weekly,Stb Stalled Csx Total Loaded,['stb']
-stb_stalled_kcs_all_other_empty,stb.stalled.kcs.all_other.empty,count,weekly,Stb Stalled Kcs All Other Empty,['stb']
-stb_stalled_kcs_all_other_loaded,stb.stalled.kcs.all_other.loaded,count,weekly,Stb Stalled Kcs All Other Loaded,['stb']
-stb_stalled_kcs_automotive_empty,stb.stalled.kcs.automotive.empty,count,weekly,Stb Stalled Kcs Automotive Empty,['stb']
-stb_stalled_kcs_automotive_loaded,stb.stalled.kcs.automotive.loaded,count,weekly,Stb Stalled Kcs Automotive Loaded,['stb']
-stb_stalled_kcs_box_empty,stb.stalled.kcs.box.empty,count,weekly,Stb Stalled Kcs Box Empty,['stb']
-stb_stalled_kcs_box_loaded,stb.stalled.kcs.box.loaded,count,weekly,Stb Stalled Kcs Box Loaded,['stb']
-stb_stalled_kcs_chem_misc_empty,stb.stalled.kcs.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.empty,count,weekly,Stb Stalled Kcs Chem Misc Empty,['stb']
-stb_stalled_kcs_chem_misc_loaded,stb.stalled.kcs.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.loaded,count,weekly,Stb Stalled Kcs Chem Misc Loaded,['stb']
-stb_stalled_kcs_coal_empty,stb.stalled.kcs.coal.empty,count,weekly,Stb Stalled Kcs Coal Empty,['stb']
-stb_stalled_kcs_coal_loaded,stb.stalled.kcs.coal.loaded,count,weekly,Stb Stalled Kcs Coal Loaded,['stb']
-stb_stalled_kcs_covered_hopper_empty,stb.stalled.kcs.covered_hopper.empty,count,weekly,Stb Stalled Kcs Covered Hopper Empty,['stb']
-stb_stalled_kcs_covered_hopper_loaded,stb.stalled.kcs.covered_hopper.loaded,count,weekly,Stb Stalled Kcs Covered Hopper Loaded,['stb']
-stb_stalled_kcs_crude_oil_empty,stb.stalled.kcs.crude_oil.empty,count,weekly,Stb Stalled Kcs Crude Oil Empty,['stb']
-stb_stalled_kcs_crude_oil_loaded,stb.stalled.kcs.crude_oil.loaded,count,weekly,Stb Stalled Kcs Crude Oil Loaded,['stb']
-stb_stalled_kcs_ethanol_empty,stb.stalled.kcs.ethanol.empty,count,weekly,Stb Stalled Kcs Ethanol Empty,['stb']
-stb_stalled_kcs_ethanol_loaded,stb.stalled.kcs.ethanol.loaded,count,weekly,Stb Stalled Kcs Ethanol Loaded,['stb']
-stb_stalled_kcs_fertilizer_empty,stb.stalled.kcs.fertilizer.empty,count,weekly,Stb Stalled Kcs Fertilizer Empty,['stb']
-stb_stalled_kcs_fertilizer_loaded,stb.stalled.kcs.fertilizer.loaded,count,weekly,Stb Stalled Kcs Fertilizer Loaded,['stb']
-stb_stalled_kcs_gondola_empty,stb.stalled.kcs.gondola.empty,count,weekly,Stb Stalled Kcs Gondola Empty,['stb']
-stb_stalled_kcs_gondola_loaded,stb.stalled.kcs.gondola.loaded,count,weekly,Stb Stalled Kcs Gondola Loaded,['stb']
-stb_stalled_kcs_grain_empty,stb.stalled.kcs.grain.empty,count,weekly,Stb Stalled Kcs Grain Empty,['stb']
-stb_stalled_kcs_grain_loaded,stb.stalled.kcs.grain.loaded,count,weekly,Stb Stalled Kcs Grain Loaded,['stb']
-stb_stalled_kcs_intermodal_empty,stb.stalled.kcs.intermodal.empty,count,weekly,Stb Stalled Kcs Intermodal Empty,['stb']
-stb_stalled_kcs_intermodal_loaded,stb.stalled.kcs.intermodal.loaded,count,weekly,Stb Stalled Kcs Intermodal Loaded,['stb']
-stb_stalled_kcs_multilevel_automotive_empty,stb.stalled.kcs.multilevel_automotive.empty,count,weekly,Stb Stalled Kcs Multilevel Automotive Empty,['stb']
-stb_stalled_kcs_multilevel_automotive_loaded,stb.stalled.kcs.multilevel_automotive.loaded,count,weekly,Stb Stalled Kcs Multilevel Automotive Loaded,['stb']
-stb_stalled_ns_all_other_empty,stb.stalled.ns.all_other.empty,count,weekly,Stb Stalled Ns All Other Empty,['stb']
-stb_stalled_ns_all_other_loaded,stb.stalled.ns.all_other.loaded,count,weekly,Stb Stalled Ns All Other Loaded,['stb']
-stb_stalled_ns_automotive_empty,stb.stalled.ns.automotive.empty,count,weekly,Stb Stalled Ns Automotive Empty,['stb']
-stb_stalled_ns_automotive_loaded,stb.stalled.ns.automotive.loaded,count,weekly,Stb Stalled Ns Automotive Loaded,['stb']
-stb_stalled_ns_chemicals_and_plastics_empty,stb.stalled.ns.chemicals_and_plastics.empty,count,weekly,Stb Stalled Ns Chemicals And Plastics Empty,['stb']
-stb_stalled_ns_chemicals_and_plastics_loaded,stb.stalled.ns.chemicals_and_plastics.loaded,count,weekly,Stb Stalled Ns Chemicals And Plastics Loaded,['stb']
-stb_stalled_ns_chem_misc_empty,stb.stalled.ns.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.empty,count,weekly,Stb Stalled Ns Chem Misc Empty,['stb']
-stb_stalled_ns_chem_misc_loaded,stb.stalled.ns.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.loaded,count,weekly,Stb Stalled Ns Chem Misc Loaded,['stb']
-stb_stalled_ns_coal_empty,stb.stalled.ns.coal.empty,count,weekly,Stb Stalled Ns Coal Empty,['stb']
-stb_stalled_ns_coal_loaded,stb.stalled.ns.coal.loaded,count,weekly,Stb Stalled Ns Coal Loaded,['stb']
-stb_stalled_ns_crude_oil_empty,stb.stalled.ns.crude_oil.empty,count,weekly,Stb Stalled Ns Crude Oil Empty,['stb']
-stb_stalled_ns_crude_oil_loaded,stb.stalled.ns.crude_oil.loaded,count,weekly,Stb Stalled Ns Crude Oil Loaded,['stb']
-stb_stalled_ns_ethanol_empty,stb.stalled.ns.ethanol.empty,count,weekly,Stb Stalled Ns Ethanol Empty,['stb']
-stb_stalled_ns_ethanol_loaded,stb.stalled.ns.ethanol.loaded,count,weekly,Stb Stalled Ns Ethanol Loaded,['stb']
-stb_stalled_ns_fertilizer_empty,stb.stalled.ns.fertilizer.empty,count,weekly,Stb Stalled Ns Fertilizer Empty,['stb']
-stb_stalled_ns_fertilizer_loaded,stb.stalled.ns.fertilizer.loaded,count,weekly,Stb Stalled Ns Fertilizer Loaded,['stb']
-stb_stalled_ns_grain_empty,stb.stalled.ns.grain.empty,count,weekly,Stb Stalled Ns Grain Empty,['stb']
-stb_stalled_ns_grain_loaded,stb.stalled.ns.grain.loaded,count,weekly,Stb Stalled Ns Grain Loaded,['stb']
-stb_stalled_ns_grain_unit_empty,stb.stalled.ns.grain_unit.empty,count,weekly,Stb Stalled Ns Grain Unit Empty,['stb']
-stb_stalled_ns_grain_unit_loaded,stb.stalled.ns.grain_unit.loaded,count,weekly,Stb Stalled Ns Grain Unit Loaded,['stb']
-stb_stalled_ns_intermodal_empty,stb.stalled.ns.intermodal.empty,count,weekly,Stb Stalled Ns Intermodal Empty,['stb']
-stb_stalled_ns_intermodal_loaded,stb.stalled.ns.intermodal.loaded,count,weekly,Stb Stalled Ns Intermodal Loaded,['stb']
-stb_stalled_ns_other_empty,stb.stalled.ns.other.empty,count,weekly,Stb Stalled Ns Other Empty,['stb']
-stb_stalled_ns_other_loaded,stb.stalled.ns.other.loaded,count,weekly,Stb Stalled Ns Other Loaded,['stb']
-stb_stalled_up_automotive_empty,stb.stalled.up.automotive.empty,count,weekly,Stb Stalled Up Automotive Empty,['stb']
-stb_stalled_up_automotive_loaded,stb.stalled.up.automotive.loaded,count,weekly,Stb Stalled Up Automotive Loaded,['stb']
-stb_stalled_up_chem_misc_empty,stb.stalled.up.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.empty,count,weekly,Stb Stalled Up Chem Misc Empty,['stb']
-stb_stalled_up_chem_misc_loaded,stb.stalled.up.chemical_or_allied_products_all_stcc_28_commodities_not_otherwise_reported_under_ethanol_or_fertilizer.loaded,count,weekly,Stb Stalled Up Chem Misc Loaded,['stb']
-stb_stalled_up_coal_empty,stb.stalled.up.coal.empty,count,weekly,Stb Stalled Up Coal Empty,['stb']
-stb_stalled_up_coal_loaded,stb.stalled.up.coal.loaded,count,weekly,Stb Stalled Up Coal Loaded,['stb']
-stb_stalled_up_crude_oil_empty,stb.stalled.up.crude_oil.empty,count,weekly,Stb Stalled Up Crude Oil Empty,['stb']
-stb_stalled_up_crude_oil_loaded,stb.stalled.up.crude_oil.loaded,count,weekly,Stb Stalled Up Crude Oil Loaded,['stb']
-stb_stalled_up_ethanol_empty,stb.stalled.up.ethanol.empty,count,weekly,Stb Stalled Up Ethanol Empty,['stb']
-stb_stalled_up_ethanol_loaded,stb.stalled.up.ethanol.loaded,count,weekly,Stb Stalled Up Ethanol Loaded,['stb']
-stb_stalled_up_fertilizer_empty,stb.stalled.up.fertilizer.empty,count,weekly,Stb Stalled Up Fertilizer Empty,['stb']
-stb_stalled_up_fertilizer_loaded,stb.stalled.up.fertilizer.loaded,count,weekly,Stb Stalled Up Fertilizer Loaded,['stb']
-stb_stalled_up_grain_empty,stb.stalled.up.grain.empty,count,weekly,Stb Stalled Up Grain Empty,['stb']
-stb_stalled_up_grain_loaded,stb.stalled.up.grain.loaded,count,weekly,Stb Stalled Up Grain Loaded,['stb']
-stb_stalled_up_intermodal_empty,stb.stalled.up.intermodal.empty,count,weekly,Stb Stalled Up Intermodal Empty,['stb']
-stb_stalled_up_intermodal_loaded,stb.stalled.up.intermodal.loaded,count,weekly,Stb Stalled Up Intermodal Loaded,['stb']
-us_total_rigs,baker.us.total,rigs,weekly,Us Total Rigs,['baker']
-ending_commercial_crude_stocks,PET.WCESTUS1.W,Thousand Barrels,weekly,Ending commercial crude stocks,['eia']
-cushing_crude_stocks,PET.WCSSTUS1.W,Thousand Barrels,weekly,Cushing crude stocks,['eia']
-field_production_of_crude,PET.WCRFPUS2.W,Thousand Barrels per Day,weekly,Field production of crude,['eia']
-net_imports_of_crude,PET.WCRNTUS2.W,Thousand Barrels per Day,weekly,Net imports of crude,['eia']
-crude_runs_to_refineries,PET.WCRRIUS2.W,Thousand Barrels per Day,weekly,Crude runs to refineries,['eia']
-us_crude_oil_imports,PET.W_EPC0_IM0_NUS-Z00_MBBLD.W,Thousand Barrels per Day,weekly,U.S. crude oil imports,['eia']
-us_crude_oil_exports,PET.W_EPC0_EEX_NUS-Z00_MBBLD.W,Thousand Barrels per Day,weekly,U.S. crude oil exports,['eia']
-us_crude_oil_adjustment,PET.W_EPC0_SAX_NUS-Z00_MBBLD.W,Thousand Barrels per Day,weekly,U.S. crude oil adjustment,['eia']
-total_crude_oil_stocks_excluding_spr,PET.WSTCEUS1.W,Thousand Barrels,weekly,Total crude oil stocks excluding SPR,['eia']
-us_ending_stocks_of_total_petroleum_products,PET.WTTSTUS1.W,Thousand Barrels,weekly,U.S. ending stocks of total petroleum products,['eia']
-padd_1_crude_oil_stocks,PET.W_EPC0_SAX_R10_MBBLD.W,Thousand Barrels,weekly,PADD 1 crude oil stocks,['eia']
-padd_2_crude_oil_stocks,PET.W_EPC0_SAX_R20_MBBLD.W,Thousand Barrels,weekly,PADD 2 crude oil stocks,['eia']
-padd_3_crude_oil_stocks,PET.W_EPC0_SAX_R30_MBBLD.W,Thousand Barrels,weekly,PADD 3 crude oil stocks,['eia']
-padd_4_crude_oil_stocks,PET.W_EPC0_SAX_R40_MBBLD.W,Thousand Barrels,weekly,PADD 4 crude oil stocks,['eia']
-padd_5_crude_oil_stocks,PET.W_EPC0_SAX_R50_MBBLD.W,Thousand Barrels,weekly,PADD 5 crude oil stocks,['eia']
-east_coast_to_gulf_coast_crude_oil_movements,PET.W_EPC0_SAX_R10-R30_MBBLD.W,Thousand Barrels per Day,weekly,East Coast to Gulf Coast crude oil movements,['eia']
-refinery_utilization_us,PET.WPULEUS3.W,Percent,weekly,Refinery utilization (U.S.),['eia']
-padd_1_refinery_net_input,PET.W_NA_YRY_R10_MBBLD.W,Thousand Barrels per Day,weekly,PADD 1 refinery net input,['eia']
-padd_3_refinery_net_input,PET.W_NA_YRY_R30_MBBLD.W,Thousand Barrels per Day,weekly,PADD 3 refinery net input,['eia']
-padd_5_refinery_net_input,PET.W_NA_YRY_R50_MBBLD.W,Thousand Barrels per Day,weekly,PADD 5 refinery net input,['eia']
-padd_1_percent_utilization_of_refinery_operable_capacity,PET.W_PCU_R10_PCT.W,Percent,weekly,PADD 1 percent utilization of refinery operable capacity,['eia']
-padd_3_percent_utilization_of_refinery_operable_capacity,PET.W_PCU_R30_PCT.W,Percent,weekly,PADD 3 percent utilization of refinery operable capacity,['eia']
+model_col,series_code,unit,freq,description,tags,aliases
+ending_commercial_crude_stocks,pet.wcestus1.w,thousand_barrels,weekly,Ending commercial crude stocks,"{""eia"",""stocks""}",
+cushing_crude_stocks,pet.wcsstus1.w,thousand_barrels,weekly,Cushing crude stocks,"{""eia"",""stocks""}",
+field_production_of_crude,pet.wcrfpus2.w,thousand_barrels_per_day,weekly,Field production of crude,"{""eia"",""production""}",
+net_imports_of_crude,pet.wcrntus2.w,thousand_barrels_per_day,weekly,Net imports of crude,"{""eia"",""imports""}",
+crude_runs_to_refineries,pet.wcrrius2.w,thousand_barrels_per_day,weekly,Crude runs to refineries,"{""eia"",""refining""}",
+refinery_utilization_us,pet.wpuleus3.w,percent,weekly,Refinery utilization (U.S.),"{""eia"",""refining""}",
+gasoline_ending_stocks,pet.wgtstus1.w,thousand_barrels,weekly,Gasoline ending stocks,"{""eia"",""stocks""}",
+gasoline_product_supplied,pet.wgfupus2.w,thousand_barrels_per_day,weekly,Gasoline product supplied,"{""eia"",""demand""}",
+gasoline_net_production,pet.wgfrpus2.w,thousand_barrels_per_day,weekly,Gasoline net production,"{""eia"",""production""}",
+distillate_ending_stocks,pet.wdistus1.w,thousand_barrels,weekly,Distillate ending stocks,"{""eia"",""stocks""}",
+distillate_net_production,pet.w_epd0_ypy_nus_mbbld.w,thousand_barrels_per_day,weekly,Distillate net production,"{""eia"",""production""}",
+distillate_product_supplied,pet.wdiupus2.w,thousand_barrels_per_day,weekly,Distillate product supplied,"{""eia"",""demand""}",
+jet_fuel_ending_stocks,pet.wkjstus1.w,thousand_barrels,weekly,Jet fuel ending stocks,"{""eia"",""stocks""}",
+jet_fuel_product_supplied,pet.wkjupus2.w,thousand_barrels_per_day,weekly,Jet fuel product supplied,"{""eia"",""demand""}",
+jet_fuel_net_production,pet.w_epjk_ypy_nus_mbbld.w,thousand_barrels_per_day,weekly,Jet fuel net production,"{""eia"",""production""}",
+us_ending_stocks_of_total_petroleum_products,pet.wttstus1.w,thousand_barrels,weekly,U.S. ending stocks of total petroleum products,"{""eia"",""stocks""}",
+days_supply_total_gasoline,pet.w_epm0_vsd_nus_days.w,days,weekly,U.S. days of supply of total gasoline,"{""eia"",""stocks""}",
+days_supply_distillate,pet.w_epd0_vsd_nus_days.w,days,weekly,U.S. days of supply of distillate fuel oil,"{""eia"",""stocks""}",
+days_supply_jet_fuel,pet.w_epjk_vsd_nus_days.w,days,weekly,U.S. days of supply of kerosene-type jet fuel,"{""eia"",""stocks""}",
+days_supply_crude,pet.w_epc0_vsd_nus_days.w,days,weekly,U.S. days of supply of crude oil,"{""eia"",""stocks""}",
+wti_cushing_spot_price,pet.rwtc.d,dollars_per_barrel,daily,WTI Cushing spot price (daily),"{""eia"",""prices""}",wti
+brent_spot_price,pet.rbrte.d,dollars_per_barrel,daily,Brent spot price (daily),"{""eia"",""prices""}",brent
+gulf_coast_gasoline_spot_price,pet.eer_epmru_pf4_rgc_dpg.w,dollars_per_gallon,weekly,Gulf Coast gasoline spot price (weekly),"{""eia"",""prices""}",
+gulf_coast_ulsd_spot_price,pet.eer_epd2dxl0_pf4_rgc_dpg.w,dollars_per_gallon,weekly,Gulf Coast ULSD spot price (weekly),"{""eia"",""prices""}",
+wti_futures_contract_1,pet.rclc1.w,dollars_per_barrel,weekly,Cushing WTI futures contract 1,"{""eia"",""wti"",""futures""}",wti_f1
+wti_futures_contract_2,pet.rclc2.w,dollars_per_barrel,weekly,Cushing WTI futures contract 2,"{""eia"",""wti"",""futures""}",wti_f2
+wti_futures_contract_3,pet.rclc3.w,dollars_per_barrel,weekly,Cushing WTI futures contract 3,"{""eia"",""wti"",""futures""}",wti_f3
+wti_futures_contract_4,pet.rclc4.w,dollars_per_barrel,weekly,Cushing WTI futures contract 4,"{""eia"",""wti"",""futures""}",wti_f4
+gulf_coast_rbob_spot_price,pet.eer_epm0_rgc_dpg.w,dollars_per_gallon,weekly,Gulf Coast RBOB spot price (weekly),"{""eia"",""prices""}",
+gulf_coast_propane_spot_price,pet.eer_eptus0_pf4_y35_dpg.w,dollars_per_gallon,weekly,Gulf Coast propane spot price (weekly),"{""eia"",""prices""}",
+henry_hub_natgas_price,ng.rngwhhd.d,dollars_per_mmbtu,daily,Henry Hub natural gas spot price (daily),"{""eia"",""prices""}",henry_hub
+baker_us_total_rigs,baker.us.total,rigs,weekly,Baker Hughes total rig count — United States,"{""baker"",""rigs"",""us""}",baker_us_rigs
+baker_canada_total_rigs,baker.canada.total,rigs,weekly,Baker Hughes total rig count — Canada,"{""baker"",""rigs"",""canada""}",baker_canada_rigs
+baker_us_permian_oil,baker.us.permian.oil,rigs,weekly,Baker Hughes Permian oil rigs (US),"{""baker"",""rigs"",""permian""}",
+baker_us_permian_gas,baker.us.permian.gas,rigs,weekly,Baker Hughes Permian gas rigs (US),"{""baker"",""rigs"",""permian""}",
+baker_us_eagle_ford_oil,baker.us.eagle_ford.oil,rigs,weekly,Baker Hughes Eagle Ford oil rigs (US),"{""baker"",""rigs"",""eagle_ford""}",
+baker_us_eagle_ford_gas,baker.us.eagle_ford.gas,rigs,weekly,Baker Hughes Eagle Ford gas rigs (US),"{""baker"",""rigs"",""eagle_ford""}",
+baker_us_williston_oil,baker.us.williston.oil,rigs,weekly,Baker Hughes Williston oil rigs (US),"{""baker"",""rigs"",""williston""}",
+baker_us_williston_gas,baker.us.williston.gas,rigs,weekly,Baker Hughes Williston gas rigs (US),"{""baker"",""rigs"",""williston""}",
+baker_us_dj_niobrara_oil,baker.us.dj_niobrara.oil,rigs,weekly,Baker Hughes Dj Niobrara oil rigs (US),"{""baker"",""rigs"",""dj_niobrara""}",
+baker_us_dj_niobrara_gas,baker.us.dj_niobrara.gas,rigs,weekly,Baker Hughes Dj Niobrara gas rigs (US),"{""baker"",""rigs"",""dj_niobrara""}",
+baker_us_haynesville_gas,baker.us.haynesville.gas,rigs,weekly,Baker Hughes Haynesville gas rigs (US),"{""baker"",""rigs"",""haynesville""}",
+baker_us_marcellus_gas,baker.us.marcellus.gas,rigs,weekly,Baker Hughes Marcellus gas rigs (US),"{""baker"",""rigs"",""marcellus""}",
+baker_us_utica_gas,baker.us.utica.gas,rigs,weekly,Baker Hughes Utica gas rigs (US),"{""baker"",""rigs"",""utica""}",
+baker_canada_montney_gas,baker.canada.montney.gas,rigs,weekly,Baker Hughes Montney gas rigs (CANADA),"{""baker"",""rigs"",""montney""}",
+baker_us_anadarko_oil,baker.us.anadarko.oil,rigs,weekly,Baker Hughes Anadarko oil rigs (US),"{""baker"",""rigs"",""anadarko""}",
+baker_us_anadarko_gas,baker.us.anadarko.gas,rigs,weekly,Baker Hughes Anadarko gas rigs (US),"{""baker"",""rigs"",""anadarko""}",
+stb_avg_train_speed_all,stb.ep724.avg_train_speed,miles_per_hour,weekly,U.S. Class I railroads average train speed,"{""stb"",""rail"",""speed""}",
+stb_terminal_dwell_time_all,stb.ep724.terminal_dwell,hours,weekly,U.S. Class I railroads terminal dwell time,"{""stb"",""rail"",""dwell""}",
+stb_cars_on_line_total,stb.ep724.cars_on_line,units,weekly,U.S. Class I railroads cars on line,"{""stb"",""rail"",""fleet""}",
+stb_trains_held_per_day_total,stb.ep724.trains_held,trains,weekly,U.S. Class I railroads trains holding per day,"{""stb"",""rail"",""congestion""}",
+stb_cars_not_moved_48h,stb.ep724.cars_not_moved_48h,units,weekly,U.S. Class I railroads cars not moved for 48+ hours,"{""stb"",""rail"",""congestion""}",
+google_us_retail_recreation,google.us.retail_recreation,percent_change_from_baseline,daily,Google Mobility retail recreation (US),"{""google"",""mobility"",""us""}",google_mobility.us.retail
+google_us_grocery_pharmacy,google.us.grocery_pharmacy,percent_change_from_baseline,daily,Google Mobility grocery pharmacy (US),"{""google"",""mobility"",""us""}",google_mobility.us.grocery
+google_us_parks,google.us.parks,percent_change_from_baseline,daily,Google Mobility parks (US),"{""google"",""mobility"",""us""}",google_mobility.us.parks
+google_us_transit_stations,google.us.transit_stations,percent_change_from_baseline,daily,Google Mobility transit stations (US),"{""google"",""mobility"",""us""}",google_mobility.us.transit
+google_us_workplaces,google.us.workplaces,percent_change_from_baseline,daily,Google Mobility workplaces (US),"{""google"",""mobility"",""us""}",google_mobility.us.work
+google_us_residential,google.us.residential,percent_change_from_baseline,daily,Google Mobility residential (US),"{""google"",""mobility"",""us""}",google_mobility.us.residential
+paj_japan_crude_runs,paj.01e.crude_runs,thousand_barrels_per_day,monthly,Japan refinery crude runs,"{""paj"",""crude"",""refining""}",
+paj_japan_total_product_stocks,paj.02e.total_products_stock,thousand_barrels,monthly,Japan total petroleum product ending stocks,"{""paj"",""products"",""stocks""}",
+paj_japan_crude_stock_days,paj.05e.crude_stock_days,days,monthly,Japan crude oil stock days of supply,"{""paj"",""crude"",""stocks""}",
+world_oil_demand_1qcy,opec.t11_1.world_demand_1qcy,million_barrels_per_day,monthly,World oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+world_oil_demand_2qcy,opec.t11_1.world_demand_2qcy,million_barrels_per_day,monthly,World oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+world_oil_demand_3qcy,opec.t11_1.world_demand_3qcy,million_barrels_per_day,monthly,World oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+world_oil_demand_4qcy,opec.t11_1.world_demand_4qcy,million_barrels_per_day,monthly,World oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+world_oil_demand_1qny,opec.t11_1.world_demand_1qny,million_barrels_per_day,monthly,World oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+world_oil_demand_2qny,opec.t11_1.world_demand_2qny,million_barrels_per_day,monthly,World oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+world_oil_demand_3qny,opec.t11_1.world_demand_3qny,million_barrels_per_day,monthly,World oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+world_oil_demand_4qny,opec.t11_1.world_demand_4qny,million_barrels_per_day,monthly,World oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_1qcy,opec.t11_1.oecd_demand_1qcy,million_barrels_per_day,monthly,OECD oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_2qcy,opec.t11_1.oecd_demand_2qcy,million_barrels_per_day,monthly,OECD oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_3qcy,opec.t11_1.oecd_demand_3qcy,million_barrels_per_day,monthly,OECD oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_4qcy,opec.t11_1.oecd_demand_4qcy,million_barrels_per_day,monthly,OECD oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_1qny,opec.t11_1.oecd_demand_1qny,million_barrels_per_day,monthly,OECD oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_2qny,opec.t11_1.oecd_demand_2qny,million_barrels_per_day,monthly,OECD oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_3qny,opec.t11_1.oecd_demand_3qny,million_barrels_per_day,monthly,OECD oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+oecd_oil_demand_4qny,opec.t11_1.oecd_demand_4qny,million_barrels_per_day,monthly,OECD oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_1qcy,opec.t11_1.non_oecd_demand_1qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_2qcy,opec.t11_1.non_oecd_demand_2qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_3qcy,opec.t11_1.non_oecd_demand_3qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_4qcy,opec.t11_1.non_oecd_demand_4qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_1qny,opec.t11_1.non_oecd_demand_1qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_2qny,opec.t11_1.non_oecd_demand_2qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_3qny,opec.t11_1.non_oecd_demand_3qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+non_oecd_oil_demand_4qny,opec.t11_1.non_oecd_demand_4qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_1qcy,opec.t11_1.china_demand_1qcy,million_barrels_per_day,monthly,China oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_2qcy,opec.t11_1.china_demand_2qcy,million_barrels_per_day,monthly,China oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_3qcy,opec.t11_1.china_demand_3qcy,million_barrels_per_day,monthly,China oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_4qcy,opec.t11_1.china_demand_4qcy,million_barrels_per_day,monthly,China oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_1qny,opec.t11_1.china_demand_1qny,million_barrels_per_day,monthly,China oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_2qny,opec.t11_1.china_demand_2qny,million_barrels_per_day,monthly,China oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_3qny,opec.t11_1.china_demand_3qny,million_barrels_per_day,monthly,China oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+china_oil_demand_4qny,opec.t11_1.china_demand_4qny,million_barrels_per_day,monthly,China oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_1qcy,opec.t11_1.india_demand_1qcy,million_barrels_per_day,monthly,India oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_2qcy,opec.t11_1.india_demand_2qcy,million_barrels_per_day,monthly,India oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_3qcy,opec.t11_1.india_demand_3qcy,million_barrels_per_day,monthly,India oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_4qcy,opec.t11_1.india_demand_4qcy,million_barrels_per_day,monthly,India oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_1qny,opec.t11_1.india_demand_1qny,million_barrels_per_day,monthly,India oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_2qny,opec.t11_1.india_demand_2qny,million_barrels_per_day,monthly,India oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_3qny,opec.t11_1.india_demand_3qny,million_barrels_per_day,monthly,India oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+india_oil_demand_4qny,opec.t11_1.india_demand_4qny,million_barrels_per_day,monthly,India oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
+non_doc_liquids_production_1qcy,opec.t11_1.non_doc_liquids_production_1qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_doc_liquids_production_2qcy,opec.t11_1.non_doc_liquids_production_2qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_doc_liquids_production_3qcy,opec.t11_1.non_doc_liquids_production_3qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_doc_liquids_production_4qcy,opec.t11_1.non_doc_liquids_production_4qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_doc_liquids_production_1qny,opec.t11_1.non_doc_liquids_production_1qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+non_doc_liquids_production_2qny,opec.t11_1.non_doc_liquids_production_2qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+non_doc_liquids_production_3qny,opec.t11_1.non_doc_liquids_production_3qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+non_doc_liquids_production_4qny,opec.t11_1.non_doc_liquids_production_4qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_1qcy,opec.t11_1.doc_ngls_production_1qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_2qcy,opec.t11_1.doc_ngls_production_2qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_3qcy,opec.t11_1.doc_ngls_production_3qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_4qcy,opec.t11_1.doc_ngls_production_4qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_1qny,opec.t11_1.doc_ngls_production_1qny,million_barrels_per_day,monthly,DoC NGLs production forecast 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_2qny,opec.t11_1.doc_ngls_production_2qny,million_barrels_per_day,monthly,DoC NGLs production forecast 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_3qny,opec.t11_1.doc_ngls_production_3qny,million_barrels_per_day,monthly,DoC NGLs production forecast 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_ngls_production_4qny,opec.t11_1.doc_ngls_production_4qny,million_barrels_per_day,monthly,DoC NGLs production forecast 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_1qcy,opec.t11_1.total_non_doc_plus_ngls_1qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_2qcy,opec.t11_1.total_non_doc_plus_ngls_2qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_3qcy,opec.t11_1.total_non_doc_plus_ngls_3qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_4qcy,opec.t11_1.total_non_doc_plus_ngls_4qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_1qny,opec.t11_1.total_non_doc_plus_ngls_1qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_2qny,opec.t11_1.total_non_doc_plus_ngls_2qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_3qny,opec.t11_1.total_non_doc_plus_ngls_3qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_non_doc_plus_ngls_4qny,opec.t11_1.total_non_doc_plus_ngls_4qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_1qcy,opec.t11_1.opec_crude_production_1qcy,million_barrels_per_day,monthly,OPEC crude oil production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_2qcy,opec.t11_1.opec_crude_production_2qcy,million_barrels_per_day,monthly,OPEC crude oil production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_3qcy,opec.t11_1.opec_crude_production_3qcy,million_barrels_per_day,monthly,OPEC crude oil production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_4qcy,opec.t11_1.opec_crude_production_4qcy,million_barrels_per_day,monthly,OPEC crude oil production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_1qny,opec.t11_1.opec_crude_production_1qny,million_barrels_per_day,monthly,OPEC crude oil production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_2qny,opec.t11_1.opec_crude_production_2qny,million_barrels_per_day,monthly,OPEC crude oil production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_3qny,opec.t11_1.opec_crude_production_3qny,million_barrels_per_day,monthly,OPEC crude oil production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+opec_crude_production_4qny,opec.t11_1.opec_crude_production_4qny,million_barrels_per_day,monthly,OPEC crude oil production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_1qcy,opec.t11_1.non_opec_doc_crude_production_1qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_2qcy,opec.t11_1.non_opec_doc_crude_production_2qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_3qcy,opec.t11_1.non_opec_doc_crude_production_3qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_4qcy,opec.t11_1.non_opec_doc_crude_production_4qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_1qny,opec.t11_1.non_opec_doc_crude_production_1qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_2qny,opec.t11_1.non_opec_doc_crude_production_2qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_3qny,opec.t11_1.non_opec_doc_crude_production_3qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+non_opec_doc_crude_production_4qny,opec.t11_1.non_opec_doc_crude_production_4qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_1qcy,opec.t11_1.doc_crude_production_1qcy,million_barrels_per_day,monthly,DoC crude oil production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_2qcy,opec.t11_1.doc_crude_production_2qcy,million_barrels_per_day,monthly,DoC crude oil production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_3qcy,opec.t11_1.doc_crude_production_3qcy,million_barrels_per_day,monthly,DoC crude oil production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_4qcy,opec.t11_1.doc_crude_production_4qcy,million_barrels_per_day,monthly,DoC crude oil production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_1qny,opec.t11_1.doc_crude_production_1qny,million_barrels_per_day,monthly,DoC crude oil production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_2qny,opec.t11_1.doc_crude_production_2qny,million_barrels_per_day,monthly,DoC crude oil production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_3qny,opec.t11_1.doc_crude_production_3qny,million_barrels_per_day,monthly,DoC crude oil production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+doc_crude_production_4qny,opec.t11_1.doc_crude_production_4qny,million_barrels_per_day,monthly,DoC crude oil production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_1qcy,opec.t11_1.total_liquids_production_1qcy,million_barrels_per_day,monthly,Total liquids production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_2qcy,opec.t11_1.total_liquids_production_2qcy,million_barrels_per_day,monthly,Total liquids production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_3qcy,opec.t11_1.total_liquids_production_3qcy,million_barrels_per_day,monthly,Total liquids production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_4qcy,opec.t11_1.total_liquids_production_4qcy,million_barrels_per_day,monthly,Total liquids production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_1qny,opec.t11_1.total_liquids_production_1qny,million_barrels_per_day,monthly,Total liquids production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_2qny,opec.t11_1.total_liquids_production_2qny,million_barrels_per_day,monthly,Total liquids production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_3qny,opec.t11_1.total_liquids_production_3qny,million_barrels_per_day,monthly,Total liquids production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+total_liquids_production_4qny,opec.t11_1.total_liquids_production_4qny,million_barrels_per_day,monthly,Total liquids production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
+balance_stock_change_misc_1qcy,opec.t11_1.balance_1qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 1Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
+balance_stock_change_misc_2qcy,opec.t11_1.balance_2qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 2Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
+balance_stock_change_misc_3qcy,opec.t11_1.balance_3qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 3Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
+balance_stock_change_misc_4qcy,opec.t11_1.balance_4qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 4Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
+balance_stock_change_misc_1qny,opec.t11_1.balance_1qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 1Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
+balance_stock_change_misc_2qny,opec.t11_1.balance_2qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 2Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
+balance_stock_change_misc_3qny,opec.t11_1.balance_3qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 3Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
+balance_stock_change_misc_4qny,opec.t11_1.balance_4qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 4Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
+

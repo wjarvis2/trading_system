@@ -1,33 +1,33 @@
 series_id,description
-PET.WCESTUS1.W,Ending commercial crude stocks
-PET.WCSSTUS1.W,Cushing crude stocks
-PET.WCRFPUS2.W,Field production of crude
-PET.WCRNTUS2.W,Net imports of crude
-PET.WCRRIUS2.W,Crude runs to refineries
-PET.WPULEUS3.W,Refinery utilization (U.S.)
-PET.WGTSTUS1.W,Gasoline ending stocks
-PET.WGFUPUS2.W,Gasoline product supplied
-PET.WGFRPUS2.W,Gasoline net production
-PET.WDISTUS1.W,Distillate ending stocks
-PET.W_EPD0_YPY_NUS_MBBLD.W,Distillate net production
-PET.WDIUPUS2.W,Distillate product supplied
-PET.WKJSTUS1.W,Jet fuel ending stocks
-PET.WKJUPUS2.W,Jet fuel product supplied
-PET.W_EPJK_YPY_NUS_MBBLD.W,Jet fuel net production
-PET.RWTC.D,WTI Cushing spot price (daily)
-PET.RBRTE.D,Brent spot price (daily)
-PET.EER_EPMRU_PF4_RGC_DPG.W,Gulf Coast gasoline spot price (weekly)
-PET.EER_EPD2DXL0_PF4_RGC_DPG.W,Gulf Coast ULSD spot price (weekly)
-PET.WTTSTUS1.W,U.S. ending stocks of total petroleum products
-PET.W_EPM0_VSD_NUS_DAYS.W,U.S. days of supply of total gasoline
-PET.W_EPD0_VSD_NUS_DAYS.W,U.S. days of supply of distillate fuel oil
-PET.W_EPJK_VSD_NUS_DAYS.W,U.S. days of supply of kerosene-type jet fuel
-PET.W_EPM0_VSD_NUS_DAYS.W,U.S. days of supply of total gasoline
-PET.W_EPD0_VSD_NUS_DAYS.W,U.S. days of supply of distillate fuel oil
-PET.W_EPJK_VSD_NUS_DAYS.W,U.S. days of supply of kerosene-type jet fuel
-PET.EER_EPD2F_PF4_Y35NY_DPG.W,New York Harbor Ultra-Low Sulfur Diesel Spot Price
-PET.RCLC1.W,"Cushing, OK WTI Crude Oil Futures Contract 1"
-PET.RCLC2.W,"Cushing, OK WTI Crude Oil Futures Contract 2"
-PET.RCLC3.W,"Cushing, OK WTI Crude Oil Futures Contract 3"
-PET.RCLC4.W,"Cushing, OK WTI Crude Oil Futures Contract 4"
-PET.W_EPC0_VSD_NUS_DAYS.W,U.S. days of supply of crude oil
+pet.wcestus1.w,Ending commercial crude stocks
+pet.wcsstus1.w,Cushing crude stocks
+pet.wcrfpus2.w,Field production of crude
+pet.wcrntus2.w,Net imports of crude
+pet.wcrrius2.w,Crude runs to refineries
+pet.wpuleus3.w,Refinery utilization (U.S.)
+pet.wgtstus1.w,Gasoline ending stocks
+pet.wgfupus2.w,Gasoline product supplied
+pet.wgfrpus2.w,Gasoline net production
+pet.wdistus1.w,Distillate ending stocks
+pet.w_epd0_ypy_nus_mbbld.w,Distillate net production
+pet.wdiupus2.w,Distillate product supplied
+pet.wkjstus1.w,Jet fuel ending stocks
+pet.wkjupus2.w,Jet fuel product supplied
+pet.w_epjk_ypy_nus_mbbld.w,Jet fuel net production
+pet.rwtc.d,WTI Cushing spot price (daily)
+pet.rbrte.d,Brent spot price (daily)
+pet.eer_epmru_pf4_rgc_dpg.w,Gulf Coast gasoline spot price (weekly)
+pet.eer_epd2dxl0_pf4_rgc_dpg.w,Gulf Coast ULSD spot price (weekly)
+pet.wttstus1.w,U.S. ending stocks of total petroleum products
+pet.w_epm0_vsd_nus_days.w,U.S. days of supply of total gasoline
+pet.w_epd0_vsd_nus_days.w,U.S. days of supply of distillate fuel oil
+pet.w_epjk_vsd_nus_days.w,U.S. days of supply of kerosene-type jet fuel
+pet.w_epm0_vsd_nus_days.w,U.S. days of supply of total gasoline
+pet.w_epd0_vsd_nus_days.w,U.S. days of supply of distillate fuel oil
+pet.w_epjk_vsd_nus_days.w,U.S. days of supply of kerosene-type jet fuel
+pet.eer_epd2f_pf4_y35ny_dpg.w,New York Harbor Ultra-Low Sulfur Diesel Spot Price
+pet.rclc1.w,"Cushing, OK WTI Crude Oil Futures Contract 1"
+pet.rclc2.w,"Cushing, OK WTI Crude Oil Futures Contract 2"
+pet.rclc3.w,"Cushing, OK WTI Crude Oil Futures Contract 3"
+pet.rclc4.w,"Cushing, OK WTI Crude Oil Futures Contract 4"
+pet.w_epc0_vsd_nus_days.w,U.S. days of supply of crude oil
