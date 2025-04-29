@@ -23,16 +23,16 @@ import psycopg2
 from dotenv import load_dotenv
 
 from src.db_utils import allowed_series_codes
-from src.utils    import send_email
+from src.utils import send_email
 
 # ───────────── Config ─────────────
 load_dotenv()
-PG_DSN     = os.getenv("PG_DSN")
-RAW_DIR    = Path(__file__).resolve().parents[1] / "data/raw/paj_cruderuns_reports"
+PG_DSN = os.getenv("PG_DSN")
+RAW_DIR = Path(__file__).resolve().parents[1] / "data/raw/paj_cruderuns_reports"
 USER_EMAIL = "jarviswilliamd@gmail.com"
 
 TABLE = "core_energy.fact_series_value"
-META  = "core_energy.fact_series_meta"
+META = "core_energy.fact_series_meta"
 ALIAS = "core_energy.dim_series_alias"
 
 # ───────────── Helpers ─────────────
@@ -136,13 +136,13 @@ def parse_stockpile(path: Path) -> list[dict]:
         cell = str(row[0]).strip().replace("\u3000", " ")
         if " " in cell:
             parts = cell.split()
-            if len(parts) >= 2:
+            if len(parts) >= 2 and parts[0].isdigit() and parts[1].isdigit():
                 current_year = int(parts[0])
                 month = int(parts[1])
             else:
                 continue
         else:
-            if current_year is None:
+            if current_year is None or not cell.isdigit():
                 continue
             month = int(cell)
 
@@ -198,7 +198,7 @@ def main() -> None:
                     total_new += upsert_value(cur, r["series_code"], r["obs_date"], r["value"])
 
             if unknown:
-                raise ValueError(f"Unapproved PAJ series: {sorted(unknown)}")
+                print(f"⚠️ Skipped unapproved PAJ series: {sorted(unknown)}")
 
         # email summary
         if total_new:

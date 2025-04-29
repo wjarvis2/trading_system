@@ -1,4 +1,7 @@
 model_col,series_code,unit,freq,description,tags,aliases
+crude_adjustment,pet.w_epc0_fpf_nus_mbbld.w,thousand_barrels,weekly,Unaccounted-for crude flow,"{""eia"",""adjustment""}",
+us_crude_exports,pet.w_epc0_ex0_nus-z00_mbbld.w,thousand_barrels_per_day,weekly,U.S. crude exports,"{""eia"",""exports""}",
+ending_spr_crude_stocks,pet.wsprstus1.w,thousand_barrels,weekly,Ending SPR crude stocks,"{""eia"",""stocks"", ""spr""}",
 ending_commercial_crude_stocks,pet.wcestus1.w,thousand_barrels,weekly,Ending commercial crude stocks,"{""eia"",""stocks""}",
 cushing_crude_stocks,pet.wcsstus1.w,thousand_barrels,weekly,Cushing crude stocks,"{""eia"",""stocks""}",
 field_production_of_crude,pet.wcrfpus2.w,thousand_barrels_per_day,weekly,Field production of crude,"{""eia"",""production""}",
@@ -57,111 +60,135 @@ google_us_parks,google.us.parks,percent_change_from_baseline,daily,Google Mobili
 google_us_transit_stations,google.us.transit_stations,percent_change_from_baseline,daily,Google Mobility transit stations (US),"{""google"",""mobility"",""us""}",google_mobility.us.transit
 google_us_workplaces,google.us.workplaces,percent_change_from_baseline,daily,Google Mobility workplaces (US),"{""google"",""mobility"",""us""}",google_mobility.us.work
 google_us_residential,google.us.residential,percent_change_from_baseline,daily,Google Mobility residential (US),"{""google"",""mobility"",""us""}",google_mobility.us.residential
-paj_japan_crude_runs,paj.01e.crude_runs,thousand_barrels_per_day,monthly,Japan refinery crude runs,"{""paj"",""crude"",""refining""}",
-paj_japan_total_product_stocks,paj.02e.total_products_stock,thousand_barrels,monthly,Japan total petroleum product ending stocks,"{""paj"",""products"",""stocks""}",
-paj_japan_crude_stock_days,paj.05e.crude_stock_days,days,monthly,Japan crude oil stock days of supply,"{""paj"",""crude"",""stocks""}",
-world_oil_demand_1qcy,opec.t11_1.world_demand_1qcy,million_barrels_per_day,monthly,World oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-world_oil_demand_2qcy,opec.t11_1.world_demand_2qcy,million_barrels_per_day,monthly,World oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-world_oil_demand_3qcy,opec.t11_1.world_demand_3qcy,million_barrels_per_day,monthly,World oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-world_oil_demand_4qcy,opec.t11_1.world_demand_4qcy,million_barrels_per_day,monthly,World oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-world_oil_demand_1qny,opec.t11_1.world_demand_1qny,million_barrels_per_day,monthly,World oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-world_oil_demand_2qny,opec.t11_1.world_demand_2qny,million_barrels_per_day,monthly,World oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-world_oil_demand_3qny,opec.t11_1.world_demand_3qny,million_barrels_per_day,monthly,World oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-world_oil_demand_4qny,opec.t11_1.world_demand_4qny,million_barrels_per_day,monthly,World oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_1qcy,opec.t11_1.oecd_demand_1qcy,million_barrels_per_day,monthly,OECD oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_2qcy,opec.t11_1.oecd_demand_2qcy,million_barrels_per_day,monthly,OECD oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_3qcy,opec.t11_1.oecd_demand_3qcy,million_barrels_per_day,monthly,OECD oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_4qcy,opec.t11_1.oecd_demand_4qcy,million_barrels_per_day,monthly,OECD oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_1qny,opec.t11_1.oecd_demand_1qny,million_barrels_per_day,monthly,OECD oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_2qny,opec.t11_1.oecd_demand_2qny,million_barrels_per_day,monthly,OECD oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_3qny,opec.t11_1.oecd_demand_3qny,million_barrels_per_day,monthly,OECD oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-oecd_oil_demand_4qny,opec.t11_1.oecd_demand_4qny,million_barrels_per_day,monthly,OECD oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_1qcy,opec.t11_1.non_oecd_demand_1qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_2qcy,opec.t11_1.non_oecd_demand_2qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_3qcy,opec.t11_1.non_oecd_demand_3qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_4qcy,opec.t11_1.non_oecd_demand_4qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_1qny,opec.t11_1.non_oecd_demand_1qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_2qny,opec.t11_1.non_oecd_demand_2qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_3qny,opec.t11_1.non_oecd_demand_3qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-non_oecd_oil_demand_4qny,opec.t11_1.non_oecd_demand_4qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_1qcy,opec.t11_1.china_demand_1qcy,million_barrels_per_day,monthly,China oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_2qcy,opec.t11_1.china_demand_2qcy,million_barrels_per_day,monthly,China oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_3qcy,opec.t11_1.china_demand_3qcy,million_barrels_per_day,monthly,China oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_4qcy,opec.t11_1.china_demand_4qcy,million_barrels_per_day,monthly,China oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_1qny,opec.t11_1.china_demand_1qny,million_barrels_per_day,monthly,China oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_2qny,opec.t11_1.china_demand_2qny,million_barrels_per_day,monthly,China oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_3qny,opec.t11_1.china_demand_3qny,million_barrels_per_day,monthly,China oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-china_oil_demand_4qny,opec.t11_1.china_demand_4qny,million_barrels_per_day,monthly,China oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_1qcy,opec.t11_1.india_demand_1qcy,million_barrels_per_day,monthly,India oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_2qcy,opec.t11_1.india_demand_2qcy,million_barrels_per_day,monthly,India oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_3qcy,opec.t11_1.india_demand_3qcy,million_barrels_per_day,monthly,India oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_4qcy,opec.t11_1.india_demand_4qcy,million_barrels_per_day,monthly,India oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_1qny,opec.t11_1.india_demand_1qny,million_barrels_per_day,monthly,India oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_2qny,opec.t11_1.india_demand_2qny,million_barrels_per_day,monthly,India oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_3qny,opec.t11_1.india_demand_3qny,million_barrels_per_day,monthly,India oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-india_oil_demand_4qny,opec.t11_1.india_demand_4qny,million_barrels_per_day,monthly,India oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}"
-non_doc_liquids_production_1qcy,opec.t11_1.non_doc_liquids_production_1qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_doc_liquids_production_2qcy,opec.t11_1.non_doc_liquids_production_2qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_doc_liquids_production_3qcy,opec.t11_1.non_doc_liquids_production_3qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_doc_liquids_production_4qcy,opec.t11_1.non_doc_liquids_production_4qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_doc_liquids_production_1qny,opec.t11_1.non_doc_liquids_production_1qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-non_doc_liquids_production_2qny,opec.t11_1.non_doc_liquids_production_2qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-non_doc_liquids_production_3qny,opec.t11_1.non_doc_liquids_production_3qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-non_doc_liquids_production_4qny,opec.t11_1.non_doc_liquids_production_4qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_1qcy,opec.t11_1.doc_ngls_production_1qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_2qcy,opec.t11_1.doc_ngls_production_2qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_3qcy,opec.t11_1.doc_ngls_production_3qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_4qcy,opec.t11_1.doc_ngls_production_4qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_1qny,opec.t11_1.doc_ngls_production_1qny,million_barrels_per_day,monthly,DoC NGLs production forecast 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_2qny,opec.t11_1.doc_ngls_production_2qny,million_barrels_per_day,monthly,DoC NGLs production forecast 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_3qny,opec.t11_1.doc_ngls_production_3qny,million_barrels_per_day,monthly,DoC NGLs production forecast 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_ngls_production_4qny,opec.t11_1.doc_ngls_production_4qny,million_barrels_per_day,monthly,DoC NGLs production forecast 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_1qcy,opec.t11_1.total_non_doc_plus_ngls_1qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_2qcy,opec.t11_1.total_non_doc_plus_ngls_2qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_3qcy,opec.t11_1.total_non_doc_plus_ngls_3qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_4qcy,opec.t11_1.total_non_doc_plus_ngls_4qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_1qny,opec.t11_1.total_non_doc_plus_ngls_1qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_2qny,opec.t11_1.total_non_doc_plus_ngls_2qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_3qny,opec.t11_1.total_non_doc_plus_ngls_3qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_non_doc_plus_ngls_4qny,opec.t11_1.total_non_doc_plus_ngls_4qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_1qcy,opec.t11_1.opec_crude_production_1qcy,million_barrels_per_day,monthly,OPEC crude oil production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_2qcy,opec.t11_1.opec_crude_production_2qcy,million_barrels_per_day,monthly,OPEC crude oil production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_3qcy,opec.t11_1.opec_crude_production_3qcy,million_barrels_per_day,monthly,OPEC crude oil production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_4qcy,opec.t11_1.opec_crude_production_4qcy,million_barrels_per_day,monthly,OPEC crude oil production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_1qny,opec.t11_1.opec_crude_production_1qny,million_barrels_per_day,monthly,OPEC crude oil production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_2qny,opec.t11_1.opec_crude_production_2qny,million_barrels_per_day,monthly,OPEC crude oil production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_3qny,opec.t11_1.opec_crude_production_3qny,million_barrels_per_day,monthly,OPEC crude oil production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-opec_crude_production_4qny,opec.t11_1.opec_crude_production_4qny,million_barrels_per_day,monthly,OPEC crude oil production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_1qcy,opec.t11_1.non_opec_doc_crude_production_1qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_2qcy,opec.t11_1.non_opec_doc_crude_production_2qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_3qcy,opec.t11_1.non_opec_doc_crude_production_3qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_4qcy,opec.t11_1.non_opec_doc_crude_production_4qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_1qny,opec.t11_1.non_opec_doc_crude_production_1qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_2qny,opec.t11_1.non_opec_doc_crude_production_2qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_3qny,opec.t11_1.non_opec_doc_crude_production_3qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-non_opec_doc_crude_production_4qny,opec.t11_1.non_opec_doc_crude_production_4qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_1qcy,opec.t11_1.doc_crude_production_1qcy,million_barrels_per_day,monthly,DoC crude oil production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_2qcy,opec.t11_1.doc_crude_production_2qcy,million_barrels_per_day,monthly,DoC crude oil production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_3qcy,opec.t11_1.doc_crude_production_3qcy,million_barrels_per_day,monthly,DoC crude oil production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_4qcy,opec.t11_1.doc_crude_production_4qcy,million_barrels_per_day,monthly,DoC crude oil production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_1qny,opec.t11_1.doc_crude_production_1qny,million_barrels_per_day,monthly,DoC crude oil production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_2qny,opec.t11_1.doc_crude_production_2qny,million_barrels_per_day,monthly,DoC crude oil production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_3qny,opec.t11_1.doc_crude_production_3qny,million_barrels_per_day,monthly,DoC crude oil production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-doc_crude_production_4qny,opec.t11_1.doc_crude_production_4qny,million_barrels_per_day,monthly,DoC crude oil production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_1qcy,opec.t11_1.total_liquids_production_1qcy,million_barrels_per_day,monthly,Total liquids production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_2qcy,opec.t11_1.total_liquids_production_2qcy,million_barrels_per_day,monthly,Total liquids production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_3qcy,opec.t11_1.total_liquids_production_3qcy,million_barrels_per_day,monthly,Total liquids production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_4qcy,opec.t11_1.total_liquids_production_4qcy,million_barrels_per_day,monthly,Total liquids production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_1qny,opec.t11_1.total_liquids_production_1qny,million_barrels_per_day,monthly,Total liquids production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_2qny,opec.t11_1.total_liquids_production_2qny,million_barrels_per_day,monthly,Total liquids production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_3qny,opec.t11_1.total_liquids_production_3qny,million_barrels_per_day,monthly,Total liquids production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-total_liquids_production_4qny,opec.t11_1.total_liquids_production_4qny,million_barrels_per_day,monthly,Total liquids production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}"
-balance_stock_change_misc_1qcy,opec.t11_1.balance_1qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 1Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
-balance_stock_change_misc_2qcy,opec.t11_1.balance_2qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 2Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
-balance_stock_change_misc_3qcy,opec.t11_1.balance_3qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 3Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
-balance_stock_change_misc_4qcy,opec.t11_1.balance_4qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 4Q Current Year (OPEC MOMR),"{""opec"",""balance""}"
-balance_stock_change_misc_1qny,opec.t11_1.balance_1qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 1Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
-balance_stock_change_misc_2qny,opec.t11_1.balance_2qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 2Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
-balance_stock_change_misc_3qny,opec.t11_1.balance_3qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 3Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
-balance_stock_change_misc_4qny,opec.t11_1.balance_4qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 4Q Next Year (OPEC MOMR),"{""opec"",""balance""}"
-
+paj_crude_production,paj.crude.production,thousand_barrels_per_day,monthly,Japan crude oil production,"{""paj"",""crude"",""production""}",
+paj_crude_import,paj.crude.import,thousand_barrels_per_day,monthly,Japan crude oil imports,"{""paj"",""crude"",""import""}",
+paj_crude_non_refining_use,paj.crude.non_refining_use,thousand_barrels_per_day,monthly,Japan crude non-refining use,"{""paj"",""crude""}",
+paj_crude_refinery_throughput,paj.crude.refinery_throughput,thousand_barrels_per_day,monthly,Japan refinery crude throughput,"{""paj"",""crude"",""refining""}",
+paj_crude_refining_capacity,paj.crude.refining_capacity,thousand_barrels_per_day,monthly,Japan refining capacity,"{""paj"",""crude"",""refining""}",
+paj_crude_utilization_pct,paj.crude.utilization_pct,percent,monthly,Japan refinery utilization rate,"{""paj"",""crude"",""refining""}",
+paj_crude_end_inventory,paj.crude.end_inventory,thousand_barrels,monthly,Japan crude oil ending inventory,"{""paj"",""crude"",""inventory""}",
+paj_products_production_gasoline,paj.products.production.gasoline,thousand_barrels_per_day,monthly,Japan gasoline production,"{""paj"",""products"",""gasoline""}",
+paj_products_production_naphtha,paj.products.production.naphtha,thousand_barrels_per_day,monthly,Japan naphtha production,"{""paj"",""products"",""naphtha""}",
+paj_products_production_jet_fuel,paj.products.production.jet_fuel,thousand_barrels_per_day,monthly,Japan jet fuel production,"{""paj"",""products"",""jet_fuel""}",
+paj_products_production_kerosene,paj.products.production.kerosene,thousand_barrels_per_day,monthly,Japan kerosene production,"{""paj"",""products"",""kerosene""}",
+paj_products_production_gas_oil,paj.products.production.gas_oil,thousand_barrels_per_day,monthly,Japan gas oil production,"{""paj"",""products"",""gas_oil""}",
+paj_products_production_fuel_oil_a,paj.products.production.fuel_oil_a,thousand_barrels_per_day,monthly,Japan fuel oil A production,"{""paj"",""products"",""fuel_oil""}",
+paj_products_production_fuel_oil_bc,paj.products.production.fuel_oil_bc,thousand_barrels_per_day,monthly,Japan fuel oil BC production,"{""paj"",""products"",""fuel_oil""}",
+paj_products_production_fuel_oil_total,paj.products.production.fuel_oil_total,thousand_barrels_per_day,monthly,Japan total fuel oil production,"{""paj"",""products"",""fuel_oil""}",
+paj_products_production_product_subtotal,paj.products.production.product_subtotal,thousand_barrels_per_day,monthly,Japan petroleum products subtotal production,"{""paj"",""products""}",
+paj_products_import_gasoline,paj.products.import.gasoline,thousand_barrels_per_day,monthly,Japan gasoline imports,"{""paj"",""products"",""gasoline""}",
+paj_products_import_naphtha,paj.products.import.naphtha,thousand_barrels_per_day,monthly,Japan naphtha imports,"{""paj"",""products"",""naphtha""}",
+paj_products_import_jet_fuel,paj.products.import.jet_fuel,thousand_barrels_per_day,monthly,Japan jet fuel imports,"{""paj"",""products"",""jet_fuel""}",
+paj_products_import_kerosene,paj.products.import.kerosene,thousand_barrels_per_day,monthly,Japan kerosene imports,"{""paj"",""products"",""kerosene""}",
+paj_products_import_gas_oil,paj.products.import.gas_oil,thousand_barrels_per_day,monthly,Japan gas oil imports,"{""paj"",""products"",""gas_oil""}",
+paj_products_import_fuel_oil_a,paj.products.import.fuel_oil_a,thousand_barrels_per_day,monthly,Japan fuel oil A imports,"{""paj"",""products"",""fuel_oil""}",
+paj_products_import_fuel_oil_bc,paj.products.import.fuel_oil_bc,thousand_barrels_per_day,monthly,Japan fuel oil BC imports,"{""paj"",""products"",""fuel_oil""}",
+paj_products_import_fuel_oil_total,paj.products.import.fuel_oil_total,thousand_barrels_per_day,monthly,Japan total fuel oil imports,"{""paj"",""products"",""fuel_oil""}",
+paj_products_import_product_subtotal,paj.products.import.product_subtotal,thousand_barrels_per_day,monthly,Japan petroleum products subtotal imports,"{""paj"",""products""}",
+paj_stockpile_private_crude_oil,paj.stockpile.private_crude_oil,thousand_barrels,monthly,Japan private crude oil stockpile,"{""paj"",""stockpile""}",
+paj_stockpile_private_products,paj.stockpile.private_products,thousand_barrels,monthly,Japan private products stockpile,"{""paj"",""stockpile""}",
+paj_stockpile_total_days,paj.stockpile.total_days,days,monthly,Japan total petroleum stockpile days,"{""paj"",""stockpile""}",
+world_oil_demand_1qcy,opec.t11_1.world_demand_1qcy,million_barrels_per_day,monthly,World oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+world_oil_demand_2qcy,opec.t11_1.world_demand_2qcy,million_barrels_per_day,monthly,World oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+world_oil_demand_3qcy,opec.t11_1.world_demand_3qcy,million_barrels_per_day,monthly,World oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+world_oil_demand_4qcy,opec.t11_1.world_demand_4qcy,million_barrels_per_day,monthly,World oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+world_oil_demand_1qny,opec.t11_1.world_demand_1qny,million_barrels_per_day,monthly,World oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+world_oil_demand_2qny,opec.t11_1.world_demand_2qny,million_barrels_per_day,monthly,World oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+world_oil_demand_3qny,opec.t11_1.world_demand_3qny,million_barrels_per_day,monthly,World oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+world_oil_demand_4qny,opec.t11_1.world_demand_4qny,million_barrels_per_day,monthly,World oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_1qcy,opec.t11_1.oecd_demand_1qcy,million_barrels_per_day,monthly,OECD oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_2qcy,opec.t11_1.oecd_demand_2qcy,million_barrels_per_day,monthly,OECD oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_3qcy,opec.t11_1.oecd_demand_3qcy,million_barrels_per_day,monthly,OECD oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_4qcy,opec.t11_1.oecd_demand_4qcy,million_barrels_per_day,monthly,OECD oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_1qny,opec.t11_1.oecd_demand_1qny,million_barrels_per_day,monthly,OECD oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_2qny,opec.t11_1.oecd_demand_2qny,million_barrels_per_day,monthly,OECD oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_3qny,opec.t11_1.oecd_demand_3qny,million_barrels_per_day,monthly,OECD oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+oecd_oil_demand_4qny,opec.t11_1.oecd_demand_4qny,million_barrels_per_day,monthly,OECD oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_1qcy,opec.t11_1.non_oecd_demand_1qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_2qcy,opec.t11_1.non_oecd_demand_2qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_3qcy,opec.t11_1.non_oecd_demand_3qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_4qcy,opec.t11_1.non_oecd_demand_4qcy,million_barrels_per_day,monthly,Non-OECD oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_1qny,opec.t11_1.non_oecd_demand_1qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_2qny,opec.t11_1.non_oecd_demand_2qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_3qny,opec.t11_1.non_oecd_demand_3qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+non_oecd_oil_demand_4qny,opec.t11_1.non_oecd_demand_4qny,million_barrels_per_day,monthly,Non-OECD oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_1qcy,opec.t11_1.china_demand_1qcy,million_barrels_per_day,monthly,China oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_2qcy,opec.t11_1.china_demand_2qcy,million_barrels_per_day,monthly,China oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_3qcy,opec.t11_1.china_demand_3qcy,million_barrels_per_day,monthly,China oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_4qcy,opec.t11_1.china_demand_4qcy,million_barrels_per_day,monthly,China oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_1qny,opec.t11_1.china_demand_1qny,million_barrels_per_day,monthly,China oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_2qny,opec.t11_1.china_demand_2qny,million_barrels_per_day,monthly,China oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_3qny,opec.t11_1.china_demand_3qny,million_barrels_per_day,monthly,China oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+china_oil_demand_4qny,opec.t11_1.china_demand_4qny,million_barrels_per_day,monthly,China oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_1qcy,opec.t11_1.india_demand_1qcy,million_barrels_per_day,monthly,India oil demand forecast 1Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_2qcy,opec.t11_1.india_demand_2qcy,million_barrels_per_day,monthly,India oil demand forecast 2Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_3qcy,opec.t11_1.india_demand_3qcy,million_barrels_per_day,monthly,India oil demand forecast 3Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_4qcy,opec.t11_1.india_demand_4qcy,million_barrels_per_day,monthly,India oil demand forecast 4Q Current Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_1qny,opec.t11_1.india_demand_1qny,million_barrels_per_day,monthly,India oil demand forecast 1Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_2qny,opec.t11_1.india_demand_2qny,million_barrels_per_day,monthly,India oil demand forecast 2Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_3qny,opec.t11_1.india_demand_3qny,million_barrels_per_day,monthly,India oil demand forecast 3Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+india_oil_demand_4qny,opec.t11_1.india_demand_4qny,million_barrels_per_day,monthly,India oil demand forecast 4Q Next Year (OPEC MOMR),"{""opec"",""demand""}",
+non_doc_liquids_production_1qcy,opec.t11_1.non_doc_liquids_production_1qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_doc_liquids_production_2qcy,opec.t11_1.non_doc_liquids_production_2qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_doc_liquids_production_3qcy,opec.t11_1.non_doc_liquids_production_3qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_doc_liquids_production_4qcy,opec.t11_1.non_doc_liquids_production_4qcy,million_barrels_per_day,monthly,Non-DoC liquids production forecast 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_doc_liquids_production_1qny,opec.t11_1.non_doc_liquids_production_1qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+non_doc_liquids_production_2qny,opec.t11_1.non_doc_liquids_production_2qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+non_doc_liquids_production_3qny,opec.t11_1.non_doc_liquids_production_3qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+non_doc_liquids_production_4qny,opec.t11_1.non_doc_liquids_production_4qny,million_barrels_per_day,monthly,Non-DoC liquids production forecast 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_1qcy,opec.t11_1.doc_ngls_production_1qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_2qcy,opec.t11_1.doc_ngls_production_2qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_3qcy,opec.t11_1.doc_ngls_production_3qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_4qcy,opec.t11_1.doc_ngls_production_4qcy,million_barrels_per_day,monthly,DoC NGLs production forecast 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_1qny,opec.t11_1.doc_ngls_production_1qny,million_barrels_per_day,monthly,DoC NGLs production forecast 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_2qny,opec.t11_1.doc_ngls_production_2qny,million_barrels_per_day,monthly,DoC NGLs production forecast 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_3qny,opec.t11_1.doc_ngls_production_3qny,million_barrels_per_day,monthly,DoC NGLs production forecast 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_ngls_production_4qny,opec.t11_1.doc_ngls_production_4qny,million_barrels_per_day,monthly,DoC NGLs production forecast 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_1qcy,opec.t11_1.total_non_doc_plus_ngls_1qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_2qcy,opec.t11_1.total_non_doc_plus_ngls_2qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_3qcy,opec.t11_1.total_non_doc_plus_ngls_3qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_4qcy,opec.t11_1.total_non_doc_plus_ngls_4qcy,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_1qny,opec.t11_1.total_non_doc_plus_ngls_1qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_2qny,opec.t11_1.total_non_doc_plus_ngls_2qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_3qny,opec.t11_1.total_non_doc_plus_ngls_3qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_non_doc_plus_ngls_4qny,opec.t11_1.total_non_doc_plus_ngls_4qny,million_barrels_per_day,monthly,Total Non-DoC liquids plus DoC NGLs 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_1qcy,opec.t11_1.opec_crude_production_1qcy,million_barrels_per_day,monthly,OPEC crude oil production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_2qcy,opec.t11_1.opec_crude_production_2qcy,million_barrels_per_day,monthly,OPEC crude oil production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_3qcy,opec.t11_1.opec_crude_production_3qcy,million_barrels_per_day,monthly,OPEC crude oil production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_4qcy,opec.t11_1.opec_crude_production_4qcy,million_barrels_per_day,monthly,OPEC crude oil production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_1qny,opec.t11_1.opec_crude_production_1qny,million_barrels_per_day,monthly,OPEC crude oil production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_2qny,opec.t11_1.opec_crude_production_2qny,million_barrels_per_day,monthly,OPEC crude oil production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_3qny,opec.t11_1.opec_crude_production_3qny,million_barrels_per_day,monthly,OPEC crude oil production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+opec_crude_production_4qny,opec.t11_1.opec_crude_production_4qny,million_barrels_per_day,monthly,OPEC crude oil production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_1qcy,opec.t11_1.non_opec_doc_crude_production_1qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_2qcy,opec.t11_1.non_opec_doc_crude_production_2qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_3qcy,opec.t11_1.non_opec_doc_crude_production_3qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_4qcy,opec.t11_1.non_opec_doc_crude_production_4qcy,million_barrels_per_day,monthly,Non-OPEC DoC crude production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_1qny,opec.t11_1.non_opec_doc_crude_production_1qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_2qny,opec.t11_1.non_opec_doc_crude_production_2qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_3qny,opec.t11_1.non_opec_doc_crude_production_3qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+non_opec_doc_crude_production_4qny,opec.t11_1.non_opec_doc_crude_production_4qny,million_barrels_per_day,monthly,Non-OPEC DoC crude production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_1qcy,opec.t11_1.doc_crude_production_1qcy,million_barrels_per_day,monthly,DoC crude oil production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_2qcy,opec.t11_1.doc_crude_production_2qcy,million_barrels_per_day,monthly,DoC crude oil production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_3qcy,opec.t11_1.doc_crude_production_3qcy,million_barrels_per_day,monthly,DoC crude oil production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_4qcy,opec.t11_1.doc_crude_production_4qcy,million_barrels_per_day,monthly,DoC crude oil production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_1qny,opec.t11_1.doc_crude_production_1qny,million_barrels_per_day,monthly,DoC crude oil production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_2qny,opec.t11_1.doc_crude_production_2qny,million_barrels_per_day,monthly,DoC crude oil production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_3qny,opec.t11_1.doc_crude_production_3qny,million_barrels_per_day,monthly,DoC crude oil production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+doc_crude_production_4qny,opec.t11_1.doc_crude_production_4qny,million_barrels_per_day,monthly,DoC crude oil production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_1qcy,opec.t11_1.total_liquids_production_1qcy,million_barrels_per_day,monthly,Total liquids production 1Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_2qcy,opec.t11_1.total_liquids_production_2qcy,million_barrels_per_day,monthly,Total liquids production 2Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_3qcy,opec.t11_1.total_liquids_production_3qcy,million_barrels_per_day,monthly,Total liquids production 3Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_4qcy,opec.t11_1.total_liquids_production_4qcy,million_barrels_per_day,monthly,Total liquids production 4Q Current Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_1qny,opec.t11_1.total_liquids_production_1qny,million_barrels_per_day,monthly,Total liquids production 1Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_2qny,opec.t11_1.total_liquids_production_2qny,million_barrels_per_day,monthly,Total liquids production 2Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_3qny,opec.t11_1.total_liquids_production_3qny,million_barrels_per_day,monthly,Total liquids production 3Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+total_liquids_production_4qny,opec.t11_1.total_liquids_production_4qny,million_barrels_per_day,monthly,Total liquids production 4Q Next Year (OPEC MOMR),"{""opec"",""supply""}",
+balance_stock_change_misc_1qcy,opec.t11_1.balance_1qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 1Q Current Year (OPEC MOMR),"{""opec"",""balance""}",
+balance_stock_change_misc_2qcy,opec.t11_1.balance_2qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 2Q Current Year (OPEC MOMR),"{""opec"",""balance""}",
+balance_stock_change_misc_3qcy,opec.t11_1.balance_3qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 3Q Current Year (OPEC MOMR),"{""opec"",""balance""}",
+balance_stock_change_misc_4qcy,opec.t11_1.balance_4qcy,million_barrels_per_day,monthly,Oil balance (stock change + misc) 4Q Current Year (OPEC MOMR),"{""opec"",""balance""}",
+balance_stock_change_misc_1qny,opec.t11_1.balance_1qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 1Q Next Year (OPEC MOMR),"{""opec"",""balance""}",
+balance_stock_change_misc_2qny,opec.t11_1.balance_2qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 2Q Next Year (OPEC MOMR),"{""opec"",""balance""}",
+balance_stock_change_misc_3qny,opec.t11_1.balance_3qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 3Q Next Year (OPEC MOMR),"{""opec"",""balance""}",
+balance_stock_change_misc_4qny,opec.t11_1.balance_4qny,million_barrels_per_day,monthly,Oil balance (stock change + misc) 4Q Next Year (OPEC MOMR),"{""opec"",""balance""}",
