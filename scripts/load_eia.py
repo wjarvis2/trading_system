@@ -7,11 +7,12 @@ Load curated EIA CSV snapshot → core_energy.fact_series_value
 • Reads latest eia_*.csv in data/raw/eia_reports/
 • Canonicalizes series_code via dim_series_alias (optional)
 • Skips anything not in allowed_series_codes
+• Computes pet.calc.crude_adjustment from other fields
 • Bulk-inserts new obs (FK‑safe)
 • Sends success / failure email
 """
-from __future__ import annotations
 
+from __future__ import annotations
 import os, sys
 from pathlib import Path
 from datetime import datetime, UTC
@@ -21,7 +22,7 @@ from psycopg2.extras import execute_values
 from dotenv import load_dotenv
 
 from src.db_utils import allowed_series_codes
-from src.utils    import send_email
+from src.utils import send_email
 
 # ───────────── Config ─────────────
 load_dotenv()
@@ -34,6 +35,8 @@ SERIES_META = ROOT_DIR / "config/eia_series.csv"
 TABLE     = "core_energy.fact_series_value"
 META      = "core_energy.fact_series_meta"
 ALIAS_TBL = "core_energy.dim_series_alias"
+
+ADJUSTMENT_CODE = "pet.calc.crude_adjustment"
 
 # ───────────── Helpers ─────────────
 def latest_snapshot() -> Path:
@@ -94,6 +97,34 @@ def insert_values(cur, series_code: str, df: pd.DataFrame):
         [(sid, r.obs_date, r.value, datetime.now(UTC)) for r in df.itertuples(index=False)],
     )
 
+def compute_crude_adjustment(grouped: dict[str, pd.DataFrame]) -> pd.DataFrame | None:
+    required = [
+        "field_production_of_crude",
+        "crude_imports_total",
+        "crude_exports_total",
+        "crude_stock_change_total",
+        "crude_runs_to_refineries",
+        "transfers_to_crude_supply",
+    ]
+    if not all(col in grouped for col in required):
+        missing = [col for col in required if col not in grouped]
+        print(f"⚠️ Cannot compute adjustment — missing: {missing}")
+        return None
+
+    df = pd.DataFrame(index=sorted(set().union(*[grouped[col]["obs_date"] for col in required])))
+    for col in required:
+        df = df.merge(grouped[col].rename(columns={"value": col}), on="obs_date", how="left")
+
+    df["value"] = (
+        df["crude_runs_to_refineries"]
+      + df["crude_exports_total"]
+      + df["crude_stock_change_total"]
+      - df["field_production_of_crude"]
+      - df["crude_imports_total"]
+      - df["transfers_to_crude_supply"]
+    )
+    return df[["obs_date", "value"]].dropna()
+
 # ───────────── Main ─────────────
 def main():
     snap = latest_snapshot()
@@ -113,16 +144,36 @@ def main():
             if canon not in whitelist:
                 print(f"⚠️  Skipping unapproved EIA series_code: {canon}")
                 continue
-            grouped[canon] = df
 
-        # Insert meta rows, then bulk insert fact rows
+            cur.execute("SELECT model_col FROM core_energy.dim_series WHERE series_code = %s", (canon,))
+            result = cur.fetchone()
+            if not result:
+                print(f"⚠️  No model_col found for series_code: {canon}")
+                continue
+
+            model_col = result[0]
+            grouped[model_col] = df
+
+        print("✅ Canonicalized and loaded model_col keys:", sorted(grouped.keys()))
+        print("🧪 Required for adjustment:", [
+            "field_production_of_crude",
+            "crude_imports_total",
+            "crude_exports_total",
+            "crude_stock_change_total",
+            "crude_runs_to_refineries",
+            "transfers_to_crude_supply"
+        ])
+
+        adjustment_df = compute_crude_adjustment(grouped)
+        if adjustment_df is not None:
+            grouped[ADJUSTMENT_CODE] = adjustment_df
+
         ensure_meta_rows(cur, set(grouped))
 
         total_rows = 0
-        for series_code, df in grouped.items():
-            before = cur.rowcount
-            insert_values(cur, series_code, df)
-            total_rows += cur.rowcount - before
+        for model_col, df in grouped.items():
+            insert_values(cur, model_col, df)
+            total_rows += df.shape[0]
 
     print(f"✓ Loaded {len(grouped)} series ({total_rows:,} new rows) → DB")
 

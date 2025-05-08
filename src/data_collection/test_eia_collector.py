@@ -13,7 +13,7 @@ from src.utils import send_email
 # ───────────────────────── paths & constants ────────────────────────── #
 ROOT_DIR   = Path(__file__).resolve().parents[2]
 CONFIG     = ROOT_DIR / "config" / "dim_series.csv"
-DATA_DIR   = ROOT_DIR / "data" / "raw" / "eia_reports"
+DATA_DIR   = ROOT_DIR / "data/raw/eia_reports_debug"
 API_KEY    = os.getenv("EIA_API_KEY")
 USER_EMAIL = "jarviswilliamd@gmail.com"
 
@@ -31,17 +31,36 @@ def read_series_list() -> List[str]:
 
 def fetch_series(series_id: str, api_key: str) -> pd.DataFrame | None:
     try:
-        v2_url = f"https://api.eia.gov/v2/seriesid/{series_id}?api_key={api_key}"
-        r = requests.get(v2_url, timeout=15)
-        if r.ok:
-            df = pd.DataFrame(r.json()["response"]["data"])
-            if "period" in df.columns and "value" in df.columns:
-                return df.rename(columns={"period": "date"})[["date", "value"]]
-    except Exception as e:
-        print(f"v2 error for {series_id}: {e}")
+        url = f"https://api.eia.gov/v2/seriesid/{series_id}?api_key={api_key}"
+        print(f"📡 Requesting {series_id}")
+        r = requests.get(url, timeout=15)
 
-    print(f"✗ {series_id}: failed to retrieve usable data")
-    return None
+        if not r.ok:
+            print(f"✗ {series_id}: HTTP {r.status_code}")
+            print("🔍 Response text (truncated):", r.text[:300])
+            return None
+
+        json_data = r.json()
+        if "response" not in json_data or "data" not in json_data["response"]:
+            print(f"✗ {series_id}: malformed JSON — missing 'response.data'")
+            print("🔍 Raw JSON:", json_data)
+            return None
+
+        data = json_data["response"]["data"]
+        if not data:
+            print(f"✗ {series_id}: API returned no data")
+            return None
+
+        df = pd.DataFrame(data)
+        if "period" not in df.columns or "value" not in df.columns:
+            print(f"✗ {series_id}: missing required columns in data:", df.columns.tolist())
+            return None
+
+        return df.rename(columns={"period": "date"})[["date", "value"]]
+
+    except Exception as e:
+        print(f"✗ {series_id}: exception: {e}")
+        return None
 
 # ───────────────────────── main collector ────────────────────────── #
 def collect() -> None:
@@ -50,14 +69,7 @@ def collect() -> None:
 
     ensure_dir()
     stamp = dt.datetime.now().strftime("%Y%m%d_%H%M")
-    daily_tag = dt.datetime.now().strftime("%Y%m%d")
-    out_file = DATA_DIR / f"eia_{stamp}.csv"
-
-    # Avoid duplicate pulls in a day
-    existing_files = list(DATA_DIR.glob(f"eia_{daily_tag}_*.csv"))
-    if existing_files:
-        print("⚠️ Data already collected today — skipping.")
-        return
+    out_file = DATA_DIR / f"eia_debug_{stamp}.csv"
 
     series_codes = read_series_list()
     all_frames: List[pd.DataFrame] = []
@@ -74,9 +86,10 @@ def collect() -> None:
             failures.append(sid)
 
     if not all_frames:
+        print("❌ No data collected.")
         send_email(
-            subject="EIA collector: Failed",
-            body="No data was collected. All series failed.",
+            subject="EIA Debug Collector: All Failed",
+            body="No series returned data. See terminal for detailed diagnostics.",
             to=USER_EMAIL
         )
         return
@@ -87,7 +100,7 @@ def collect() -> None:
     final = final.sort_values(["series_id", "date"])
     final.to_csv(out_file, index=False)
 
-    print(f"✓ Saved {len(all_frames)} series to {out_file.name}")
+    print(f"✅ Saved {len(all_frames)} series to {out_file.name}")
     if failures:
         print("⚠️ Failures:", ", ".join(failures))
 
