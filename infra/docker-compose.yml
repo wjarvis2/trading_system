@@ -1,6 +1,7 @@
-version: '3.9'
-
 services:
+  # ────────────────────────────────────────────────────────────
+  # PostgreSQL
+  # ────────────────────────────────────────────────────────────
   db:
     image: postgres:16
     container_name: energy_pg
@@ -18,6 +19,27 @@ services:
       interval: 10s
       retries: 5
 
+  # ────────────────────────────────────────────────────────────
+  # Flyway – schema migrations
+  # ────────────────────────────────────────────────────────────
+  flyway:
+    image: flyway/flyway:10
+    container_name: flyway
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ../sql/migrations:/flyway/sql        # ← points at repo-root migrations
+    command: >
+      -url=jdbc:postgresql://db:5432/energy
+      -user=energy
+      -password=energy
+      -connectRetries=10
+      migrate
+
+  # ────────────────────────────────────────────────────────────
+  # pgAdmin (optional GUI)
+  # ────────────────────────────────────────────────────────────
   pgadmin:
     image: dpage/pgadmin4:8
     container_name: pgadmin
@@ -31,6 +53,9 @@ services:
       db:
         condition: service_healthy
 
+  # ────────────────────────────────────────────────────────────
+  # Airflow
+  # ────────────────────────────────────────────────────────────
   airflow:
     build:
       context: .
@@ -40,7 +65,12 @@ services:
     env_file:
       - .env
     environment:
+      # shared DSN for loaders & tests
       PG_DSN: postgresql://energy:energy@db:5432/energy
+
+      # Airflow connection created automatically at startup
+      AIRFLOW_CONN_TRADING_DB: postgresql://energy:energy@db:5432/energy
+      PYTHONPATH: /app
       AIRFLOW__core__load_examples: "False"
       AIRFLOW__core__executor: LocalExecutor
       AIRFLOW__core__sql_alchemy_conn: postgresql+psycopg2://energy:energy@db:5432/energy
@@ -49,17 +79,17 @@ services:
       AIRFLOW__core__dags_folder: /app/dags
       AIRFLOW__api__auth_backends: airflow.api.auth.backend.basic_auth
     volumes:
-      - ../:/app
+      - ../:/app                             # mount entire repo
     working_dir: /app
     command: >
       bash -c "airflow db migrate &&
-        airflow users create --username admin --password admin --firstname Air --lastname Flow --role Admin --email admin@local &&
-        airflow scheduler & airflow webserver"
+               airflow users create --username admin --password admin --firstname Air --lastname Flow --role Admin --email admin@local &&
+               airflow scheduler & airflow webserver"
     ports:
       - "8080:8080"
     depends_on:
-      db:
-        condition: service_healthy
+      flyway:
+        condition: service_completed_successfully   # ensure schema is ready
 
 volumes:
   pgdata:
