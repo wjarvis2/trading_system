@@ -23,3 +23,4 @@ data/raw/
 .env
 infra/.env
 
+infra/aws_market_stream/terraform.tfvars
